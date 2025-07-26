@@ -3,6 +3,7 @@
 import { BookOpen, Code, Brain, Users, ArrowRight, ChefHat, Building2 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProgressChart } from "@/components/progress-chart"
+import Link from "next/link"
 
 export default function FormationPage() {
   // Données de progression pour les 4 concepts fondamentaux
@@ -36,7 +37,7 @@ export default function FormationPage() {
                 LES FONDAMENTAUX INDISPENSABLES
               </h2>
               <p className="text-2xl font-bold text-blue-200 max-w-4xl mx-auto">
-                ⚡ ZERO À HÉROS EN 1 MOIS ⚡
+                ⚡ ZERO TO HERO EN 1 MOIS ⚡
               </p>
             </div>
           </div>
@@ -49,14 +50,14 @@ export default function FormationPage() {
             <div className="animate-scroll flex space-x-12 whitespace-nowrap">
               <div className="flex items-center space-x-12">
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🚀 TRANSFORME TA CARRIÈRE EN 30 JOURS</span>
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTIE</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ ZERO TO HERO - GARANTIE</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">💎 LES FONDAMENTAUX QUI CHANGENT TOUT</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🎯 1H/JOUR = COMPÉTENCES PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🔥 MAÎTRISE LE CODE COMME UN PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🌟 RÉVOLUTIONNE TON AVENIR TECH</span>
                 {/* Duplicated messages for continuous scroll */}
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🚀 TRANSFORME TA CARRIÈRE EN 30 JOURS</span>
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTIE</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ ZERO TO HERO - GARANTIE</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">💎 LES FONDAMENTAUX QUI CHANGENT TOUT</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🎯 1H/JOUR = COMPÉTENCES PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🔥 MAÎTRISE LE CODE COMME UN PRO</span>
@@ -114,59 +115,63 @@ export default function FormationPage() {
             Prérequis Pédagogiques - Analogies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                    <ChefHat className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+            <Link href="/analogie-cuisine" className="block">
+              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                      <ChefHat className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Le Grand Livre de Cuisine du Développeur Moderne</CardTitle>
+                      <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                        Recettes (algorithmes), ingrédients (variables), techniques (patterns)
+                      </CardDescription>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Le Grand Livre de Cuisine du Développeur Moderne</CardTitle>
-                    <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                      Recettes (algorithmes), ingrédients (variables), techniques (patterns)
-                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    Comprendre la programmation comme un art culinaire : des recettes (algorithmes), 
+                    des ingrédients (variables), et des techniques (patterns) qui s'assemblent 
+                    pour créer des applications délicieuses.
+                  </p>
+                  <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
+                    <span>Explorer l'analogie</span>
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  Comprendre la programmation comme un art culinaire : des recettes (algorithmes), 
-                  des ingrédients (variables), et des techniques (patterns) qui s'assemblent 
-                  pour créer des applications délicieuses.
-                </p>
-                <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
-                  <span>Explorer l'analogie</span>
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                    <Building2 className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+            <Link href="/analogie-architecture" className="block">
+              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                      <Building2 className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">L'Architecte du Bâtiment dans le Développement</CardTitle>
+                      <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                        Plans (design), fondations (fondamentaux), étages (couches)
+                      </CardDescription>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">L'Architecte du Bâtiment dans le Développement</CardTitle>
-                    <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                      Plans (design), fondations (fondamentaux), étages (couches)
-                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    Concevoir des applications comme des bâtiments : des plans (design), 
+                    des fondations solides (fondamentaux), et des étages bien structurés (couches) 
+                    pour des constructions durables.
+                  </p>
+                  <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
+                    <span>Explorer l'analogie</span>
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  Concevoir des applications comme des bâtiments : des plans (design), 
-                  des fondations solides (fondamentaux), et des étages bien structurés (couches) 
-                  pour des constructions durables.
-                </p>
-                <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
-                  <span>Explorer l'analogie</span>
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </section>
 
@@ -176,53 +181,61 @@ export default function FormationPage() {
             Les 4 Concepts Fondamentaux
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Code className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Algorithmie</CardTitle>
-                <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                  Variables, structures de contrôle, boucles, algorithmes
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/fondamentaux" className="block">
+              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                    <Code className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Algorithmie</CardTitle>
+                  <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    Variables, structures de contrôle, boucles, algorithmes
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Brain className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Scope</CardTitle>
-                <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                  Portée des variables, gestion des accès
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/fondamentaux" className="block">
+              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                    <Brain className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Scope</CardTitle>
+                  <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    Portée des variables, gestion des accès
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <BookOpen className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Closure</CardTitle>
-                <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                  Fonctions imbriquées, captures de variables
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/fondamentaux" className="block">
+              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                    <BookOpen className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Closure</CardTitle>
+                  <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    Fonctions imbriquées, captures de variables
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Users className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Gestion d'état</CardTitle>
-                <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                  État global/local, programmation asynchrone
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/fondamentaux" className="block">
+              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                    <Users className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Gestion d'état</CardTitle>
+                  <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    État global/local, programmation asynchrone
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           </div>
         </section>
 

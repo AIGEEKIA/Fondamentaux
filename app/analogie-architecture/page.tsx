@@ -1,14 +1,39 @@
 "use client"
 
-import { Building2, ArrowRight, Hammer, Wrench, Users, Brain, Code, Shield } from "lucide-react"
+import { useState } from "react"
+import { Building2, ArrowRight, Hammer, Wrench, Users, Brain, Code, Shield, Home, Menu, X, ChefHat, GraduationCap } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function AnalogieArchitecturePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100">
       {/* Super Header Bandeau */}
-      <header className="bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white py-8 shadow-2xl relative overflow-hidden">
+      <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 via-purple-700 to-indigo-800 text-white py-8 shadow-2xl z-40 overflow-hidden rounded-3xl mx-4 mt-4">
         <div className="container mx-auto px-4">
+          {/* Logo AIGEEKIA dans le header - Haut droite */}
+          <div className="absolute top-6 right-12 z-10">
+            <Link href="/" className="block hover:scale-110 transition-all duration-300">
+              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                <Image 
+                  src="/Logo_AIGEEKIA.png" 
+                  alt="AIGEEKIA Logo" 
+                  width={56} 
+                  height={56} 
+                  className="object-cover rounded-full w-14 h-14"
+                />
+              </div>
+            </Link>
+          </div>
+          
+          {/* Signature By AIGEEKIA - Bas droite */}
+          <div className="absolute bottom-2 right-12 z-10">
+            <span className="text-white/80 font-medium text-xs italic">By AIGEEKIA</span>
+          </div>
+          
           <div className="text-center relative">
             <h1 className="text-6xl font-black text-white mb-2 tracking-tight drop-shadow-lg relative overflow-hidden">
               L'ARCHITECTE DU BÂTIMENT
@@ -22,8 +47,52 @@ export default function AnalogieArchitecturePage() {
           </div>
         </div>
       </header>
+      
+      {/* Menu hamburger en dehors du header - Aligné sur le même axe X */}
+      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
+        {/* Menu hamburger */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
+        >
+          {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
+        </button>
+        
+        {/* Menu déroulant */}
+        {isMenuOpen && (
+          <div className="absolute top-16 right-0 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-blue-200/50 min-w-48 z-10">
+            <div className="p-2">
+              <Link 
+                href="/" 
+                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Home className="h-4 w-4" />
+                <span className="font-medium">Accueil</span>
+              </Link>
+              <Link 
+                href="/analogie-cuisine" 
+                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <ChefHat className="h-4 w-4" />
+                <span className="font-medium">La Cuisine</span>
+              </Link>
+              <Link 
+                href="/fondamentaux" 
+                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Brain className="h-4 w-4" />
+                <span className="font-medium">Les Fondamentaux</span>
+              </Link>
 
-      <main className="container mx-auto px-4 py-8">
+            </div>
+          </div>
+        )}
+      </div>
+      
+      <main className="container mx-auto px-4 py-8 mt-32">
         {/* Super Bandeau Motivant */}
         <section className="mb-8">
           <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 border-blue-200/50 shadow-md rounded-3xl overflow-hidden">

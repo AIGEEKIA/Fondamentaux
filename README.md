@@ -79,7 +79,7 @@ Pour déployer sur Vercel :
 npm run build
 ```
 
-Ou utilisez directement Vercel avec votre repository GitHub.
+Ou utilisez directement Vercel avec votre repository GitHub. 
 
 ## 🎓 Contenu de la formation
 
