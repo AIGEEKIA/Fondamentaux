@@ -1,6 +1,6 @@
-# Formation IA - Page Interactive
+# Formation IA - Les Fondamentaux
 
-Une belle page de formation interactive et professionnelle pour présenter votre formation en développement avec IA.
+Une formation interactive et moderne sur les fondamentaux de l'IA pour les développeurs, construite avec Next.js et TypeScript.
 
 ## 🚀 Fonctionnalités
 
@@ -20,17 +20,23 @@ Une belle page de formation interactive et professionnelle pour présenter votre
 
 ## 📦 Installation
 
-1. **Installer les dépendances :**
+1. **Cloner le projet :**
+```bash
+git clone https://github.com/ChronoHarmonia/Fondamentaux.git
+cd Fondamentaux
+```
+
+2. **Installer les dépendances :**
 ```bash
 npm install
 ```
 
-2. **Lancer le serveur de développement :**
+3. **Lancer le serveur de développement :**
 ```bash
 npm run dev
 ```
 
-3. **Ouvrir dans le navigateur :**
+4. **Ouvrir dans le navigateur :**
 ```
 http://localhost:3000
 ```
@@ -73,4 +79,43 @@ Pour déployer sur Vercel :
 npm run build
 ```
 
-Ou utilisez directement Vercel avec votre repository GitHub. 
+Ou utilisez directement Vercel avec votre repository GitHub.
+
+## 🎓 Contenu de la formation
+
+### Module 1 : Introduction à l'IA ✅
+- Définition de l'Intelligence Artificielle
+- Types d'IA (Faible, Générale, Superintelligente)
+- Applications pratiques pour les développeurs
+
+### Module 2 : Outils de l'IA (En cours)
+- Plateformes populaires (OpenAI, Google AI, etc.)
+- APIs et services
+- Outils de développement
+
+### Module 3 : Intégration IA (À venir)
+- Intégration dans vos projets
+- Bonnes pratiques
+- Cas d'usage concrets
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+- Ouvrir une issue pour signaler un bug
+- Proposer des améliorations
+- Ajouter du contenu à la formation
+
+## 📞 Support
+
+- **GitHub Issues** : Pour les bugs et suggestions
+- **YouTube** : Pour les questions générales
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+
+---
+
+**Bonne formation ! 🎓**
+
+*Créé avec ❤️ pour la communauté des développeurs* 

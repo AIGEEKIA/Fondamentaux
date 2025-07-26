@@ -49,14 +49,14 @@ export default function FormationPage() {
             <div className="animate-scroll flex space-x-12 whitespace-nowrap">
               <div className="flex items-center space-x-12">
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🚀 TRANSFORME TA CARRIÈRE EN 30 JOURS</span>
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTI</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTIE</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">💎 LES FONDAMENTAUX QUI CHANGENT TOUT</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🎯 1H/JOUR = COMPÉTENCES PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🔥 MAÎTRISE LE CODE COMME UN PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🌟 RÉVOLUTIONNE TON AVENIR TECH</span>
                 {/* Duplicated messages for continuous scroll */}
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🚀 TRANSFORME TA CARRIÈRE EN 30 JOURS</span>
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTI</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">⚡ DE ZÉRO À HÉROS - GARANTIE</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">💎 LES FONDAMENTAUX QUI CHANGENT TOUT</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🎯 1H/JOUR = COMPÉTENCES PRO</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:-translate-y-1">🔥 MAÎTRISE LE CODE COMME UN PRO</span>
