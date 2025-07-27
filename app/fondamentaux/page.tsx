@@ -97,13 +97,13 @@ export default function FondamentauxPage() {
           <div className="bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 border-2 border-purple-200/50 shadow-md rounded-3xl overflow-hidden">
             <div className="animate-scroll flex space-x-12 whitespace-nowrap">
               <div className="flex items-center space-x-12">
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🧠 37 LEÇONS FONDAMENTALES</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🧠 37 COURS FONDAMENTAUX</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🎯 4 CONCEPTS MAJEURS</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🚀 MAÎTRISE COMPLÈTE DE LA PROGRAMMATION</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🌟 DEVENIR EXPERT QUI DIRIGE L'IA</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">💡 TRANSFORMER VOTRE CARRIÈRE</span>
                 {/* Duplicated messages for continuous scroll */}
-                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🧠 37 LEÇONS FONDAMENTALES</span>
+                <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🧠 37 COURS FONDAMENTAUX</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🎯 4 CONCEPTS MAJEURS</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🚀 MAÎTRISE COMPLÈTE DE LA PROGRAMMATION</span>
                 <span className="text-lg font-semibold text-gray-600 bg-white/60 px-4 py-2 rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1">🌟 DEVENIR EXPERT QUI DIRIGE L'IA</span>
@@ -122,13 +122,13 @@ export default function FondamentauxPage() {
               </div>
               <CardTitle className="text-3xl font-bold text-gray-800 mb-4">Les 4 Concepts Fondamentaux</CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Découvrez les 37 leçons organisées autour de 4 concepts majeurs pour maîtriser la programmation et diriger l'IA.
+                Découvrez les 37 cours organisés autour de 4 concepts majeurs pour maîtriser la programmation et diriger l'IA.
               </CardDescription>
             </CardHeader>
             <CardContent className="text-lg leading-relaxed text-gray-700">
               <p className="mb-6">
                 Cette formation vous donne les clés pour maîtriser la programmation et mieux diriger l'IA dans la création de code. 
-                Avec 37 leçons pratiques, vous deviendrez un expert qui contrôle l'IA plutôt que de la subir.
+                Avec 37 cours pratiques, vous deviendrez un expert qui contrôle l'IA plutôt que de la subir.
               </p>
               <p className="font-semibold text-purple-700 text-center">
                 Chaque concept vous arme pour créer du code de qualité avec l'aide de l'IA.
@@ -143,7 +143,7 @@ export default function FondamentauxPage() {
             🎯 Les 4 Concepts Fondamentaux
           </h2>
           <p className="text-xl text-center text-gray-600 mb-8">
-            Chaque concept regroupe plusieurs leçons pour une progression optimale
+            Chaque concept regroupe plusieurs cours pour une progression optimale
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -155,53 +155,37 @@ export default function FondamentauxPage() {
                 </div>
                 <CardTitle className="text-2xl font-bold text-gray-800 mb-4">💻 Algorithmie</CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                  Variables, structures de contrôle, boucles, algorithmes
+                  Les bases de la programmation (Cours 1-5)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Variables et types de données</span>
+                    <span>Cours 1 : Variables Python/JS/TS + mini-appli Cursor</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Structures conditionnelles</span>
+                    <span>Cours 2 : Fonctions comparatives</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Boucles et itérations</span>
+                    <span>Cours 3 : Structures de contrôle</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Fonctions et méthodes</span>
+                    <span>Cours 4 : Collections avancées</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Récursivité</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Complexité algorithmique</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Structures de données</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Algorithmes de tri et recherche</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Optimisation et performance</span>
+                    <span>Cours 5 : Fonctions de haut niveau</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-purple-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">9 leçons</span>
+                    <span className="text-sm text-purple-600 font-semibold">5 cours</span>
                     <Link 
-                      href="/fondamentaux/algorithms" 
+                      href="/fondamentaux/algorithmie" 
                       className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
                     >
                       <span>Explorer</span>
@@ -212,30 +196,26 @@ export default function FondamentauxPage() {
               </CardContent>
             </Card>
 
-            {/* Concept 2 : Scope */}
+            {/* Concept 2 : Scope & Closures */}
             <Card className="hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-purple-300/50 bg-gradient-to-br from-purple-500/10 to-indigo-600/10 shadow-xl">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Brain className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">🧠 Scope</CardTitle>
+                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">🧠 Scope & Closures</CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                  Portée des variables, gestion des accès
+                  Concepts avancés (Cours 6)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Variables locales et globales</span>
+                    <span>Variables globales vs locales</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Portée des fonctions</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Blocs et scope de bloc</span>
+                    <span>Scope de fonction et de bloc</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
@@ -243,30 +223,18 @@ export default function FondamentauxPage() {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Contextes d'exécution</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
                     <span>Chaînes de scope</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Gestion des namespaces</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Isolation des variables</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Patterns de scope</span>
+                    <span>Fonctions imbriquées et closures</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-purple-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">9 leçons</span>
+                    <span className="text-sm text-purple-600 font-semibold">1 cours</span>
                     <Link 
-                      href="/fondamentaux/ia" 
+                      href="/fondamentaux/scope-closures" 
                       className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
                     >
                       <span>Explorer</span>
@@ -277,126 +245,94 @@ export default function FondamentauxPage() {
               </CardContent>
             </Card>
 
-            {/* Concept 3 : Closure */}
-            <Card className="hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-purple-300/50 bg-gradient-to-br from-purple-500/10 to-indigo-600/10 shadow-xl">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <BookOpen className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">📚 Closure</CardTitle>
-                <CardDescription className="text-lg text-gray-600">
-                  Fonctions imbriquées, captures de variables
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Fonctions imbriquées</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Capture de variables</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Lexical scoping</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Factory functions</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Module pattern</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Currying et partial application</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Mémoisation avec closures</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Callbacks et callbacks</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Event handlers</span>
-                  </div>
-                </div>
-                <div className="mt-6 pt-4 border-t border-purple-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">9 leçons</span>
-                    <Link 
-                      href="/fondamentaux/web" 
-                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
-                    >
-                      <span>Explorer</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Concept 4 : Gestion d'état */}
+            {/* Concept 3 : Gestion d'état */}
             <Card className="hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-purple-300/50 bg-gradient-to-br from-purple-500/10 to-indigo-600/10 shadow-xl">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Users className="h-8 w-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">👥 Gestion d'état</CardTitle>
+                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">⚡ Gestion d'état</CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                  État global/local, programmation asynchrone
+                  Programmation moderne (Cours 7-25)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>État local vs global</span>
+                    <span>Cours 7 : Programmation asynchrone</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Programmation asynchrone</span>
+                    <span>Cours 8-11 : Outils IA et MCP</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Promises et async/await</span>
+                    <span>Cours 12-18 : Architectures avancées</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Gestion des erreurs</span>
+                    <span>Cours 19-25 : Patterns modernes</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>State management patterns</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Flux unidirectionnel</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Immutabilité</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Side effects</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
-                    <span>Timeouts et intervals</span>
+                    <span>Tests, sécurité, déploiement</span>
                   </div>
                 </div>
                 <div className="mt-6 pt-4 border-t border-purple-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">9 leçons</span>
+                    <span className="text-sm text-purple-600 font-semibold">19 cours</span>
                     <Link 
-                      href="/fondamentaux/outils" 
+                      href="/fondamentaux/gestion-etat" 
+                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
+                    >
+                      <span>Explorer</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Concept 4 : DevOps & Sécurité */}
+            <Card className="hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-purple-300/50 bg-gradient-to-br from-purple-500/10 to-indigo-600/10 shadow-xl">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-gray-800 mb-4">🛡️ DevOps & Sécurité</CardTitle>
+                <CardDescription className="text-lg text-gray-600">
+                  Cours avancés (Cours 26-37)
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                    <span>Cours 26-28 : Observabilité et monitoring</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                    <span>Cours 29-31 : Automatisation et GitOps</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                    <span>Cours 32-34 : Sécurité cloud et Zero Trust</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                    <span>Cours 35-37 : IA et sécurité avancée</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                    <span>Threat Hunting et DevSecOps</span>
+                  </div>
+                </div>
+                <div className="mt-6 pt-4 border-t border-purple-200">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-purple-600 font-semibold">12 cours</span>
+                    <Link 
+                      href="/fondamentaux/devops-securite" 
                       className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
                     >
                       <span>Explorer</span>
@@ -417,11 +353,11 @@ export default function FondamentauxPage() {
                 🚀 Prêt à maîtriser l'Intelligence Artificielle ?
               </h3>
               <p className="text-lg text-gray-600 mb-8">
-                Commencez votre parcours avec les 37 leçons fondamentales organisées en 4 concepts majeurs.
+                Commencez votre parcours avec les 37 cours fondamentaux organisés en 4 concepts majeurs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  href="/fondamentaux/algorithms" 
+                  href="/fondamentaux/algorithmie" 
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 shadow-lg"
                 >
                   <Play className="h-5 w-5" />

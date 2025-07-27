@@ -9,9 +9,9 @@ export default function FormationPage() {
   // Données de progression pour les 4 concepts fondamentaux
   const conceptsData = [
     { name: "Algorithmie", value: 25, fill: "var(--chart-1)" },
-    { name: "Scope", value: 20, fill: "var(--chart-2)" },
-    { name: "Closure", value: 15, fill: "var(--chart-3)" },
-    { name: "Gestion d'état", value: 10, fill: "var(--chart-4)" },
+    { name: "Scope & Closures", value: 20, fill: "var(--chart-2)" },
+    { name: "Gestion d'État", value: 15, fill: "var(--chart-3)" },
+    { name: "DevOps & Sécurité", value: 10, fill: "var(--chart-4)" },
   ]
 
   // Données de progression pour les langages
@@ -187,9 +187,9 @@ export default function FormationPage() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
                     <Code className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Algorithmie</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">💻 Algorithmie</CardTitle>
                   <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                    Variables, structures de contrôle, boucles, algorithmes
+                    Variables, structures de contrôle, boucles, algorithmes (Cours 1-5)
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -201,23 +201,9 @@ export default function FormationPage() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
                     <Brain className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Scope</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">🧠 Scope & Closures</CardTitle>
                   <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                    Portée des variables, gestion des accès
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-
-            <Link href="/fondamentaux" className="block">
-              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
-                <CardHeader className="pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                    <BookOpen className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Closure</CardTitle>
-                  <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                    Fonctions imbriquées, captures de variables
+                    Concepts avancés, portée des variables (Cours 6)
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -229,9 +215,23 @@ export default function FormationPage() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
                     <Users className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Gestion d'état</CardTitle>
-                  <CardDescription className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
-                    État global/local, programmation asynchrone
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">⚡ Gestion d'État</CardTitle>
+                  <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    Programmation moderne, outils IA, architectures (Cours 7-25)
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/fondamentaux" className="block">
+              <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group cursor-pointer">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                    <BookOpen className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">🛡️ DevOps & Sécurité</CardTitle>
+                  <CardDescription className="text-base font-medium text-gray-600 group-hover:text-blue-600 transition-colors duration-300">
+                    Cours avancés, observabilité, sécurité cloud (Cours 26-37)
                   </CardDescription>
                 </CardHeader>
               </Card>
