@@ -1640,7 +1640,7 @@ Approfondir les connaissances en organisation applicative avancée, pour concevo
 - La compréhension et la maîtrise de cette étape sont essentielles pour les projets d'envergure.
 
 
-## 7. Prochain module (optionnel)
+## 8. Prochain module (optionnel)
 
 > **À suivre** : Sécurité avancée, chiffrement, gestion des identités et accès (IAM), audit et conformité pour les applications modernes.
 
@@ -2006,7 +2006,7 @@ somme = reduce(lambda acc, n: acc + n, nombres, 0)
 
 ## 8. Prochain module
 
-> **À suivre :** Programmation réactive et gestion d'état avancée – intégrer la PF avec des flux asynchrones (observable, RxJS, asyncio avancé).
+> > **À suivre** : Sécurité, tests et bonnes pratiques professionnelles – sécuriser ses applications, automatiser les tests et adopter les réflexes des développeurs professionnels. Programmation réactive et gestion d'état avancée – intégrer la PF avec des flux asynchrones (observable, RxJS, asyncio avancé).
 
 
 ---
@@ -2133,9 +2133,9 @@ function counterReducer(state = initialState, action) {
 - La gestion d'état centralisée (Redux) est souvent un allié dans les projets front-end lourds.
 
 
-## 10. Prochain module
+## 8. Prochain module
 
-> **À suivre :** Tests avancés et couverture complète – garantir la fiabilité des applications complexes avec programmation asynchrone et réactive.
+> **À suivre** : Tests avancés et couverture complète – garantir la fiabilité des applications complexes avec programmation asynchrone et réactive.
 
 
 
@@ -2213,9 +2213,9 @@ Approfondir les méthodes de tests logiciels en intégrant les spécificités de
 - Automatiser les tests dans une pipeline CI/CD garantit un cycle de développement rapide et sécurisé.
 
 
-## 10. Prochain module (optionnel)
+## 8. Prochain module (optionnel)
 
-> **À suivre :** Sécurité avancée, gestion des identités et accès (IAM), audit et conformité pour applications modernes.
+> **À suivre** : Sécurité avancée, gestion des identités et accès (IAM), audit et conformité pour applications modernes.
 
 
 ---
@@ -2524,7 +2524,7 @@ class Utilisateur {
 
 ## 8. Prochain module (optionnel)
 
-> **À suivre :** Mise en œuvre pratique de DDD et architecture hexagonale avec exemples complets, intégration CI/CD avancée, et patterns event-driven.
+> > **À suivre** : Sécurité, tests et bonnes pratiques professionnelles – sécuriser ses applications, automatiser les tests et adopter les réflexes des développeurs professionnels. Mise en œuvre pratique de DDD et architecture hexagonale avec exemples complets, intégration CI/CD avancée, et patterns event-driven.
 
 
 ---
@@ -2667,7 +2667,7 @@ def test_commande_ajout_etat():
 
 ## 9. Prochaines étapes
 
-> **À suivre :**
+> > **À suivre** : Sécurité, tests et bonnes pratiques professionnelles – sécuriser ses applications, automatiser les tests et adopter les réflexes des développeurs professionnels.
 > - Introduction au pattern Event Sourcing et CQRS.
 > - Intégration avancée avec des architectures event-driven/microservices.
 > - Automatisation complète du workflow CI/CD en contexte DDD.
@@ -2774,9 +2774,9 @@ class Commande:
 - La maîtrise de ces patterns prépare à des architectures modernes robustes et réactives.
 
 
-## 9. Prochain module (optionnel)
+## 8. Prochain module (optionnel)
 
-> **À suivre :** Architecture event-driven approfondie, intégration avec microservices, gestion de la résilience, et patterns avancés (sagas, compensations).
+> **À suivre** : Architecture event-driven approfondie, intégration avec microservices, gestion de la résilience, et patterns avancés (sagas, compensations).
 
 
 ---
