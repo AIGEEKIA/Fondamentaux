@@ -810,9 +810,7 @@ testProperty(testAdditionCommutative, 50);`;
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">
-                      Profilage
-                    </h4>
+                    <h4 className="font-semibold text-gray-800">Profilage</h4>
                     <p className="text-sm text-gray-600">
                       Optimiser les performances
                     </p>
@@ -1010,9 +1008,7 @@ testProperty(testAdditionCommutative, 50);`;
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     Retour aux fondamentaux
                   </h3>
-                  <p className="text-gray-600">
-                    Explorez les autres sections
-                  </p>
+                  <p className="text-gray-600">Explorez les autres sections</p>
                 </div>
                 <Link
                   href="/fondamentaux"
@@ -1028,4 +1024,4 @@ testProperty(testAdditionCommutative, 50);`;
       </main>
     </div>
   );
-} 
+}
