@@ -1,10 +1,48 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Brain, Code, Database, Cloud, Home, Menu, X, BookOpen, ChefHat, ArrowRight, CheckCircle, Play, Target, Lightbulb, Users, GraduationCap, Package, Shield, Wrench, Hammer, Building2, ChevronLeft, ChevronRight, Copy, Check, AlertCircle, Download, Terminal, Globe, Zap, Settings } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from "next/link"
-import Image from "next/image"
+import { useState } from "react";
+import {
+  Brain,
+  Code,
+  Database,
+  Cloud,
+  Home,
+  Menu,
+  X,
+  BookOpen,
+  ChefHat,
+  ArrowRight,
+  CheckCircle,
+  Play,
+  Target,
+  Lightbulb,
+  Users,
+  GraduationCap,
+  Package,
+  Shield,
+  Wrench,
+  Hammer,
+  Building2,
+  ChevronLeft,
+  ChevronRight,
+  Copy,
+  Check,
+  AlertCircle,
+  Download,
+  Terminal,
+  Globe,
+  Zap,
+  Settings,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function InstallationPythonPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,24 +55,29 @@ export default function InstallationPythonPage() {
         <div className="container mx-auto px-4">
           {/* Logo AIGEEKIA */}
           <div className="absolute top-6 right-12 z-10">
-            <Link href="/" className="block hover:scale-110 transition-all duration-300">
+            <Link
+              href="/"
+              className="block hover:scale-110 transition-all duration-300"
+            >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                <Image 
-                  src="/Logo_AIGEEKIA.png" 
-                  alt="AIGEEKIA Logo" 
-                  width={56} 
-                  height={56} 
+                <Image
+                  src="/Logo_AIGEEKIA.png"
+                  alt="AIGEEKIA Logo"
+                  width={56}
+                  height={56}
                   className="object-cover rounded-full w-14 h-14"
                 />
               </div>
             </Link>
           </div>
-          
+
           {/* Signature By AIGEEKIA */}
           <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">By AIGEEKIA</span>
+            <span className="text-white/80 font-medium text-xs italic">
+              By AIGEEKIA
+            </span>
           </div>
-          
+
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
               🐍 COURS ANNEXE : INSTALLATION PYTHON
@@ -48,24 +91,34 @@ export default function InstallationPythonPage() {
           </div>
         </div>
       </header>
-      
+
       {/* Menu hamburger */}
       <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button 
+        <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="flex items-center justify-center w-12 h-12 bg-purple-600/90 backdrop-blur-sm rounded-full hover:bg-purple-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-purple-500/50"
         >
-          {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
+          {isMenuOpen ? (
+            <X className="h-6 w-6 text-white" />
+          ) : (
+            <Menu className="h-6 w-6 text-white" />
+          )}
         </button>
-        
+
         {isMenuOpen && (
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-purple-200 p-4 min-w-[200px]">
             <div className="space-y-2">
-              <Link href="/" className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700">
+              <Link
+                href="/"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+              >
                 <Home className="h-5 w-5" />
                 <span>Accueil</span>
               </Link>
-              <Link href="/fondamentaux/lecon-1" className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700">
+              <Link
+                href="/fondamentaux/lecon-1"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+              >
                 <Code className="h-5 w-5" />
                 <span>Cours 1 : Variables</span>
               </Link>
@@ -78,13 +131,27 @@ export default function InstallationPythonPage() {
         {/* Navigation breadcrumb */}
         <nav className="mb-8">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-purple-600 transition-colors">Accueil</Link>
+            <Link href="/" className="hover:text-purple-600 transition-colors">
+              Accueil
+            </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href="/fondamentaux" className="hover:text-purple-600 transition-colors">Fondamentaux</Link>
+            <Link
+              href="/fondamentaux"
+              className="hover:text-purple-600 transition-colors"
+            >
+              Fondamentaux
+            </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href="/fondamentaux/lecon-1" className="hover:text-purple-600 transition-colors">Cours 1</Link>
+            <Link
+              href="/fondamentaux/lecon-1"
+              className="hover:text-purple-600 transition-colors"
+            >
+              Cours 1
+            </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-purple-600 font-semibold">Installation Python</span>
+            <span className="text-purple-600 font-semibold">
+              Installation Python
+            </span>
           </div>
         </nav>
 
@@ -97,62 +164,132 @@ export default function InstallationPythonPage() {
                   <Check className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-2xl font-bold text-gray-800">🔍 Vérification Python</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    🔍 Vérification Python
+                  </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Vérifiez d'abord si Python est déjà installé sur votre système
+                    Vérifiez d'abord si Python est déjà installé sur votre
+                    système
                   </CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-green-500">
-                <h4 className="font-semibold text-gray-800 mb-3">📋 Comment ouvrir le terminal :</h4>
+                <h4 className="font-semibold text-gray-800 mb-3">
+                  📋 Comment ouvrir le terminal :
+                </h4>
                 <div className="space-y-4 mb-6">
                   <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                    <h5 className="font-semibold text-blue-800 mb-2">🪟 Windows :</h5>
+                    <h5 className="font-semibold text-blue-800 mb-2">
+                      🪟 Windows :
+                    </h5>
                     <ol className="list-decimal list-inside space-y-1 text-sm text-blue-700">
-                      <li>Appuyez sur <code className="bg-blue-100 px-1 py-0.5 rounded">Win + R</code></li>
-                      <li>Tapez <code className="bg-blue-100 px-1 py-0.5 rounded">cmd</code></li>
-                      <li>Appuyez sur <strong>Entrée</strong></li>
+                      <li>
+                        Appuyez sur{" "}
+                        <code className="bg-blue-100 px-1 py-0.5 rounded">
+                          Win + R
+                        </code>
+                      </li>
+                      <li>
+                        Tapez{" "}
+                        <code className="bg-blue-100 px-1 py-0.5 rounded">
+                          cmd
+                        </code>
+                      </li>
+                      <li>
+                        Appuyez sur <strong>Entrée</strong>
+                      </li>
                     </ol>
                   </div>
                   <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                    <h5 className="font-semibold text-green-800 mb-2">🍎 macOS :</h5>
+                    <h5 className="font-semibold text-green-800 mb-2">
+                      🍎 macOS :
+                    </h5>
                     <ol className="list-decimal list-inside space-y-1 text-sm text-green-700">
-                      <li>Appuyez sur <code className="bg-green-100 px-1 py-0.5 rounded">Cmd + Espace</code></li>
-                      <li>Tapez <code className="bg-green-100 px-1 py-0.5 rounded">Terminal</code></li>
-                      <li>Appuyez sur <strong>Entrée</strong></li>
+                      <li>
+                        Appuyez sur{" "}
+                        <code className="bg-green-100 px-1 py-0.5 rounded">
+                          Cmd + Espace
+                        </code>
+                      </li>
+                      <li>
+                        Tapez{" "}
+                        <code className="bg-green-100 px-1 py-0.5 rounded">
+                          Terminal
+                        </code>
+                      </li>
+                      <li>
+                        Appuyez sur <strong>Entrée</strong>
+                      </li>
                     </ol>
                   </div>
                   <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                    <h5 className="font-semibold text-purple-800 mb-2">🐧 Linux :</h5>
+                    <h5 className="font-semibold text-purple-800 mb-2">
+                      🐧 Linux :
+                    </h5>
                     <ol className="list-decimal list-inside space-y-1 text-sm text-purple-700">
-                      <li>Appuyez sur <code className="bg-purple-100 px-1 py-0.5 rounded">Ctrl + Alt + T</code></li>
+                      <li>
+                        Appuyez sur{" "}
+                        <code className="bg-purple-100 px-1 py-0.5 rounded">
+                          Ctrl + Alt + T
+                        </code>
+                      </li>
                       <li>Le terminal s'ouvre directement</li>
                     </ol>
                   </div>
                 </div>
-                
-                <h4 className="font-semibold text-gray-800 mb-3">📋 Commandes de vérification :</h4>
+
+                <h4 className="font-semibold text-gray-800 mb-3">
+                  📋 Commandes de vérification :
+                </h4>
                 <div className="space-y-3">
                   <div className="bg-gray-900 rounded-lg p-4">
-                    <p className="text-gray-300 font-mono text-sm"># Windows (CMD ou PowerShell)</p>
-                    <p className="text-gray-100 font-mono text-sm">python --version</p>
-                    <p className="text-gray-100 font-mono text-sm">py --version</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Windows (CMD ou PowerShell)
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python --version
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      py --version
+                    </p>
                   </div>
                   <div className="bg-gray-900 rounded-lg p-4">
-                    <p className="text-gray-300 font-mono text-sm"># macOS/Linux (Terminal)</p>
-                    <p className="text-gray-100 font-mono text-sm">python3 --version</p>
-                    <p className="text-gray-100 font-mono text-sm">python --version</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # macOS/Linux (Terminal)
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python3 --version
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python --version
+                    </p>
                   </div>
                 </div>
                 <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <h5 className="font-semibold text-blue-800 mb-2">✅ Si Python est installé :</h5>
-                  <p className="text-blue-700 text-sm">Vous verrez quelque chose comme "Python 3.11.0" - vous pouvez retourner au <Link href="/fondamentaux/lecon-1" className="text-blue-600 hover:text-blue-700 underline">Cours 1</Link></p>
+                  <h5 className="font-semibold text-blue-800 mb-2">
+                    ✅ Si Python est installé :
+                  </h5>
+                  <p className="text-blue-700 text-sm">
+                    Vous verrez quelque chose comme "Python 3.11.0" - vous
+                    pouvez retourner au{" "}
+                    <Link
+                      href="/fondamentaux/lecon-1"
+                      className="text-blue-600 hover:text-blue-700 underline"
+                    >
+                      Cours 1
+                    </Link>
+                  </p>
                 </div>
                 <div className="mt-4 p-4 bg-red-50 rounded-lg border border-red-200">
-                  <h5 className="font-semibold text-red-800 mb-2">❌ Si Python n'est pas installé :</h5>
-                  <p className="text-red-700 text-sm">Vous verrez "command not found" - choisissez une méthode d'installation ci-dessous</p>
+                  <h5 className="font-semibold text-red-800 mb-2">
+                    ❌ Si Python n'est pas installé :
+                  </h5>
+                  <p className="text-red-700 text-sm">
+                    Vous verrez "command not found" - choisissez une méthode
+                    d'installation ci-dessous
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -163,48 +300,51 @@ export default function InstallationPythonPage() {
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-600/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">🚀 4 Méthodes d'Installation Python</CardTitle>
+              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
+                🚀 4 Méthodes d'Installation Python
+              </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Sélectionnez votre méthode préférée : Site officiel, Gestionnaire de paquets, ou Outils modernes
+                Sélectionnez votre méthode préférée : Site officiel,
+                Gestionnaire de paquets, ou Outils modernes
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex space-x-1 mb-6 bg-gray-100 rounded-lg p-1">
-                <button 
+                <button
                   onClick={() => setActiveMethod("official")}
                   className={`flex-1 py-3 px-4 rounded-md font-medium transition-all duration-300 ${
-                    activeMethod === "official" 
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg" 
+                    activeMethod === "official"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                       : "text-gray-600 hover:text-gray-800 hover:bg-gray-200"
                   }`}
                 >
                   🌐 Site Officiel
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveMethod("chocolatey")}
                   className={`flex-1 py-3 px-4 rounded-md font-medium transition-all duration-300 ${
-                    activeMethod === "chocolatey" 
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg" 
+                    activeMethod === "chocolatey"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                       : "text-gray-600 hover:text-gray-800 hover:bg-gray-200"
                   }`}
                 >
                   🍫 Chocolatey
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveMethod("pyenv")}
                   className={`flex-1 py-3 px-4 rounded-md font-medium transition-all duration-300 ${
-                    activeMethod === "pyenv" 
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg" 
+                    activeMethod === "pyenv"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                       : "text-gray-600 hover:text-gray-800 hover:bg-gray-200"
                   }`}
                 >
                   🔧 pyenv
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveMethod("uv")}
                   className={`flex-1 py-3 px-4 rounded-md font-medium transition-all duration-300 ${
-                    activeMethod === "uv" 
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg" 
+                    activeMethod === "uv"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                       : "text-gray-600 hover:text-gray-800 hover:bg-gray-200"
                   }`}
                 >
@@ -224,28 +364,53 @@ export default function InstallationPythonPage() {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Étape 1 : Téléchargement</h5>
-                          <p className="text-sm text-gray-600">Allez sur <a href="https://python.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">python.org</a></p>
+                          <h5 className="font-semibold text-gray-800">
+                            Étape 1 : Téléchargement
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Allez sur{" "}
+                            <a
+                              href="https://python.org"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-700 underline"
+                            >
+                              python.org
+                            </a>
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Étape 2 : Installation</h5>
-                          <p className="text-sm text-gray-600">Téléchargez la dernière version (3.11+) et lancez l'installateur</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Étape 2 : Installation
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Téléchargez la dernière version (3.11+) et lancez
+                            l'installateur
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Étape 3 : Configuration</h5>
-                          <p className="text-sm text-gray-600">Cochez "Add Python to PATH" pendant l'installation</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Étape 3 : Configuration
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Cochez "Add Python to PATH" pendant l'installation
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div className="mt-4 p-4 bg-gray-900 rounded-lg">
-                      <p className="text-gray-300 font-mono text-sm"># Vérification après installation</p>
-                      <p className="text-gray-100 font-mono text-sm">python --version</p>
+                      <p className="text-gray-300 font-mono text-sm">
+                        # Vérification après installation
+                      </p>
+                      <p className="text-gray-100 font-mono text-sm">
+                        python --version
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -263,19 +428,32 @@ export default function InstallationPythonPage() {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Prérequis : Chocolatey</h5>
-                          <p className="text-sm text-gray-600">Installez d'abord Chocolatey si ce n'est pas fait</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Prérequis : Chocolatey
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Installez d'abord Chocolatey si ce n'est pas fait
+                          </p>
                         </div>
                       </div>
                       <div className="bg-gray-900 rounded-lg p-4">
-                        <p className="text-gray-300 font-mono text-sm"># Installation de Python</p>
-                        <p className="text-gray-100 font-mono text-sm">choco install python</p>
+                        <p className="text-gray-300 font-mono text-sm">
+                          # Installation de Python
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          choco install python
+                        </p>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Avantages</h5>
-                          <p className="text-sm text-gray-600">Installation automatique, gestion des versions facile</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Avantages
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Installation automatique, gestion des versions
+                            facile
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -295,20 +473,43 @@ export default function InstallationPythonPage() {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-purple-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Installation de pyenv</h5>
-                          <p className="text-sm text-gray-600">Suivez les instructions sur <a href="https://github.com/pyenv/pyenv" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">GitHub pyenv</a></p>
+                          <h5 className="font-semibold text-gray-800">
+                            Installation de pyenv
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Suivez les instructions sur{" "}
+                            <a
+                              href="https://github.com/pyenv/pyenv"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-purple-600 hover:text-purple-700 underline"
+                            >
+                              GitHub pyenv
+                            </a>
+                          </p>
                         </div>
                       </div>
                       <div className="bg-gray-900 rounded-lg p-4">
-                        <p className="text-gray-300 font-mono text-sm"># Installation de Python via pyenv</p>
-                        <p className="text-gray-100 font-mono text-sm">pyenv install 3.11.0</p>
-                        <p className="text-gray-100 font-mono text-sm">pyenv global 3.11.0</p>
+                        <p className="text-gray-300 font-mono text-sm">
+                          # Installation de Python via pyenv
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          pyenv install 3.11.0
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          pyenv global 3.11.0
+                        </p>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-purple-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Avantages</h5>
-                          <p className="text-sm text-gray-600">Gestion de plusieurs versions Python, isolation des projets</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Avantages
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Gestion de plusieurs versions Python, isolation des
+                            projets
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -328,23 +529,45 @@ export default function InstallationPythonPage() {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-orange-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Installation de uv</h5>
-                          <p className="text-sm text-gray-600">uv est un gestionnaire de packages Python ultra-rapide</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Installation de uv
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            uv est un gestionnaire de packages Python
+                            ultra-rapide
+                          </p>
                         </div>
                       </div>
                       <div className="bg-gray-900 rounded-lg p-4">
-                        <p className="text-gray-300 font-mono text-sm"># Installation de uv</p>
-                        <p className="text-gray-100 font-mono text-sm">curl -LsSf https://astral.sh/uv/install.sh | sh</p>
-                        <p className="text-gray-300 font-mono text-sm"># Création d'un environnement virtuel</p>
-                        <p className="text-gray-100 font-mono text-sm">uv venv</p>
-                        <p className="text-gray-100 font-mono text-sm">source .venv/bin/activate  # Linux/macOS</p>
-                        <p className="text-gray-100 font-mono text-sm"># ou .venv\\Scripts\\activate  # Windows</p>
+                        <p className="text-gray-300 font-mono text-sm">
+                          # Installation de uv
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          curl -LsSf https://astral.sh/uv/install.sh | sh
+                        </p>
+                        <p className="text-gray-300 font-mono text-sm">
+                          # Création d'un environnement virtuel
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          uv venv
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          source .venv/bin/activate # Linux/macOS
+                        </p>
+                        <p className="text-gray-100 font-mono text-sm">
+                          # ou .venv\\Scripts\\activate # Windows
+                        </p>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-6 w-6 text-orange-500 mt-1" />
                         <div>
-                          <h5 className="font-semibold text-gray-800">Avantages</h5>
-                          <p className="text-sm text-gray-600">Ultra-rapide, gestion automatique des environnements virtuels</p>
+                          <h5 className="font-semibold text-gray-800">
+                            Avantages
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Ultra-rapide, gestion automatique des environnements
+                            virtuels
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -359,7 +582,9 @@ export default function InstallationPythonPage() {
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-indigo-500/10 to-purple-600/10 border-2 border-indigo-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">🔒 Environnements Virtuels</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
+                🔒 Environnements Virtuels
+              </CardTitle>
               <CardDescription className="text-lg text-gray-600">
                 Bonne pratique : isolez vos projets Python
               </CardDescription>
@@ -367,25 +592,49 @@ export default function InstallationPythonPage() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
-                  <h4 className="font-semibold text-indigo-800 mb-2">🐍 venv (Intégré)</h4>
+                  <h4 className="font-semibold text-indigo-800 mb-2">
+                    🐍 venv (Intégré)
+                  </h4>
                   <div className="bg-gray-900 rounded-lg p-4 mb-3">
-                    <p className="text-gray-300 font-mono text-sm"># Création</p>
-                    <p className="text-gray-100 font-mono text-sm">python -m venv mon_projet</p>
-                    <p className="text-gray-300 font-mono text-sm"># Activation</p>
-                    <p className="text-gray-100 font-mono text-sm">mon_projet\\Scripts\\activate  # Windows</p>
-                    <p className="text-gray-100 font-mono text-sm">source mon_projet/bin/activate  # Unix</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Création
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python -m venv mon_projet
+                    </p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Activation
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      mon_projet\\Scripts\\activate # Windows
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      source mon_projet/bin/activate # Unix
+                    </p>
                   </div>
-                  <p className="text-sm text-indigo-700">Simple et intégré à Python</p>
+                  <p className="text-sm text-indigo-700">
+                    Simple et intégré à Python
+                  </p>
                 </div>
                 <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                  <h4 className="font-semibold text-purple-800 mb-2">⚡ uv (Recommandé)</h4>
+                  <h4 className="font-semibold text-purple-800 mb-2">
+                    ⚡ uv (Recommandé)
+                  </h4>
                   <div className="bg-gray-900 rounded-lg p-4 mb-3">
-                    <p className="text-gray-300 font-mono text-sm"># Création automatique</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Création automatique
+                    </p>
                     <p className="text-gray-100 font-mono text-sm">uv venv</p>
-                    <p className="text-gray-300 font-mono text-sm"># Activation</p>
-                    <p className="text-gray-100 font-mono text-sm">source .venv/bin/activate</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Activation
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      source .venv/bin/activate
+                    </p>
                   </div>
-                  <p className="text-sm text-purple-700">Ultra-rapide et moderne</p>
+                  <p className="text-sm text-purple-700">
+                    Ultra-rapide et moderne
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -396,33 +645,61 @@ export default function InstallationPythonPage() {
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-green-500/10 to-blue-600/10 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">✅ Test Final</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
+                ✅ Test Final
+              </CardTitle>
               <CardDescription className="text-lg text-gray-600">
                 Vérifiez que tout fonctionne correctement
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="bg-gray-50 rounded-lg p-6">
-                <h4 className="font-semibold text-gray-800 mb-4">🧪 Test de votre installation :</h4>
+                <h4 className="font-semibold text-gray-800 mb-4">
+                  🧪 Test de votre installation :
+                </h4>
                 <div className="space-y-4">
                   <div className="bg-gray-900 rounded-lg p-4">
-                    <p className="text-gray-300 font-mono text-sm"># Test 1 : Version Python</p>
-                    <p className="text-gray-100 font-mono text-sm">python --version</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Test 1 : Version Python
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python --version
+                    </p>
                   </div>
                   <div className="bg-gray-900 rounded-lg p-4">
-                    <p className="text-gray-300 font-mono text-sm"># Test 2 : Hello World</p>
-                    <p className="text-gray-100 font-mono text-sm">python -c "print('Hello, Python!')"</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Test 2 : Hello World
+                    </p>
+                    <p className="text-gray-100 font-mono text-sm">
+                      python -c "print('Hello, Python!')"
+                    </p>
                   </div>
                   <div className="bg-gray-900 rounded-lg p-4">
-                    <p className="text-gray-300 font-mono text-sm"># Test 3 : Interactive</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      # Test 3 : Interactive
+                    </p>
                     <p className="text-gray-100 font-mono text-sm">python</p>
-                    <p className="text-gray-300 font-mono text-sm">>>> print("Python fonctionne !")</p>
-                    <p className="text-gray-300 font-mono text-sm">>>> exit()</p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      &gt;&gt;&gt; print("Python fonctionne !")
+                    </p>
+                    <p className="text-gray-300 font-mono text-sm">
+                      &gt;&gt;&gt; exit()
+                    </p>
                   </div>
                 </div>
                 <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                  <h5 className="font-semibold text-green-800 mb-2">🎉 Félicitations !</h5>
-                  <p className="text-green-700 text-sm">Si tous les tests passent, vous êtes prêt pour le <Link href="/fondamentaux/lecon-1" className="text-green-600 hover:text-green-700 underline font-semibold">Cours 1 : Variables</Link></p>
+                  <h5 className="font-semibold text-green-800 mb-2">
+                    🎉 Félicitations !
+                  </h5>
+                  <p className="text-green-700 text-sm">
+                    Si tous les tests passent, vous êtes prêt pour le{" "}
+                    <Link
+                      href="/fondamentaux/lecon-1"
+                      className="text-green-600 hover:text-green-700 underline font-semibold"
+                    >
+                      Cours 1 : Variables
+                    </Link>
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -433,18 +710,25 @@ export default function InstallationPythonPage() {
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-purple-600/10 border-2 border-blue-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">🚀 Prêt pour la suite ?</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
+                🚀 Prêt pour la suite ?
+              </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que Python est installé, commencez votre apprentissage !
+                Maintenant que Python est installé, commencez votre
+                apprentissage !
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Cours 1 : Variables</h3>
-                  <p className="text-gray-600">Apprenez les variables dans Python, JavaScript et TypeScript</p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    Cours 1 : Variables
+                  </h3>
+                  <p className="text-gray-600">
+                    Apprenez les variables dans Python, JavaScript et TypeScript
+                  </p>
                 </div>
-                <Link 
+                <Link
                   href="/fondamentaux/lecon-1"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
@@ -457,5 +741,5 @@ export default function InstallationPythonPage() {
         </section>
       </main>
     </div>
-  )
-} 
+  );
+}

@@ -348,49 +348,49 @@ export default function FondamentauxPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-6"
+                    href="/fondamentaux/lecon-7"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Scope de fonction et de bloc
+                        Cours 7 : Scope de fonction et de bloc
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-6"
+                    href="/fondamentaux/lecon-8"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Hoisting et temporal dead zone
+                        Cours 8 : Hoisting et temporal dead zone
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-6"
+                    href="/fondamentaux/lecon-9"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Chaînes de scope
+                        Cours 9 : Chaînes de scope
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-6"
+                    href="/fondamentaux/lecon-10"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Fonctions imbriquées et closures
+                        Cours 10 : Fonctions imbriquées et closures
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />

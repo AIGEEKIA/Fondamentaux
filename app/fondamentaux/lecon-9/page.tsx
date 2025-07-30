@@ -43,7 +43,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Lecon1Page() {
+export default function Lecon9Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
@@ -57,89 +57,291 @@ export default function Lecon1Page() {
   const analogies = {
     cuisine: {
       title: "🍳 Cuisine",
-      description: "Les variables comme des ingrédients dans des boîtes",
+      description: "Les chaînes de scope comme des étages de cuisine",
       examples: [
-        "nom_plat = 'Ratatouille'",
-        "quantite_tomates = 4",
-        "prix_ingredients = 12.50",
-        "plat_prete = True",
+        "étage 1 = cuisine principale",
+        "étage 2 = zone de préparation",
+        "étage 3 = zone de cuisson",
       ],
       explanation:
-        "En cuisine, chaque ingrédient a sa place dans une boîte étiquetée. Les variables sont comme ces boîtes : elles stockent des informations avec un nom clair.",
+        "En cuisine, vous avez des étages : la cuisine principale (global), la zone de préparation (fonction), la zone de cuisson (bloc). Les chaînes de scope sont comme ces étages empilés.",
     },
     gamer: {
       title: "🎮 Gamer",
-      description: "Les variables comme l'inventaire du personnage",
+      description: "Les chaînes de scope comme des niveaux de jeu",
       examples: [
-        "player_name = 'ShadowKnight'",
-        "health_points = 100",
-        "gold_coins = 1250",
-        "is_alive = True",
+        "niveau 1 = monde principal",
+        "niveau 2 = zone de mission",
+        "niveau 3 = zone de combat",
       ],
       explanation:
-        "Dans un jeu, votre personnage a un inventaire avec des objets, des stats, de l'or. Les variables sont comme cet inventaire : elles gardent en mémoire toutes les informations importantes.",
+        "Dans un jeu, vous avez des niveaux : le monde principal (global), la zone de mission (fonction), la zone de combat (bloc). Les chaînes de scope sont comme ces niveaux empilés.",
     },
     jardinage: {
       title: "🌱 Jardinage",
-      description: "Les variables comme des graines dans des pots",
+      description: "Les chaînes de scope comme des couches de terre",
       examples: [
-        "nom_plante = 'Tomate'",
-        "hauteur_cm = 45",
-        "jours_arrosage = 3",
-        "fleurie = False",
+        "couche 1 = jardin entier",
+        "couche 2 = parcelle",
+        "couche 3 = zone de semis",
       ],
       explanation:
-        "Au jardin, chaque plante a son pot avec une étiquette. Les variables sont comme ces pots : elles contiennent des informations précieuses qu'on peut consulter et modifier.",
+        "Au jardin, vous avez des couches : le jardin entier (global), la parcelle (fonction), la zone de semis (bloc). Les chaînes de scope sont comme ces couches empilées.",
     },
   };
 
-  const pythonCode = `# Déclaration de variables en Python
-nom = "Alice"
-age = 25
-taille = 1.75
-est_etudiante = True
+  const pythonCode = `# Chaînes de scope en Python
 
-# Affichage des variables
-print(f"Nom: {nom}")
-print(f"Âge: {age} ans")
-print(f"Taille: {taille}m")
-print(f"Étudiante: {est_etudiante}")
+# 1. SCOPE GLOBAL
+variable_globale = "Je suis globale"
 
-# Modification d'une variable
-age = 26
-print(f"Nouvel âge: {age}")`;
+def fonction_externe():
+    # 2. SCOPE DE FONCTION
+    variable_fonction = "Je suis dans la fonction"
+    print("Dans fonction_externe:", variable_globale)  # Accès à la globale
+    print("Dans fonction_externe:", variable_fonction)  # Accès à la locale
+    
+    def fonction_interne():
+        # 3. SCOPE IMBRIQUÉ
+        variable_interne = "Je suis dans la fonction interne"
+        print("Dans fonction_interne:", variable_globale)  # Accès à la globale
+        print("Dans fonction_interne:", variable_fonction)  # Accès à la fonction parent
+        print("Dans fonction_interne:", variable_interne)  # Accès à la locale
+    
+    fonction_interne()
 
-  const javascriptCode = `// Déclaration de variables en JavaScript
-let nom = "Alice";
-const age = 25;
-let taille = 1.75;
-const estEtudiante = true;
+# Test de la chaîne de scope
+print("🌍 Variable globale:", variable_globale)
+fonction_externe()
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+# 4. RÉSOLUTION DE VARIABLES
+def test_resolution():
+    x = "locale"
+    print("X dans test_resolution:", x)
+    
+    def sous_fonction():
+        x = "sous-locale"  # Nouvelle variable locale
+        print("X dans sous_fonction:", x)
+    
+    sous_fonction()
+    print("X après sous_fonction:", x)
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+print("\\n🔍 TEST RÉSOLUTION:")
+test_resolution()
 
-  const typescriptCode = `// Déclaration de variables en TypeScript
-let nom: string = "Alice";
-const age: number = 25;
-let taille: number = 1.75;
-const estEtudiante: boolean = true;
+# 5. NONLOCAL - Modifier la variable du parent
+def createur_compteur():
+    compteur = 0
+    
+    def incrementer():
+        nonlocal compteur  # Référence à la variable du parent
+        compteur += 1
+        return compteur
+    
+    return incrementer
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+mon_compteur = createur_compteur()
+print("\\n🔢 Compteur:", mon_compteur())  # 1
+print("🔢 Compteur:", mon_compteur())  # 2
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+# 6. GLOBAL - Modifier la variable globale
+def modifier_globale():
+    global variable_globale
+    variable_globale = "Modifiée par la fonction"
+    print("🌍 Variable globale modifiée:", variable_globale)
+
+modifier_globale()
+print("🌍 Variable globale finale:", variable_globale)`;
+
+  const javascriptCode = `// Chaînes de scope en JavaScript
+
+// 1. SCOPE GLOBAL
+let variableGlobale = "Je suis globale";
+
+function fonctionExterne() {
+    // 2. SCOPE DE FONCTION
+    let variableFonction = "Je suis dans la fonction";
+    console.log("Dans fonctionExterne:", variableGlobale);  // Accès à la globale
+    console.log("Dans fonctionExterne:", variableFonction);  // Accès à la locale
+    
+    function fonctionInterne() {
+        // 3. SCOPE IMBRIQUÉ
+        let variableInterne = "Je suis dans la fonction interne";
+        console.log("Dans fonctionInterne:", variableGlobale);  // Accès à la globale
+        console.log("Dans fonctionInterne:", variableFonction);  // Accès à la fonction parent
+        console.log("Dans fonctionInterne:", variableInterne);  // Accès à la locale
+    }
+    
+    fonctionInterne();
+}
+
+// Test de la chaîne de scope
+console.log("🌍 Variable globale:", variableGlobale);
+fonctionExterne();
+
+// 4. RÉSOLUTION DE VARIABLES
+function testResolution() {
+    let x = "locale";
+    console.log("X dans testResolution:", x);
+    
+    function sousFonction() {
+        let x = "sous-locale";  // Nouvelle variable locale
+        console.log("X dans sousFonction:", x);
+    }
+    
+    sousFonction();
+    console.log("X après sousFonction:", x);
+}
+
+console.log("\\n🔍 TEST RÉSOLUTION:");
+testResolution();
+
+// 5. CLOSURE - Capturer la variable du parent
+function createurCompteur() {
+    let compteur = 0;
+    
+    return function incrementer() {
+        compteur += 1;  // Accès à la variable du parent
+        return compteur;
+    };
+}
+
+const monCompteur = createurCompteur();
+console.log("\\n🔢 Compteur:", monCompteur());  // 1
+console.log("🔢 Compteur:", monCompteur());  // 2
+
+// 6. BLOCK SCOPE
+if (true) {
+    let variableBloc = "Je suis dans le bloc";
+    console.log("📦 Variable bloc:", variableBloc);
+}
+// console.log("📦 Variable bloc après:", variableBloc);  // Erreur !
+
+// 7. LEXICAL SCOPING
+function createurMultiplicateur(facteur) {
+    return function(nombre) {
+        return nombre * facteur;  // Capture 'facteur' du scope parent
+    };
+}
+
+const doubler = createurMultiplicateur(2);
+const tripler = createurMultiplicateur(3);
+
+console.log("\\n🔢 Multiplicateurs:");
+console.log("Double de 5:", doubler(5));  // 10
+console.log("Triple de 5:", tripler(5));  // 15`;
+
+  const typescriptCode = `// Chaînes de scope en TypeScript
+
+// 1. SCOPE GLOBAL
+let variableGlobale: string = "Je suis globale";
+
+function fonctionExterne(): void {
+    // 2. SCOPE DE FONCTION
+    let variableFonction: string = "Je suis dans la fonction";
+    console.log("Dans fonctionExterne:", variableGlobale);  // Accès à la globale
+    console.log("Dans fonctionExterne:", variableFonction);  // Accès à la locale
+    
+    function fonctionInterne(): void {
+        // 3. SCOPE IMBRIQUÉ
+        let variableInterne: string = "Je suis dans la fonction interne";
+        console.log("Dans fonctionInterne:", variableGlobale);  // Accès à la globale
+        console.log("Dans fonctionInterne:", variableFonction);  // Accès à la fonction parent
+        console.log("Dans fonctionInterne:", variableInterne);  // Accès à la locale
+    }
+    
+    fonctionInterne();
+}
+
+// Test de la chaîne de scope
+console.log("🌍 Variable globale:", variableGlobale);
+fonctionExterne();
+
+// 4. RÉSOLUTION DE VARIABLES AVEC TYPES
+function testResolution(): void {
+    let x: string = "locale";
+    console.log("X dans testResolution:", x);
+    
+    function sousFonction(): void {
+        let x: string = "sous-locale";  // Nouvelle variable locale
+        console.log("X dans sousFonction:", x);
+    }
+    
+    sousFonction();
+    console.log("X après sousFonction:", x);
+}
+
+console.log("\\n🔍 TEST RÉSOLUTION:");
+testResolution();
+
+// 5. CLOSURE AVEC TYPES
+function createurCompteur(): () => number {
+    let compteur: number = 0;
+    
+    return function incrementer(): number {
+        compteur += 1;  // Accès à la variable du parent
+        return compteur;
+    };
+}
+
+const monCompteur: () => number = createurCompteur();
+console.log("\\n🔢 Compteur:", monCompteur());  // 1
+console.log("🔢 Compteur:", monCompteur());  // 2
+
+// 6. INTERFACE AVEC CLOSURE
+interface Compteur {
+    incrementer(): number;
+    obtenir(): number;
+}
+
+function createurCompteurTypé(): Compteur {
+    let compteur: number = 0;
+    
+    return {
+        incrementer: (): number => ++compteur,
+        obtenir: (): number => compteur
+    };
+}
+
+const monCompteurTypé: Compteur = createurCompteurTypé();
+console.log("\\n🔢 Compteur typé:", monCompteurTypé.obtenir());  // 0
+monCompteurTypé.incrementer();
+console.log("🔢 Compteur typé:", monCompteurTypé.obtenir());  // 1
+
+// 7. GENERICS AVEC SCOPE
+function createurMemoise<T, R>(fn: (arg: T) => R): (arg: T) => R {
+    const cache: Map<T, R> = new Map();  // Variable dans le scope de la fonction
+    
+    return function(arg: T): R {
+        if (cache.has(arg)) {
+            return cache.get(arg)!;
+        }
+        const resultat: R = fn(arg);
+        cache.set(arg, resultat);
+        return resultat;
+    };
+}
+
+const fibonacciMemoise: (n: number) => number = createurMemoise((n: number): number => {
+    if (n <= 1) return n;
+    return fibonacciMemoise(n - 1) + fibonacciMemoise(n - 2);
+});
+
+console.log("\\n🔢 Fibonacci(10):", fibonacciMemoise(10));
+
+// 8. CLASSES AVEC SCOPE
+class ExempleClasse {
+    private variablePrivee: string = "privée";
+    
+    public methode(): void {
+        let variableLocale: string = "locale";
+        console.log("Privée:", this.variablePrivee);
+        console.log("Locale:", variableLocale);
+    }
+}
+
+const instance = new ExempleClasse();
+instance.methode();`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
@@ -173,13 +375,13 @@ console.log("Nouveau nom: " + nom);`;
 
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              💻 COURS 1 : VARIABLES
+              🔗 COURS 9 : CHAÎNES DE SCOPE
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
             </h2>
             <p className="text-xl font-medium text-blue-200 max-w-4xl mx-auto">
-              ⚡ COMPARAISON MULTI-LANGAGES ⚡
+              ⚡ RÉSOLUTION DE VARIABLES ET LEXICAL SCOPING ⚡
             </p>
           </div>
         </div>
@@ -257,7 +459,7 @@ console.log("Nouveau nom: " + nom);`;
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
-              Cours 1 : Variables
+              Cours 9 : Chaînes de scope
             </span>
           </div>
         </nav>
@@ -273,8 +475,7 @@ console.log("Nouveau nom: " + nom);`;
                 🎯 Objectifs du Cours
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Comprendre les variables et leur déclaration dans 3 langages
-                populaires
+                Comprendre la résolution de variables et le lexical scoping
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -283,10 +484,21 @@ console.log("Nouveau nom: " + nom);`;
                   <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                   <div>
                     <h4 className="font-semibold text-gray-800">
-                      Comprendre les variables
+                      Chaînes de scope
                     </h4>
                     <p className="text-sm text-gray-600">
-                      Définition, déclaration et utilisation
+                      Comment les variables sont résolues
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-gray-800">
+                      Lexical scoping
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Résolution basée sur la structure du code
                     </p>
                   </div>
                 </div>
@@ -298,17 +510,6 @@ console.log("Nouveau nom: " + nom);`;
                     </h4>
                     <p className="text-sm text-gray-600">
                       Python, JavaScript et TypeScript
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">
-                      Pratiquer avec Cursor
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      Mini-application interactive
                     </p>
                   </div>
                 </div>
@@ -325,7 +526,8 @@ console.log("Nouveau nom: " + nom);`;
                 🌟 Analogies Simples
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Trois façons de comprendre les variables selon votre univers
+                Trois façons de comprendre les chaînes de scope selon votre
+                univers
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -374,7 +576,7 @@ console.log("Nouveau nom: " + nom);`;
                 💻 Exemples de Code
               </CardTitle>
               <CardDescription>
-                Comparez les variables dans les trois langages principaux
+                Comparez les chaînes de scope dans les trois langages principaux
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -497,10 +699,10 @@ console.log("Nouveau nom: " + nom);`;
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Quiz Variables
+                    🎯 Mini-Application : Explorateur de Scope
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Créez un quiz interactif pour tester vos connaissances
+                    Explorez les chaînes de scope et la résolution de variables
                   </CardDescription>
                 </div>
               </div>
@@ -568,241 +770,175 @@ console.log("Nouveau nom: " + nom);`;
                 <div className="bg-gray-900 rounded-lg p-6 mb-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-300 font-mono text-sm">
-                      🐍 Quiz Python
+                      🐍 Explorateur de Scope Python
                     </span>
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `print("Quiz : Que va afficher ce code ?")
+                          `# Explorateur de Scope - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+print("🔗 EXPLORATEUR DE CHAÎNES DE SCOPE")
+print("=" * 60)
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+# 1. SCOPE GLOBAL
+variable_globale = "🌍 Je suis globale"
+print("1️⃣ Variable globale:", variable_globale)
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`,
-                          "quiz"
+def niveau_1():
+    # 2. SCOPE NIVEAU 1
+    variable_niveau_1 = "🔧 Je suis au niveau 1"
+    print("2️⃣ Dans niveau_1 - globale:", variable_globale)
+    print("2️⃣ Dans niveau_1 - locale:", variable_niveau_1)
+    
+    def niveau_2():
+        # 3. SCOPE NIVEAU 2
+        variable_niveau_2 = "🔧 Je suis au niveau 2"
+        print("3️⃣ Dans niveau_2 - globale:", variable_globale)
+        print("3️⃣ Dans niveau_2 - niveau_1:", variable_niveau_1)
+        print("3️⃣ Dans niveau_2 - locale:", variable_niveau_2)
+        
+        def niveau_3():
+            # 4. SCOPE NIVEAU 3
+            variable_niveau_3 = "🔧 Je suis au niveau 3"
+            print("4️⃣ Dans niveau_3 - globale:", variable_globale)
+            print("4️⃣ Dans niveau_3 - niveau_1:", variable_niveau_1)
+            print("4️⃣ Dans niveau_3 - niveau_2:", variable_niveau_2)
+            print("4️⃣ Dans niveau_3 - locale:", variable_niveau_3)
+        
+        niveau_3()
+    
+    niveau_2()
+
+# Test de la chaîne de scope
+print("\\n🔗 TEST CHAÎNE DE SCOPE:")
+niveau_1()
+
+# 5. RÉSOLUTION DE VARIABLES
+print("\\n🔍 TEST RÉSOLUTION:")
+x = "globale"
+
+def test_resolution():
+    x = "locale"
+    print("X dans test_resolution:", x)
+    
+    def sous_fonction():
+        x = "sous-locale"
+        print("X dans sous_fonction:", x)
+    
+    sous_fonction()
+    print("X après sous_fonction:", x)
+
+test_resolution()
+print("X après test_resolution:", x)
+
+# 6. NONLOCAL ET GLOBAL
+print("\\n🌍 TEST NONLOCAL ET GLOBAL:")
+compteur_global = 0
+
+def createur_compteur():
+    compteur_local = 0
+    
+    def incrementer():
+        nonlocal compteur_local
+        global compteur_global
+        compteur_local += 1
+        compteur_global += 10
+        print(f"🔢 Local: {compteur_local}, Global: {compteur_global}")
+    
+    return incrementer
+
+mon_compteur = createur_compteur()
+mon_compteur()  # Local: 1, Global: 10
+mon_compteur()  # Local: 2, Global: 20
+
+print("=" * 60)`,
+                          "explorateur"
                         )
                       }
                       className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                     >
                       <Copy className="h-4 w-4" />
-                      Copier le quiz
+                      Copier l'explorateur
                     </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`print("Quiz : Que va afficher ce code ?")
+                    <code>{`# Explorateur de Scope - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+print("🔗 EXPLORATEUR DE CHAÎNES DE SCOPE")
+print("=" * 60)
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+# 1. SCOPE GLOBAL
+variable_globale = "🌍 Je suis globale"
+print("1️⃣ Variable globale:", variable_globale)
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`}</code>
-                  </pre>
-                </div>
+def niveau_1():
+    # 2. SCOPE NIVEAU 1
+    variable_niveau_1 = "🔧 Je suis au niveau 1"
+    print("2️⃣ Dans niveau_1 - globale:", variable_globale)
+    print("2️⃣ Dans niveau_1 - locale:", variable_niveau_1)
+    
+    def niveau_2():
+        # 3. SCOPE NIVEAU 2
+        variable_niveau_2 = "🔧 Je suis au niveau 2"
+        print("3️⃣ Dans niveau_2 - globale:", variable_globale)
+        print("3️⃣ Dans niveau_2 - niveau_1:", variable_niveau_1)
+        print("3️⃣ Dans niveau_2 - locale:", variable_niveau_2)
+        
+        def niveau_3():
+            # 4. SCOPE NIVEAU 3
+            variable_niveau_3 = "🔧 Je suis au niveau 3"
+            print("4️⃣ Dans niveau_3 - globale:", variable_globale)
+            print("4️⃣ Dans niveau_3 - niveau_1:", variable_niveau_1)
+            print("4️⃣ Dans niveau_3 - niveau_2:", variable_niveau_2)
+            print("4️⃣ Dans niveau_3 - locale:", variable_niveau_3)
+        
+        niveau_3()
+    
+    niveau_2()
 
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🟨 Instructions JavaScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Installez Node.js :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Windows/macOS :</strong> Téléchargez depuis{" "}
-                        <a
-                          href="https://nodejs.org"
-                          className="text-blue-600 hover:text-blue-700 underline"
-                        >
-                          nodejs.org
-                        </a>
-                      </li>
-                      <li>
-                        <strong>Linux :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          sudo apt install nodejs
-                        </code>{" "}
-                        (Ubuntu/Debian)
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier JavaScript (.js)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Exécutez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
+# Test de la chaîne de scope
+print("\\n🔗 TEST CHAÎNE DE SCOPE:")
+niveau_1()
 
-                <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🟨 Quiz JavaScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
+# 5. RÉSOLUTION DE VARIABLES
+print("\\n🔍 TEST RÉSOLUTION:")
+x = "globale"
 
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
+def test_resolution():
+    x = "locale"
+    print("X dans test_resolution:", x)
+    
+    def sous_fonction():
+        x = "sous-locale"
+        print("X dans sous_fonction:", x)
+    
+    sous_fonction()
+    print("X après sous_fonction:", x)
 
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
+test_resolution()
+print("X après test_resolution:", x)
 
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-js"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
+# 6. NONLOCAL ET GLOBAL
+print("\\n🌍 TEST NONLOCAL ET GLOBAL:")
+compteur_global = 0
 
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
+def createur_compteur():
+    compteur_local = 0
+    
+    def incrementer():
+        nonlocal compteur_local
+        global compteur_global
+        compteur_local += 1
+        compteur_global += 10
+        print(f"🔢 Local: {compteur_local}, Global: {compteur_global}")
+    
+    return incrementer
 
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
+mon_compteur = createur_compteur()
+mon_compteur()  # Local: 1, Global: 10
+mon_compteur()  # Local: 2, Global: 20
 
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
-                  </pre>
-                </div>
-
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🔷 Instructions TypeScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Prérequis :</strong> Node.js doit être installé
-                    (voir instructions JavaScript ci-dessus)
-                  </li>
-                  <li>
-                    <strong>Installez TypeScript :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Installation globale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install -g typescript
-                        </code>
-                      </li>
-                      <li>
-                        <strong>Ou installation locale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install typescript
-                        </code>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier TypeScript (.ts)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Compilez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc nom-du-fichier.ts
-                    </code>
-                  </li>
-                  <li>
-                    Exécutez le JavaScript généré :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
-
-                <div className="bg-gray-900 rounded-lg p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🔷 Quiz TypeScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
-
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-ts"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
-
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
+print("=" * 60)`}</code>
                   </pre>
                 </div>
               </div>
@@ -825,10 +961,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Variables = Boîtes étiquetées
+                        Chaînes de scope
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Stockent des données avec un nom
+                        Variables résolues de l'intérieur vers l'extérieur
                       </p>
                     </div>
                   </div>
@@ -836,21 +972,19 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Typage dynamique
+                        Lexical scoping
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Python et JS changent le type automatiquement
+                        Résolution basée sur la structure du code
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Typage statique
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">NONLOCAL</h4>
                       <p className="text-sm text-gray-600">
-                        TypeScript vérifie les types à la compilation
+                        Accéder aux variables des fonctions parentes
                       </p>
                     </div>
                   </div>
@@ -859,22 +993,18 @@ console.log("Ville: " + ville);
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Mots-clés différents
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">GLOBAL</h4>
                       <p className="text-sm text-gray-600">
-                        let/const (JS/TS) vs direct (Python)
+                        Modifier les variables globales
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Convention de nommage
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">Closures</h4>
                       <p className="text-sm text-gray-600">
-                        snake_case (Python) vs camelCase (JS/TS)
+                        Fonctions qui capturent des variables
                       </p>
                     </div>
                   </div>
@@ -885,7 +1015,7 @@ console.log("Ville: " + ville);
                         Pratique essentielle
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Base de toute programmation
+                        Base de la programmation avancée
                       </p>
                     </div>
                   </div>
@@ -903,22 +1033,22 @@ console.log("Ville: " + ville);
                 🚀 Prêt pour la suite ?
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que vous maîtrisez les variables, passez aux
-                fonctions !
+                Maintenant que vous maîtrisez les chaînes de scope, passez aux
+                fonctions imbriquées !
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Cours 2 : Fonctions comparatives
+                    Cours 10 : Fonctions imbriquées et closures
                   </h3>
                   <p className="text-gray-600">
-                    Définition et utilisation des fonctions dans les 3 langages
+                    Fonctions dans des fonctions et closures avancées
                   </p>
                 </div>
                 <Link
-                  href="/fondamentaux/lecon-2"
+                  href="/fondamentaux/lecon-10"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <span>Continuer</span>

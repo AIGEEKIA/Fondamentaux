@@ -43,7 +43,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Lecon1Page() {
+export default function Lecon8Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
@@ -57,89 +57,245 @@ export default function Lecon1Page() {
   const analogies = {
     cuisine: {
       title: "🍳 Cuisine",
-      description: "Les variables comme des ingrédients dans des boîtes",
+      description: "Le hoisting comme la préparation en avance",
       examples: [
-        "nom_plat = 'Ratatouille'",
-        "quantite_tomates = 4",
-        "prix_ingredients = 12.50",
-        "plat_prete = True",
+        "hoisting = préparer les ingrédients",
+        "TDZ = zone de cuisson",
+        "déclaration = mise en place",
       ],
       explanation:
-        "En cuisine, chaque ingrédient a sa place dans une boîte étiquetée. Les variables sont comme ces boîtes : elles stockent des informations avec un nom clair.",
+        "En cuisine, vous préparez les ingrédients avant de cuisiner (hoisting), mais vous ne pouvez pas les utiliser avant qu'ils soient prêts (TDZ). Le hoisting est comme cette préparation en avance.",
     },
     gamer: {
       title: "🎮 Gamer",
-      description: "Les variables comme l'inventaire du personnage",
+      description: "Le hoisting comme le chargement du jeu",
       examples: [
-        "player_name = 'ShadowKnight'",
-        "health_points = 100",
-        "gold_coins = 1250",
-        "is_alive = True",
+        "hoisting = charger les assets",
+        "TDZ = zone de spawn",
+        "déclaration = initialisation",
       ],
       explanation:
-        "Dans un jeu, votre personnage a un inventaire avec des objets, des stats, de l'or. Les variables sont comme cet inventaire : elles gardent en mémoire toutes les informations importantes.",
+        "Dans un jeu, vous chargez les assets avant de jouer (hoisting), mais vous ne pouvez pas les utiliser avant qu'ils soient chargés (TDZ). Le hoisting est comme ce chargement en avance.",
     },
     jardinage: {
       title: "🌱 Jardinage",
-      description: "Les variables comme des graines dans des pots",
+      description: "Le hoisting comme la préparation du terrain",
       examples: [
-        "nom_plante = 'Tomate'",
-        "hauteur_cm = 45",
-        "jours_arrosage = 3",
-        "fleurie = False",
+        "hoisting = préparer le sol",
+        "TDZ = zone de plantation",
+        "déclaration = semis",
       ],
       explanation:
-        "Au jardin, chaque plante a son pot avec une étiquette. Les variables sont comme ces pots : elles contiennent des informations précieuses qu'on peut consulter et modifier.",
+        "Au jardin, vous préparez le terrain avant de planter (hoisting), mais vous ne pouvez pas planter avant que le sol soit prêt (TDZ). Le hoisting est comme cette préparation en avance.",
     },
   };
 
-  const pythonCode = `# Déclaration de variables en Python
+  const pythonCode = `# Hoisting et temporal dead zone en Python
+
+# Python N'A PAS de hoisting !
+# Les variables doivent être déclarées avant utilisation
+
+# 1. ERREUR - Variable non déclarée
+# print(nom)  # NameError: name 'nom' is not defined
+
+# 2. DÉCLARATION NORMALE
 nom = "Alice"
-age = 25
-taille = 1.75
-est_etudiante = True
+print("Nom:", nom)  # OK
 
-# Affichage des variables
-print(f"Nom: {nom}")
-print(f"Âge: {age} ans")
-print(f"Taille: {taille}m")
-print(f"Étudiante: {est_etudiante}")
+# 3. FONCTIONS - Doivent être déclarées avant
+def ma_fonction():
+    return "Hello"
 
-# Modification d'une variable
-age = 26
-print(f"Nouvel âge: {age}")`;
+resultat = ma_fonction()  # OK
+print("Résultat:", resultat)
 
-  const javascriptCode = `// Déclaration de variables en JavaScript
-let nom = "Alice";
-const age = 25;
-let taille = 1.75;
-const estEtudiante = true;
+# 4. CLASSES - Doivent être déclarées avant
+class MaClasse:
+    def __init__(self):
+        self.valeur = 42
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+instance = MaClasse()  # OK
+print("Valeur:", instance.valeur)
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+# 5. IMPORT - Doivent être en haut
+import math
+print("Pi:", math.pi)
 
-  const typescriptCode = `// Déclaration de variables en TypeScript
-let nom: string = "Alice";
-const age: number = 25;
-let taille: number = 1.75;
-const estEtudiante: boolean = true;
+# 6. SCOPE LOCAL
+def test_scope():
+    # print(x)  # Erreur ! x n'existe pas encore
+    x = 10
+    print("X dans fonction:", x)
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+test_scope()
+# print(x)  # Erreur ! x n'existe plus
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+# 7. GLOBAL - Doit être déclaré
+compteur = 0
+
+def incrementer():
+    global compteur  # Doit être déclaré
+    compteur += 1
+    print("Compteur:", compteur)
+
+incrementer()  # 1
+incrementer()  # 2`;
+
+  const javascriptCode = `// Hoisting et temporal dead zone en JavaScript
+
+// 1. HOISTING - Les déclarations sont "remontées"
+console.log("Avant déclaration:", nom);  // undefined (pas d'erreur !)
+var nom = "Alice";
+console.log("Après déclaration:", nom);  // "Alice"
+
+// 2. TEMPORAL DEAD ZONE (TDZ) avec LET/CONST
+// console.log("Avant LET:", age);  // ReferenceError !
+let age = 25;
+console.log("Après LET:", age);  // 25
+
+// 3. FONCTIONS - Hoisting complet
+maFonction();  // "Hello" - Fonctionne !
+
+function maFonction() {
+    console.log("Hello");
+}
+
+// 4. FONCTIONS EXPRESSION - Pas de hoisting
+// maFonctionExpr();  // TypeError !
+
+const maFonctionExpr = function() {
+    console.log("Hello expr");
+};
+
+maFonctionExpr();  // OK
+
+// 5. ARROW FUNCTIONS - Pas de hoisting
+// maFonctionArrow();  // ReferenceError !
+
+const maFonctionArrow = () => {
+    console.log("Hello arrow");
+};
+
+maFonctionArrow();  // OK
+
+// 6. CLASSES - Pas de hoisting
+// const instance = new MaClasse();  // ReferenceError !
+
+class MaClasse {
+    constructor() {
+        this.valeur = 42;
+    }
+}
+
+const instance = new MaClasse();  // OK
+console.log("Valeur:", instance.valeur);
+
+// 7. VAR vs LET vs CONST
+console.log("VAR avant:", variableVar);  // undefined
+var variableVar = "var";
+
+// console.log("LET avant:", variableLet);  // ReferenceError !
+let variableLet = "let";
+
+// console.log("CONST avant:", variableConst);  // ReferenceError !
+const variableConst = "const";
+
+// 8. SCOPE ET TDZ
+function testTDZ() {
+    // console.log("Dans TDZ:", x);  // ReferenceError !
+    let x = 10;
+    console.log("Après déclaration:", x);  // 10
+}
+
+testTDZ();`;
+
+  const typescriptCode = `// Hoisting et temporal dead zone en TypeScript
+
+// 1. HOISTING - Même comportement que JavaScript
+console.log("Avant déclaration:", nom);  // undefined
+var nom: string = "Alice";
+console.log("Après déclaration:", nom);  // "Alice"
+
+// 2. TEMPORAL DEAD ZONE (TDZ) avec LET/CONST
+// console.log("Avant LET:", age);  // ReferenceError !
+let age: number = 25;
+console.log("Après LET:", age);  // 25
+
+// 3. TYPES - Doivent être déclarés avant
+interface Personne {
+    nom: string;
+    age: number;
+}
+
+const personne: Personne = {
+    nom: "Bob",
+    age: 30
+};
+
+console.log("Personne:", personne);
+
+// 4. FONCTIONS TYPÉES - Hoisting complet
+maFonctionTypee();  // "Hello typé" - Fonctionne !
+
+function maFonctionTypee(): string {
+    return "Hello typé";
+}
+
+// 5. ARROW FUNCTIONS TYPÉES - Pas de hoisting
+// maFonctionArrowTypee();  // ReferenceError !
+
+const maFonctionArrowTypee = (): string => {
+    return "Hello arrow typé";
+};
+
+console.log(maFonctionArrowTypee());  // OK
+
+// 6. CLASSES TYPÉES - Pas de hoisting
+// const instance = new MaClasseTypee();  // ReferenceError !
+
+class MaClasseTypee {
+    private valeur: number;
+    
+    constructor() {
+        this.valeur = 42;
+    }
+    
+    getValeur(): number {
+        return this.valeur;
+    }
+}
+
+const instance = new MaClasseTypee();  // OK
+console.log("Valeur:", instance.getValeur());
+
+// 7. GENERICS - Pas de hoisting
+// const resultat = premierElement([1, 2, 3]);  // ReferenceError !
+
+function premierElement<T>(array: T[]): T | undefined {
+    return array[0];
+}
+
+const resultat = premierElement([1, 2, 3]);  // OK
+console.log("Premier:", resultat);
+
+// 8. ENUM - Pas de hoisting
+// console.log(Status.ACTIVE);  // ReferenceError !
+
+enum Status {
+    ACTIVE = "active",
+    INACTIVE = "inactive"
+}
+
+console.log(Status.ACTIVE);  // OK
+
+// 9. SCOPE ET TDZ AVEC TYPES
+function testTDZTypee(): void {
+    // console.log("Dans TDZ:", x);  // ReferenceError !
+    let x: number = 10;
+    console.log("Après déclaration:", x);  // 10
+}
+
+testTDZTypee();`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
@@ -173,13 +329,13 @@ console.log("Nouveau nom: " + nom);`;
 
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              💻 COURS 1 : VARIABLES
+              ⬆️ COURS 8 : HOISTING ET TEMPORAL DEAD ZONE
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
             </h2>
             <p className="text-xl font-medium text-blue-200 max-w-4xl mx-auto">
-              ⚡ COMPARAISON MULTI-LANGAGES ⚡
+              ⚡ COMPRENDRE LE HOISTING ET LA TDZ ⚡
             </p>
           </div>
         </div>
@@ -257,7 +413,7 @@ console.log("Nouveau nom: " + nom);`;
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
-              Cours 1 : Variables
+              Cours 8 : Hoisting et temporal dead zone
             </span>
           </div>
         </nav>
@@ -273,8 +429,7 @@ console.log("Nouveau nom: " + nom);`;
                 🎯 Objectifs du Cours
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Comprendre les variables et leur déclaration dans 3 langages
-                populaires
+                Comprendre le hoisting en JavaScript et la temporal dead zone
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -282,11 +437,20 @@ console.log("Nouveau nom: " + nom);`;
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                   <div>
+                    <h4 className="font-semibold text-gray-800">Hoisting</h4>
+                    <p className="text-sm text-gray-600">
+                      Comprendre comment JavaScript "remonte" les déclarations
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
+                  <div>
                     <h4 className="font-semibold text-gray-800">
-                      Comprendre les variables
+                      Temporal Dead Zone
                     </h4>
                     <p className="text-sm text-gray-600">
-                      Définition, déclaration et utilisation
+                      Zone où les variables LET/CONST ne sont pas accessibles
                     </p>
                   </div>
                 </div>
@@ -298,17 +462,6 @@ console.log("Nouveau nom: " + nom);`;
                     </h4>
                     <p className="text-sm text-gray-600">
                       Python, JavaScript et TypeScript
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">
-                      Pratiquer avec Cursor
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      Mini-application interactive
                     </p>
                   </div>
                 </div>
@@ -325,7 +478,7 @@ console.log("Nouveau nom: " + nom);`;
                 🌟 Analogies Simples
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Trois façons de comprendre les variables selon votre univers
+                Trois façons de comprendre le hoisting selon votre univers
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -374,7 +527,7 @@ console.log("Nouveau nom: " + nom);`;
                 💻 Exemples de Code
               </CardTitle>
               <CardDescription>
-                Comparez les variables dans les trois langages principaux
+                Comparez le hoisting dans les trois langages principaux
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -497,10 +650,10 @@ console.log("Nouveau nom: " + nom);`;
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Quiz Variables
+                    🎯 Mini-Application : Testeur de Hoisting
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Créez un quiz interactif pour tester vos connaissances
+                    Testez le hoisting et la temporal dead zone
                   </CardDescription>
                 </div>
               </div>
@@ -568,241 +721,161 @@ console.log("Nouveau nom: " + nom);`;
                 <div className="bg-gray-900 rounded-lg p-6 mb-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-300 font-mono text-sm">
-                      🐍 Quiz Python
+                      🐍 Testeur de Hoisting Python
                     </span>
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `print("Quiz : Que va afficher ce code ?")
+                          `# Testeur de Hoisting - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+print("⬆️ TESTEUR DE HOISTING")
+print("=" * 50)
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+# 1. PYTHON N'A PAS DE HOISTING
+print("🐍 Python n'a pas de hoisting !")
+print("Les variables doivent être déclarées avant utilisation")
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`,
-                          "quiz"
+# 2. TEST D'ERREUR
+try:
+    print("Tentative d'accès à variable non déclarée:")
+    print(variable_inexistante)
+except NameError as e:
+    print("❌ Erreur:", e)
+
+# 3. DÉCLARATION NORMALE
+print("\\n✅ Déclaration normale:")
+nom = "Alice"
+print("Nom:", nom)
+
+# 4. FONCTIONS - Doivent être déclarées avant
+print("\\n🔧 Test de fonction:")
+def ma_fonction():
+    return "Hello depuis la fonction"
+
+resultat = ma_fonction()
+print("Résultat:", resultat)
+
+# 5. CLASSES - Doivent être déclarées avant
+print("\\n🏗️ Test de classe:")
+class MaClasse:
+    def __init__(self):
+        self.valeur = 42
+    
+    def get_valeur(self):
+        return self.valeur
+
+instance = MaClasse()
+print("Valeur de l'instance:", instance.get_valeur())
+
+# 6. SCOPE LOCAL
+print("\\n🔍 Test de scope local:")
+def test_scope():
+    try:
+        print("Tentative d'accès à x avant déclaration:")
+        print(x)
+    except NameError as e:
+        print("❌ Erreur:", e)
+    
+    x = 10
+    print("✅ Après déclaration:", x)
+
+test_scope()
+
+# 7. GLOBAL - Doit être déclaré
+print("\\n🌍 Test de variable globale:")
+compteur = 0
+
+def incrementer():
+    global compteur
+    compteur += 1
+    print("Compteur dans fonction:", compteur)
+
+incrementer()  # 1
+incrementer()  # 2
+print("Compteur global:", compteur)
+
+print("=" * 50)
+print("🐍 Python : Pas de hoisting, déclaration stricte !")`,
+                          "testeur"
                         )
                       }
                       className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                     >
                       <Copy className="h-4 w-4" />
-                      Copier le quiz
+                      Copier le testeur
                     </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`print("Quiz : Que va afficher ce code ?")
+                    <code>{`# Testeur de Hoisting - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+print("⬆️ TESTEUR DE HOISTING")
+print("=" * 50)
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+# 1. PYTHON N'A PAS DE HOISTING
+print("🐍 Python n'a pas de hoisting !")
+print("Les variables doivent être déclarées avant utilisation")
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`}</code>
-                  </pre>
-                </div>
+# 2. TEST D'ERREUR
+try:
+    print("Tentative d'accès à variable non déclarée:")
+    print(variable_inexistante)
+except NameError as e:
+    print("❌ Erreur:", e)
 
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🟨 Instructions JavaScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Installez Node.js :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Windows/macOS :</strong> Téléchargez depuis{" "}
-                        <a
-                          href="https://nodejs.org"
-                          className="text-blue-600 hover:text-blue-700 underline"
-                        >
-                          nodejs.org
-                        </a>
-                      </li>
-                      <li>
-                        <strong>Linux :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          sudo apt install nodejs
-                        </code>{" "}
-                        (Ubuntu/Debian)
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier JavaScript (.js)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Exécutez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
+# 3. DÉCLARATION NORMALE
+print("\\n✅ Déclaration normale:")
+nom = "Alice"
+print("Nom:", nom)
 
-                <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🟨 Quiz JavaScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
+# 4. FONCTIONS - Doivent être déclarées avant
+print("\\n🔧 Test de fonction:")
+def ma_fonction():
+    return "Hello depuis la fonction"
 
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
+resultat = ma_fonction()
+print("Résultat:", resultat)
 
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
+# 5. CLASSES - Doivent être déclarées avant
+print("\\n🏗️ Test de classe:")
+class MaClasse:
+    def __init__(self):
+        self.valeur = 42
+    
+    def get_valeur(self):
+        return self.valeur
 
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-js"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
+instance = MaClasse()
+print("Valeur de l'instance:", instance.get_valeur())
 
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
+# 6. SCOPE LOCAL
+print("\\n🔍 Test de scope local:")
+def test_scope():
+    try:
+        print("Tentative d'accès à x avant déclaration:")
+        print(x)
+    except NameError as e:
+        print("❌ Erreur:", e)
+    
+    x = 10
+    print("✅ Après déclaration:", x)
 
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
+test_scope()
 
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
-                  </pre>
-                </div>
+# 7. GLOBAL - Doit être déclaré
+print("\\n🌍 Test de variable globale:")
+compteur = 0
 
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🔷 Instructions TypeScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Prérequis :</strong> Node.js doit être installé
-                    (voir instructions JavaScript ci-dessus)
-                  </li>
-                  <li>
-                    <strong>Installez TypeScript :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Installation globale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install -g typescript
-                        </code>
-                      </li>
-                      <li>
-                        <strong>Ou installation locale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install typescript
-                        </code>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier TypeScript (.ts)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Compilez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc nom-du-fichier.ts
-                    </code>
-                  </li>
-                  <li>
-                    Exécutez le JavaScript généré :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
+def incrementer():
+    global compteur
+    compteur += 1
+    print("Compteur dans fonction:", compteur)
 
-                <div className="bg-gray-900 rounded-lg p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🔷 Quiz TypeScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
+incrementer()  # 1
+incrementer()  # 2
+print("Compteur global:", compteur)
 
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-ts"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
-
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
+print("=" * 50)
+print("🐍 Python : Pas de hoisting, déclaration stricte !")`}</code>
                   </pre>
                 </div>
               </div>
@@ -824,11 +897,9 @@ console.log("Ville: " + ville);
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Variables = Boîtes étiquetées
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">Hoisting</h4>
                       <p className="text-sm text-gray-600">
-                        Stockent des données avec un nom
+                        JavaScript "remonte" les déclarations
                       </p>
                     </div>
                   </div>
@@ -836,10 +907,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Typage dynamique
+                        Temporal Dead Zone
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Python et JS changent le type automatiquement
+                        Zone où LET/CONST ne sont pas accessibles
                       </p>
                     </div>
                   </div>
@@ -847,10 +918,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Typage statique
+                        VAR vs LET/CONST
                       </h4>
                       <p className="text-sm text-gray-600">
-                        TypeScript vérifie les types à la compilation
+                        VAR est hoisté, LET/CONST ont une TDZ
                       </p>
                     </div>
                   </div>
@@ -859,22 +930,18 @@ console.log("Ville: " + ville);
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Mots-clés différents
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">Python</h4>
                       <p className="text-sm text-gray-600">
-                        let/const (JS/TS) vs direct (Python)
+                        Pas de hoisting, déclaration stricte
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Convention de nommage
-                      </h4>
+                      <h4 className="font-semibold text-gray-800">Fonctions</h4>
                       <p className="text-sm text-gray-600">
-                        snake_case (Python) vs camelCase (JS/TS)
+                        Fonctions déclarées sont hoistées
                       </p>
                     </div>
                   </div>
@@ -885,7 +952,7 @@ console.log("Ville: " + ville);
                         Pratique essentielle
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Base de toute programmation
+                        Base de la compréhension JavaScript
                       </p>
                     </div>
                   </div>
@@ -903,22 +970,22 @@ console.log("Ville: " + ville);
                 🚀 Prêt pour la suite ?
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que vous maîtrisez les variables, passez aux
-                fonctions !
+                Maintenant que vous maîtrisez le hoisting, passez aux chaînes de
+                scope !
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Cours 2 : Fonctions comparatives
+                    Cours 9 : Chaînes de scope
                   </h3>
                   <p className="text-gray-600">
-                    Définition et utilisation des fonctions dans les 3 langages
+                    Résolution de variables et lexical scoping
                   </p>
                 </div>
                 <Link
-                  href="/fondamentaux/lecon-2"
+                  href="/fondamentaux/lecon-9"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <span>Continuer</span>

@@ -43,7 +43,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Lecon1Page() {
+export default function Lecon4Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
@@ -57,89 +57,149 @@ export default function Lecon1Page() {
   const analogies = {
     cuisine: {
       title: "🍳 Cuisine",
-      description: "Les variables comme des ingrédients dans des boîtes",
+      description: "Les collections comme des étagères organisées",
       examples: [
-        "nom_plat = 'Ratatouille'",
-        "quantite_tomates = 4",
-        "prix_ingredients = 12.50",
-        "plat_prete = True",
+        "etagere = [ingredient1, ingredient2]",
+        "placard = {'sel': 1, 'poivre': 2}",
+        "frigo = set([lait, beurre])",
       ],
       explanation:
-        "En cuisine, chaque ingrédient a sa place dans une boîte étiquetée. Les variables sont comme ces boîtes : elles stockent des informations avec un nom clair.",
+        "En cuisine, vous organisez vos ingrédients : étagères pour les listes, placards pour les dictionnaires, frigo pour les ensembles. Les collections sont comme ces espaces de rangement.",
     },
     gamer: {
       title: "🎮 Gamer",
-      description: "Les variables comme l'inventaire du personnage",
+      description: "Les collections comme des inventaires de jeu",
       examples: [
-        "player_name = 'ShadowKnight'",
-        "health_points = 100",
-        "gold_coins = 1250",
-        "is_alive = True",
+        "inventaire = [epee, bouclier, potion]",
+        "stats = {'force': 15, 'agilite': 12}",
+        "competences = set([tir, magie, combat])",
       ],
       explanation:
-        "Dans un jeu, votre personnage a un inventaire avec des objets, des stats, de l'or. Les variables sont comme cet inventaire : elles gardent en mémoire toutes les informations importantes.",
+        "Dans un jeu, votre personnage a un inventaire : sac pour les listes, stats pour les dictionnaires, compétences pour les ensembles. Les collections sont comme ces systèmes d'inventaire.",
     },
     jardinage: {
       title: "🌱 Jardinage",
-      description: "Les variables comme des graines dans des pots",
+      description: "Les collections comme des zones de plantation",
       examples: [
-        "nom_plante = 'Tomate'",
-        "hauteur_cm = 45",
-        "jours_arrosage = 3",
-        "fleurie = False",
+        "parcelle = [tomate, carotte, salade]",
+        "planning = {'mars': 'semis', 'avril': 'recolte'}",
+        "especes = set([legumes, fruits, herbes])",
       ],
       explanation:
-        "Au jardin, chaque plante a son pot avec une étiquette. Les variables sont comme ces pots : elles contiennent des informations précieuses qu'on peut consulter et modifier.",
+        "Au jardin, vous organisez vos plantations : parcelles pour les listes, planning pour les dictionnaires, espèces pour les ensembles. Les collections sont comme ces zones organisées.",
     },
   };
 
-  const pythonCode = `# Déclaration de variables en Python
-nom = "Alice"
-age = 25
-taille = 1.75
-est_etudiante = True
+  const pythonCode = `# Collections avancées en Python
 
-# Affichage des variables
-print(f"Nom: {nom}")
-print(f"Âge: {age} ans")
-print(f"Taille: {taille}m")
-print(f"Étudiante: {est_etudiante}")
+# 1. LISTE - Collection ordonnée et modifiable
+fruits = ["🍎", "🍌", "🍊"]
+fruits.append("🍇")  # Ajouter
+fruits.remove("🍌")  # Supprimer
+print("Liste :", fruits)
 
-# Modification d'une variable
-age = 26
-print(f"Nouvel âge: {age}")`;
+# 2. TUPLE - Collection ordonnée et immuable
+coordonnees = (48.8566, 2.3522)
+print("Tuple :", coordonnees)
 
-  const javascriptCode = `// Déclaration de variables en JavaScript
-let nom = "Alice";
-const age = 25;
-let taille = 1.75;
-const estEtudiante = true;
+# 3. DICTIONNAIRE - Collection clé-valeur
+personne = {
+    "nom": "Marie",
+    "age": 25,
+    "ville": "Paris"
+}
+personne["metier"] = "Développeuse"  # Ajouter
+print("Dictionnaire :", personne)
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+# 4. SET - Collection d'éléments uniques
+couleurs = {"rouge", "vert", "bleu"}
+couleurs.add("jaune")  # Ajouter
+couleurs.discard("vert")  # Supprimer
+print("Set :", couleurs)
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+# 5. COMPREHENSION - Création rapide
+nombres = [1, 2, 3, 4, 5]
+carres = [x**2 for x in nombres]
+print("Carrés :", carres)`;
 
-  const typescriptCode = `// Déclaration de variables en TypeScript
-let nom: string = "Alice";
-const age: number = 25;
-let taille: number = 1.75;
-const estEtudiante: boolean = true;
+  const javascriptCode = `// Collections avancées en JavaScript
 
-// Affichage des variables
-console.log("Nom: " + nom);
-console.log("Âge: " + age + " ans");
-console.log("Taille: " + taille + "m");
-console.log("Étudiante: " + estEtudiante);
+// 1. ARRAY - Collection ordonnée et modifiable
+const fruits = ["🍎", "🍌", "🍊"];
+fruits.push("🍇");  // Ajouter
+fruits.splice(1, 1);  // Supprimer
+console.log("Array :", fruits);
 
-// Modification d'une variable
-nom = "Alice Martin";
-console.log("Nouveau nom: " + nom);`;
+// 2. OBJECT - Collection clé-valeur
+const personne = {
+    nom: "Marie",
+    age: 25,
+    ville: "Paris"
+};
+personne.metier = "Développeuse";  // Ajouter
+console.log("Object :", personne);
+
+// 3. SET - Collection d'éléments uniques
+const couleurs = new Set(["rouge", "vert", "bleu"]);
+couleurs.add("jaune");  // Ajouter
+couleurs.delete("vert");  // Supprimer
+console.log("Set :", couleurs);
+
+// 4. MAP - Collection clé-valeur ordonnée
+const scores = new Map();
+scores.set("Alice", 100);
+scores.set("Bob", 85);
+console.log("Map :", scores);
+
+// 5. COMPREHENSION - Méthodes fonctionnelles
+const nombres = [1, 2, 3, 4, 5];
+const carres = nombres.map(x => x**2);
+console.log("Carrés :", carres);`;
+
+  const typescriptCode = `// Collections avancées en TypeScript
+
+// 1. ARRAY typé - Collection ordonnée et modifiable
+const fruits: string[] = ["🍎", "🍌", "🍊"];
+fruits.push("🍇");  // Ajouter
+fruits.splice(1, 1);  // Supprimer
+console.log("Array :", fruits);
+
+// 2. INTERFACE - Structure typée
+interface Personne {
+    nom: string;
+    age: number;
+    ville: string;
+    metier?: string;  // Optionnel
+}
+
+const personne: Personne = {
+    nom: "Marie",
+    age: 25,
+    ville: "Paris"
+};
+personne.metier = "Développeuse";
+console.log("Personne :", personne);
+
+// 3. SET typé - Collection d'éléments uniques
+const couleurs: Set<string> = new Set(["rouge", "vert", "bleu"]);
+couleurs.add("jaune");
+couleurs.delete("vert");
+console.log("Set :", couleurs);
+
+// 4. MAP typé - Collection clé-valeur ordonnée
+const scores: Map<string, number> = new Map();
+scores.set("Alice", 100);
+scores.set("Bob", 85);
+console.log("Map :", scores);
+
+// 5. GENERICS - Collections génériques
+function premierElement<T>(array: T[]): T | undefined {
+    return array[0];
+}
+
+const nombres: number[] = [1, 2, 3];
+const premier = premierElement(nombres);
+console.log("Premier :", premier);`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
@@ -173,7 +233,7 @@ console.log("Nouveau nom: " + nom);`;
 
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              💻 COURS 1 : VARIABLES
+              📦 COURS 4 : COLLECTIONS AVANCÉES
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
@@ -257,7 +317,7 @@ console.log("Nouveau nom: " + nom);`;
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
-              Cours 1 : Variables
+              Cours 4 : Collections avancées
             </span>
           </div>
         </nav>
@@ -273,8 +333,7 @@ console.log("Nouveau nom: " + nom);`;
                 🎯 Objectifs du Cours
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Comprendre les variables et leur déclaration dans 3 langages
-                populaires
+                Maîtriser les collections avancées dans 3 langages populaires
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -283,10 +342,10 @@ console.log("Nouveau nom: " + nom);`;
                   <CheckCircle className="h-6 w-6 text-blue-500 mt-1" />
                   <div>
                     <h4 className="font-semibold text-gray-800">
-                      Comprendre les variables
+                      Comprendre les collections
                     </h4>
                     <p className="text-sm text-gray-600">
-                      Définition, déclaration et utilisation
+                      Listes, dictionnaires, ensembles et plus
                     </p>
                   </div>
                 </div>
@@ -325,7 +384,7 @@ console.log("Nouveau nom: " + nom);`;
                 🌟 Analogies Simples
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Trois façons de comprendre les variables selon votre univers
+                Trois façons de comprendre les collections selon votre univers
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -374,7 +433,7 @@ console.log("Nouveau nom: " + nom);`;
                 💻 Exemples de Code
               </CardTitle>
               <CardDescription>
-                Comparez les variables dans les trois langages principaux
+                Comparez les collections dans les trois langages principaux
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -497,10 +556,10 @@ console.log("Nouveau nom: " + nom);`;
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Quiz Variables
+                    🎯 Mini-Application : Gestionnaire de Contacts
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Créez un quiz interactif pour tester vos connaissances
+                    Créez un gestionnaire de contacts avec des collections
                   </CardDescription>
                 </div>
               </div>
@@ -568,241 +627,87 @@ console.log("Nouveau nom: " + nom);`;
                 <div className="bg-gray-900 rounded-lg p-6 mb-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-300 font-mono text-sm">
-                      🐍 Quiz Python
+                      🐍 Gestionnaire Python
                     </span>
                     <button
                       onClick={() =>
                         copyToClipboard(
-                          `print("Quiz : Que va afficher ce code ?")
+                          `# Gestionnaire de Contacts - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+contacts = {}
+emails = set()
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+print("📞 GESTIONNAIRE DE CONTACTS")
+print("=" * 40)
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`,
-                          "quiz"
+# Ajouter des contacts
+contacts["Marie"] = {"tel": "0123456789", "email": "marie@email.com"}
+contacts["Pierre"] = {"tel": "0987654321", "email": "pierre@email.com"}
+emails.add("marie@email.com")
+emails.add("pierre@email.com")
+
+# Afficher tous les contacts
+print("📋 CONTACTS :")
+for nom, info in contacts.items():
+    print(f"👤 {nom}")
+    print(f"   📞 {info['tel']}")
+    print(f"   📧 {info['email']}")
+    print()
+
+# Rechercher un contact
+recherche = "Marie"
+if recherche in contacts:
+    print(f"✅ Contact trouvé : {recherche}")
+    print(f"📞 {contacts[recherche]['tel']}")
+else:
+    print(f"❌ Contact non trouvé : {recherche}")
+
+print("=" * 40)
+print(f"📧 Emails uniques : {len(emails)}")
+print("=" * 40)`,
+                          "gestionnaire"
                         )
                       }
                       className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                     >
                       <Copy className="h-4 w-4" />
-                      Copier le quiz
+                      Copier le gestionnaire
                     </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`print("Quiz : Que va afficher ce code ?")
+                    <code>{`# Gestionnaire de Contacts - Mini-Application
 
-nom = "Marie"
-age = 25
-ville = "Paris"
+contacts = {}
+emails = set()
 
-print(f"Nom: {nom}")
-print(f"Age: {age}")
-print(f"Ville: {ville}")
+print("📞 GESTIONNAIRE DE CONTACTS")
+print("=" * 40)
 
-# Question : Que va afficher ce code ?
-# Réponse : 
-# Nom: Marie
-# Age: 25
-# Ville: Paris`}</code>
-                  </pre>
-                </div>
+# Ajouter des contacts
+contacts["Marie"] = {"tel": "0123456789", "email": "marie@email.com"}
+contacts["Pierre"] = {"tel": "0987654321", "email": "pierre@email.com"}
+emails.add("marie@email.com")
+emails.add("pierre@email.com")
 
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🟨 Instructions JavaScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Installez Node.js :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Windows/macOS :</strong> Téléchargez depuis{" "}
-                        <a
-                          href="https://nodejs.org"
-                          className="text-blue-600 hover:text-blue-700 underline"
-                        >
-                          nodejs.org
-                        </a>
-                      </li>
-                      <li>
-                        <strong>Linux :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          sudo apt install nodejs
-                        </code>{" "}
-                        (Ubuntu/Debian)
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier JavaScript (.js)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Exécutez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
+# Afficher tous les contacts
+print("📋 CONTACTS :")
+for nom, info in contacts.items():
+    print(f"👤 {nom}")
+    print(f"   📞 {info['tel']}")
+    print(f"   📧 {info['email']}")
+    print()
 
-                <div className="bg-gray-900 rounded-lg p-6 mb-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🟨 Quiz JavaScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
+# Rechercher un contact
+recherche = "Marie"
+if recherche in contacts:
+    print(f"✅ Contact trouvé : {recherche}")
+    print(f"📞 {contacts[recherche]['tel']}")
+else:
+    print(f"❌ Contact non trouvé : {recherche}")
 
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-js"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
-
-let nom = "Marie";
-let age = 25;
-let ville = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
-                  </pre>
-                </div>
-
-                <h4 className="font-semibold text-gray-800 mb-4 mt-8">
-                  🔷 Instructions TypeScript :
-                </h4>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
-                  <li>
-                    <strong>Prérequis :</strong> Node.js doit être installé
-                    (voir instructions JavaScript ci-dessus)
-                  </li>
-                  <li>
-                    <strong>Installez TypeScript :</strong>
-                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-sm">
-                      <li>
-                        <strong>Installation globale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install -g typescript
-                        </code>
-                      </li>
-                      <li>
-                        <strong>Ou installation locale :</strong>{" "}
-                        <code className="bg-gray-200 px-1 py-0.5 rounded">
-                          npm install typescript
-                        </code>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Vérifiez l'installation :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc --version
-                    </code>
-                  </li>
-                  <li>Créez un nouveau fichier TypeScript (.ts)</li>
-                  <li>Copiez le code exemple ci-dessous</li>
-                  <li>
-                    Compilez avec :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      tsc nom-du-fichier.ts
-                    </code>
-                  </li>
-                  <li>
-                    Exécutez le JavaScript généré :{" "}
-                    <code className="bg-gray-200 px-2 py-1 rounded">
-                      node nom-du-fichier.js
-                    </code>
-                  </li>
-                </ol>
-
-                <div className="bg-gray-900 rounded-lg p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-300 font-mono text-sm">
-                      🔷 Quiz TypeScript
-                    </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `console.log("Quiz : Que va afficher ce code ?");
-
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`,
-                          "quiz-ts"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le quiz
-                    </button>
-                  </div>
-                  <pre className="text-gray-100 font-mono text-sm">
-                    <code>{`console.log("Quiz : Que va afficher ce code ?");
-
-let nom: string = "Marie";
-let age: number = 25;
-let ville: string = "Paris";
-
-console.log("Nom: " + nom);
-console.log("Age: " + age);
-console.log("Ville: " + ville);
-
-// Question : Que va afficher ce code ?
-// Réponse : 
-// Nom: Marie
-// Age: 25
-// Ville: Paris`}</code>
+print("=" * 40)
+print(f"📧 Emails uniques : {len(emails)}")
+print("=" * 40)`}</code>
                   </pre>
                 </div>
               </div>
@@ -825,10 +730,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Variables = Boîtes étiquetées
+                        Listes = Collections ordonnées
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Stockent des données avec un nom
+                        Pour stocker des éléments dans un ordre
                       </p>
                     </div>
                   </div>
@@ -836,10 +741,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Typage dynamique
+                        Dictionnaires = Clé-valeur
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Python et JS changent le type automatiquement
+                        Pour associer des données
                       </p>
                     </div>
                   </div>
@@ -847,10 +752,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Typage statique
+                        Ensembles = Éléments uniques
                       </h4>
                       <p className="text-sm text-gray-600">
-                        TypeScript vérifie les types à la compilation
+                        Pour éviter les doublons
                       </p>
                     </div>
                   </div>
@@ -860,10 +765,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Mots-clés différents
+                        Performance différente
                       </h4>
                       <p className="text-sm text-gray-600">
-                        let/const (JS/TS) vs direct (Python)
+                        Chaque collection a ses avantages
                       </p>
                     </div>
                   </div>
@@ -871,10 +776,10 @@ console.log("Ville: " + ville);
                     <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-800">
-                        Convention de nommage
+                        Méthodes spécifiques
                       </h4>
                       <p className="text-sm text-gray-600">
-                        snake_case (Python) vs camelCase (JS/TS)
+                        Chaque langage a ses particularités
                       </p>
                     </div>
                   </div>
@@ -885,7 +790,7 @@ console.log("Ville: " + ville);
                         Pratique essentielle
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Base de toute programmation
+                        Base de la manipulation de données
                       </p>
                     </div>
                   </div>
@@ -903,22 +808,22 @@ console.log("Ville: " + ville);
                 🚀 Prêt pour la suite ?
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que vous maîtrisez les variables, passez aux
-                fonctions !
+                Maintenant que vous maîtrisez les collections, passez aux
+                fonctions de haut niveau !
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Cours 2 : Fonctions comparatives
+                    Cours 5 : Fonctions de haut niveau
                   </h3>
                   <p className="text-gray-600">
-                    Définition et utilisation des fonctions dans les 3 langages
+                    map, filter, reduce et programmation fonctionnelle
                   </p>
                 </div>
                 <Link
-                  href="/fondamentaux/lecon-2"
+                  href="/fondamentaux/lecon-5"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <span>Continuer</span>

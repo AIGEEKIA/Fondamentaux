@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { forwardRef } from "react"
-import { ResponsiveContainer } from "recharts"
+import { forwardRef } from "react";
+import { ResponsiveContainer } from "recharts";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface ChartContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  config?: Record<string, any>
+  config?: Record<string, any>;
 }
 
 const ChartContainer = forwardRef<HTMLDivElement, ChartContainerProps>(
@@ -14,46 +14,47 @@ const ChartContainer = forwardRef<HTMLDivElement, ChartContainerProps>(
     return (
       <div ref={ref} className={cn("w-full", className)} {...props}>
         <ResponsiveContainer width="100%" height="100%">
-          {children}
+          {children as React.ReactElement}
         </ResponsiveContainer>
       </div>
-    )
+    );
   }
-)
-ChartContainer.displayName = "ChartContainer"
+);
+ChartContainer.displayName = "ChartContainer";
 
 interface ChartTooltipProps {
-  children: React.ReactNode
-  className?: string
-  cursor?: boolean
-  content?: React.ReactNode
+  children: React.ReactNode;
+  className?: string;
+  cursor?: boolean;
+  content?: React.ReactNode;
 }
 
-const ChartTooltip = ({ children, className, cursor, content }: ChartTooltipProps) => {
-  return (
-    <div className={cn("", className)}>
-      {children}
-    </div>
-  )
-}
+const ChartTooltip = ({
+  children,
+  className,
+  cursor,
+  content,
+}: ChartTooltipProps) => {
+  return <div className={cn("", className)}>{children}</div>;
+};
 
 interface ChartTooltipContentProps {
-  active?: boolean
-  payload?: any[]
-  label?: string
-  nameKey?: string
-  hideLabel?: boolean
+  active?: boolean;
+  payload?: any[];
+  label?: string;
+  nameKey?: string;
+  hideLabel?: boolean;
 }
 
-const ChartTooltipContent = ({ 
-  active, 
-  payload, 
-  label, 
+const ChartTooltipContent = ({
+  active,
+  payload,
+  label,
   nameKey = "name",
-  hideLabel = false 
+  hideLabel = false,
 }: ChartTooltipContentProps) => {
   if (!active || !payload) {
-    return null
+    return null;
   }
 
   return (
@@ -78,7 +79,9 @@ const ChartTooltipContent = ({
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { ChartContainer, ChartTooltip, ChartTooltipContent } 
+export type ChartConfig = Record<string, { label: string; color?: string }>;
+
+export { ChartContainer, ChartTooltip, ChartTooltipContent };
