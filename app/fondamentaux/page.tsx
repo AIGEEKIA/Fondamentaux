@@ -216,17 +216,16 @@ export default function FondamentauxPage() {
           </Card>
         </section>
 
-        {/* Les 4 Concepts Fondamentaux */}
+        {/* Les 5 Cours Fondamentaux */}
         <section className="mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">
-            🎯 Les 4 Concepts Fondamentaux
+            🎯 Les 5 Cours Fondamentaux
           </h2>
           <p className="text-xl text-center text-gray-600 mb-8">
-            Chaque concept regroupe plusieurs cours pour une progression
-            optimale
+            Les bases essentielles pour maîtriser la programmation
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Concept 1 : Algorithmie */}
             <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl">
               <CardHeader className="text-center">
@@ -423,34 +422,22 @@ export default function FondamentauxPage() {
                   ⚡ Gestion d'état
                 </CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                  Programmation moderne (Cours 7-25)
+                  Programmation moderne (Cours 11-15)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <Link
-                    href="/fondamentaux/lecon-7"
+                    href="/fondamentaux/lecon-11"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-blue-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
-                        Cours 7 : Programmation asynchrone
+                        Cours 11 : Gestion d'état et programmation asynchrone
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-blue-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-200" />
-                  </Link>
-                  <Link
-                    href="/fondamentaux/lecon-8"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
-                  >
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 8-11 : Outils IA et MCP
-                      </span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-12"
@@ -459,31 +446,43 @@ export default function FondamentauxPage() {
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 12-18 : Architectures avancées
+                        Cours 12 : Gestion d'erreurs et exceptions
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-19"
+                    href="/fondamentaux/lecon-13"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 19-25 : Patterns modernes
+                        Cours 13 : Programmation orientée objet (POO)
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-26"
+                    href="/fondamentaux/lecon-14"
                     className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Tests, sécurité, déploiement
+                        Cours 14 : Modules et packages
+                      </span>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
+                  </Link>
+                  <Link
+                    href="/fondamentaux/lecon-15"
+                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                  >
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
+                        Cours 15 : Tests et débogage
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
@@ -492,7 +491,7 @@ export default function FondamentauxPage() {
                 <div className="mt-6 pt-4 border-t border-blue-200">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-purple-600 font-semibold">
-                      19 cours
+                      5 cours
                     </span>
                     <Link
                       href="/fondamentaux/gestion-etat"
