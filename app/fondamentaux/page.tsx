@@ -267,7 +267,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-3"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -279,7 +279,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-4"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -291,7 +291,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-5"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -336,7 +336,7 @@ export default function FondamentauxPage() {
                 <div className="space-y-3">
                   <Link
                     href="/fondamentaux/lecon-6"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -348,7 +348,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-7"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -360,7 +360,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-8"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -372,7 +372,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-9"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -384,7 +384,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-10"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -441,7 +441,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-12"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -453,7 +453,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-13"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -465,7 +465,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-14"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -477,7 +477,7 @@ export default function FondamentauxPage() {
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-15"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -515,67 +515,67 @@ export default function FondamentauxPage() {
                   🛡️ DevOps & Sécurité
                 </CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                  Cours avancés (Cours 26-37)
+                  Cours avancés (Cours 16-20)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <Link
-                    href="/fondamentaux/lecon-26"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    href="/fondamentaux/lecon-16"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 26-28 : Observabilité et monitoring
+                        Cours 16 : Observabilité et Monitoring
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-29"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    href="/fondamentaux/lecon-17"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 29-31 : Automatisation et GitOps
+                        Cours 17 : Automatisation et GitOps
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-32"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    href="/fondamentaux/lecon-18"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 32-34 : Sécurité cloud et Zero Trust
+                        Cours 18 : Sécurité Cloud et Zero Trust
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-35"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    href="/fondamentaux/lecon-19"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 35-37 : IA et sécurité avancée
+                        Cours 19 : IA et Sécurité Avancée
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-37"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    href="/fondamentaux/lecon-20"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Threat Hunting et DevSecOps
+                        Cours 20 : Threat Hunting et DevSecOps
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
@@ -584,7 +584,7 @@ export default function FondamentauxPage() {
                 <div className="mt-6 pt-4 border-t border-blue-200">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-purple-600 font-semibold">
-                      12 cours
+                      5 cours
                     </span>
                     <Link
                       href="/fondamentaux/devops-securite"
