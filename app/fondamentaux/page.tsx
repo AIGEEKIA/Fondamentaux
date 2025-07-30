@@ -225,9 +225,9 @@ export default function FondamentauxPage() {
             Les bases essentielles pour maîtriser la programmation
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Concept 1 : Algorithmie */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Code className="h-8 w-8 text-white" />
@@ -243,19 +243,19 @@ export default function FondamentauxPage() {
                 <div className="space-y-3">
                   <Link
                     href="/fondamentaux/lecon-1"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 1 : Variables Python/JS/TS + mini-appli Cursor
+                        Cours 1 : Variables
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
                     href="/fondamentaux/lecon-2"
-                    className="flex items-center justify-between w-full bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-purple-50 p-3 rounded-lg transition-all duration-200 group shadow-sm hover:shadow-md"
+                    className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform duration-200" />
@@ -320,7 +320,7 @@ export default function FondamentauxPage() {
             </Card>
 
             {/* Concept 2 : Scope & Closures */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Brain className="h-8 w-8 text-white" />
@@ -413,7 +413,7 @@ export default function FondamentauxPage() {
             </Card>
 
             {/* Concept 3 : Gestion d'état */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Users className="h-8 w-8 text-white" />
@@ -506,7 +506,7 @@ export default function FondamentauxPage() {
             </Card>
 
             {/* Concept 4 : DevOps & Sécurité */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Shield className="h-8 w-8 text-white" />
