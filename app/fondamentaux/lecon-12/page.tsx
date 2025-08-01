@@ -433,11 +433,11 @@ executerOperation();`;
                 <span>L'Architecte</span>
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
               >
-                <Brain className="h-5 w-5" />
-                <span>Les Fondamentaux</span>
+                <Home className="h-5 w-5" />
+                <span>Accueil</span>
               </Link>
               <Link
                 href="/fondamentaux/installation-python"
@@ -459,11 +459,8 @@ executerOperation();`;
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-blue-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
@@ -534,7 +531,8 @@ executerOperation();`;
                 🌟 Analogies Simples
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Trois façons de comprendre la gestion d'erreurs selon votre univers
+                Trois façons de comprendre la gestion d'erreurs selon votre
+                univers
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -704,7 +702,8 @@ executerOperation();`;
                 🚀 Prêt pour la suite ?
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que vous maîtrisez la gestion d'erreurs, passez à la POO !
+                Maintenant que vous maîtrisez la gestion d'erreurs, passez à la
+                POO !
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -713,9 +712,7 @@ executerOperation();`;
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     Cours 13 : Programmation orientée objet (POO)
                   </h3>
-                  <p className="text-gray-600">
-                    Classes, objets et héritage
-                  </p>
+                  <p className="text-gray-600">Classes, objets et héritage</p>
                 </div>
                 <Link
                   href="/fondamentaux/lecon-13"
@@ -731,4 +728,4 @@ executerOperation();`;
       </main>
     </div>
   );
-} 
+}

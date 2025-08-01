@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle, GitBranch, Zap, Settings, Workflow } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Monitor, Activity, AlertTriangle, BarChart3 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-export default function Lecon27Page() {
+export default function Lecon16Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Header */}
@@ -17,8 +17,8 @@ export default function Lecon27Page() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                <GitBranch className="h-6 w-6 text-blue-600" />
-                <span className="text-lg font-semibold text-gray-800">Cours 27</span>
+                <Monitor className="h-6 w-6 text-blue-600" />
+                <span className="text-lg font-semibold text-gray-800">Cours 16</span>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@ export default function Lecon27Page() {
             <span>/</span>
             <Link href="/fondamentaux" className="hover:text-blue-700">Fondamentaux</Link>
             <span>/</span>
-            <span className="text-blue-800 font-medium">Automatisation et GitOps</span>
+            <span className="text-blue-800 font-medium">Observabilité et Monitoring</span>
           </div>
         </div>
       </nav>
@@ -42,10 +42,10 @@ export default function Lecon27Page() {
         {/* Titre et objectifs */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            ⚡ Automatisation et GitOps
+            🛡️ Observabilité et Monitoring
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Automatiser vos déploiements et gérer l'infrastructure comme du code
+            Surveiller, analyser et optimiser vos applications en temps réel
           </p>
         </div>
 
@@ -60,39 +60,39 @@ export default function Lecon27Page() {
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <h3 className="font-semibold text-blue-700">🔄 CI/CD Pipelines</h3>
+                <h3 className="font-semibold text-blue-700">📊 Monitoring d'applications</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Intégration continue</li>
-                  <li>• Déploiement continu</li>
-                  <li>• Tests automatisés</li>
-                  <li>• Rollback automatique</li>
+                  <li>• Métriques de performance</li>
+                  <li>• Temps de réponse</li>
+                  <li>• Taux d'erreur</li>
+                  <li>• Utilisation des ressources</li>
                 </ul>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-blue-700">🏗️ Infrastructure as Code</h3>
+                <h3 className="font-semibold text-blue-700">📈 Logs et métriques</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Terraform/CloudFormation</li>
-                  <li>• Configuration management</li>
-                  <li>• Versioning de l'infra</li>
-                  <li>• Multi-environnements</li>
+                  <li>• Centralisation des logs</li>
+                  <li>• Agrégation de métriques</li>
+                  <li>• Corrélation d'événements</li>
+                  <li>• Analyse temporelle</li>
                 </ul>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-blue-700">📦 GitOps Workflows</h3>
+                <h3 className="font-semibold text-blue-700">🚨 Alerting et dashboards</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Git comme source de vérité</li>
-                  <li>• ArgoCD/Flux</li>
-                  <li>• Pull-based deployments</li>
-                  <li>• Drift detection</li>
+                  <li>• Seuils d'alerte</li>
+                  <li>• Notifications</li>
+                  <li>• Dashboards temps réel</li>
+                  <li>• Escalade automatique</li>
                 </ul>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-blue-700">🤖 Automatisation avancée</h3>
+                <h3 className="font-semibold text-blue-700">🔍 Observabilité avancée</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Self-healing systems</li>
-                  <li>• Auto-scaling</li>
+                  <li>• Distributed tracing</li>
+                  <li>• APM (Application Performance Monitoring)</li>
+                  <li>• SLO/SLI</li>
                   <li>• Chaos engineering</li>
-                  <li>• Blue-green deployments</li>
                 </ul>
               </div>
             </div>
@@ -104,14 +104,14 @@ export default function Lecon27Page() {
           <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-green-800">
-                🏭 Usine robotisée
+                🏥 Hôpital
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
-                Comme une usine moderne où les robots assemblent automatiquement les produits. 
-                Chaque étape est programmée, testée et exécutée sans intervention humaine. 
-                Si un problème survient, le système s'arrête et alerte.
+                Comme un hôpital qui surveille les signes vitaux des patients en temps réel. 
+                Les moniteurs affichent le rythme cardiaque, la tension, la température. 
+                Les alertes se déclenchent quand un paramètre sort de la normale.
               </p>
             </CardContent>
           </Card>
@@ -119,14 +119,14 @@ export default function Lecon27Page() {
           <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-purple-800">
-                🏠 Maison intelligente
+                🚗 Voiture connectée
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
-                Comme une maison connectée où tout est automatisé : éclairage, chauffage, 
-                sécurité. Les règles sont définies dans un système central et s'exécutent 
-                automatiquement selon les conditions.
+                Comme une voiture moderne avec ses capteurs qui surveillent l'huile, 
+                la température, la pression des pneus. Le tableau de bord affiche 
+                toutes les métriques importantes en temps réel.
               </p>
             </CardContent>
           </Card>
@@ -134,14 +134,14 @@ export default function Lecon27Page() {
           <Card className="bg-gradient-to-br from-orange-50 to-red-50 border-orange-200">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-orange-800">
-                🚗 Voiture autonome
+                🏭 Usine intelligente
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600">
-                Comme une voiture autonome qui suit un GPS et des règles de conduite. 
-                Elle s'adapte automatiquement aux conditions de route, freine si nécessaire, 
-                et suit le chemin défini sans intervention.
+                Comme une usine avec des capteurs partout qui surveillent la production, 
+                la qualité, les déchets. Les tableaux de bord montrent l'efficacité 
+                et alertent en cas de problème.
               </p>
             </CardContent>
           </Card>
@@ -153,160 +153,131 @@ export default function Lecon27Page() {
           
           <Card>
             <CardHeader>
-              <CardTitle className="text-blue-800">Python - Pipeline CI/CD avec GitHub Actions</CardTitle>
+              <CardTitle className="text-blue-800">Python - Monitoring avec Prometheus</CardTitle>
             </CardHeader>
             <CardContent>
               <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
-{`# .github/workflows/deploy.yml
-name: Deploy to Production
+{`from prometheus_client import Counter, Histogram, start_http_server
+import time
 
-on:
-  push:
-    branches: [main]
+# Métriques
+request_count = Counter('http_requests_total', 'Total HTTP requests')
+request_duration = Histogram('http_request_duration_seconds', 'HTTP request duration')
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-      
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install pytest
-      
-      - name: Run tests
-        run: pytest
+# Middleware de monitoring
+def monitor_requests(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        request_count.inc()
+        
+        try:
+            result = func(*args, **kwargs)
+            return result
+        finally:
+            duration = time.time() - start_time
+            request_duration.observe(duration)
+    
+    return wrapper
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Deploy to production
-        run: |
-          echo "Deploying to production..."
-          # Script de déploiement
-          ./deploy.sh production`}
+# Exemple d'utilisation
+@monitor_requests
+def api_endpoint():
+    time.sleep(0.1)  # Simulation d'un traitement
+    return {"status": "success"}
+
+# Démarrer le serveur de métriques
+start_http_server(8000)`}
               </pre>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-blue-800">JavaScript - Infrastructure as Code avec Terraform</CardTitle>
+              <CardTitle className="text-blue-800">JavaScript - Logging structuré</CardTitle>
             </CardHeader>
             <CardContent>
               <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
-{`// main.tf
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
+{`// Winston pour le logging structuré
+const winston = require('winston');
 
-provider "aws" {
-  region = "us-west-2"
-}
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+});
 
-# VPC
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+// Middleware de logging
+const logMiddleware = (req, res, next) => {
+  const start = Date.now();
   
-  tags = {
-    Name = "main-vpc"
-    Environment = "production"
-  }
-}
-
-# Subnet
-resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/24"
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    logger.info('HTTP Request', {
+      method: req.method,
+      url: req.url,
+      status: res.statusCode,
+      duration: duration,
+      userAgent: req.get('User-Agent')
+    });
+  });
   
-  tags = {
-    Name = "main-subnet"
-  }
-}
+  next();
+};
 
-# Security Group
-resource "aws_security_group" "app" {
-  name        = "app-sg"
-  description = "Security group for application"
-  vpc_id      = aws_vpc.main.id
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}`}
+// Exemple d'utilisation
+app.use(logMiddleware);`}
               </pre>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-blue-800">TypeScript - GitOps avec ArgoCD</CardTitle>
+              <CardTitle className="text-blue-800">TypeScript - APM avec Sentry</CardTitle>
             </CardHeader>
             <CardContent>
               <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
-{`// argocd-app.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: my-app
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/myorg/myapp
-    targetRevision: HEAD
-    path: k8s
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: production
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-    retry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
+{`import * as Sentry from '@sentry/node';
 
-// k8s/deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-app
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: my-app
-  template:
-    metadata:
-      labels:
-        app: my-app
-    spec:
-      containers:
-      - name: my-app
-        image: myapp:latest
-        ports:
-        - containerPort: 8080`}
+// Configuration Sentry
+Sentry.init({
+  dsn: 'your-sentry-dsn',
+  environment: process.env.NODE_ENV,
+  tracesSampleRate: 1.0,
+});
+
+// Monitoring de performance
+const performanceMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  const transaction = Sentry.startTransaction({
+    op: 'http.server',
+    name: \`\${req.method} \${req.path}\`,
+  });
+
+  Sentry.getCurrentHub().configureScope(scope => {
+    scope.setSpan(transaction);
+  });
+
+  res.on('finish', () => {
+    transaction.setTag('http.status_code', res.statusCode);
+    transaction.finish();
+  });
+
+  next();
+};
+
+// Monitoring d'erreurs
+const errorHandler = (error: Error, req: Request, res: Response, next: NextFunction) => {
+  Sentry.captureException(error);
+  res.status(500).json({ error: 'Internal Server Error' });
+};
+
+app.use(performanceMiddleware);
+app.use(errorHandler);`}
               </pre>
             </CardContent>
           </Card>
@@ -315,19 +286,18 @@ spec:
         {/* Mini-application concept */}
         <Card className="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
           <CardHeader>
-            <CardTitle className="text-purple-800">🎯 Mini-application : Pipeline CI/CD</CardTitle>
+            <CardTitle className="text-purple-800">🎯 Mini-application : Dashboard de monitoring</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-gray-700 mb-4">
-              Créez un pipeline CI/CD complet qui :
+              Créez un dashboard simple qui affiche :
             </p>
             <ul className="text-sm text-gray-600 space-y-2">
-              <li>• Détecte les changements dans Git</li>
-              <li>• Lance automatiquement les tests</li>
-              <li>• Construit l'image Docker</li>
-              <li>• Déploie en staging puis production</li>
-              <li>• Envoie des notifications Slack/Email</li>
-              <li>• Permet le rollback en un clic</li>
+              <li>• Métriques en temps réel (CPU, mémoire, réseau)</li>
+              <li>• Graphiques avec Chart.js ou D3.js</li>
+              <li>• Système d'alertes configurable</li>
+              <li>• Logs en temps réel avec filtres</li>
+              <li>• Notifications push pour les alertes critiques</li>
             </ul>
           </CardContent>
         </Card>
@@ -335,14 +305,14 @@ spec:
         {/* Navigation */}
         <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
                       <Link 
-              href="/fondamentaux/lecon-16" 
+              href="/fondamentaux/lecon-15" 
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Cours précédent
             </Link>
             <Link 
-              href="/fondamentaux/lecon-18" 
+              href="/fondamentaux/lecon-17" 
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
               Cours suivant

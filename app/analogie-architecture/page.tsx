@@ -11,8 +11,6 @@ import {
   Code,
   Shield,
   Home,
-  Menu,
-  X,
   ChefHat,
   GraduationCap,
 } from "lucide-react";
@@ -25,10 +23,9 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import HamburgerMenu from "@/components/hamburger-menu";
 
 export default function AnalogieArchitecturePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
       {/* Super Header Bandeau */}
@@ -73,68 +70,8 @@ export default function AnalogieArchitecturePage() {
         </div>
       </header>
 
-      {/* Menu hamburger en dehors du header - Aligné sur le même axe X */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        {/* Menu hamburger */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {/* Menu déroulant */}
-        {isMenuOpen && (
-          <div className="absolute top-16 right-0 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-blue-200/50 min-w-48 z-10">
-            <div className="p-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Home className="h-4 w-4" />
-                <span className="font-medium">Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <ChefHat className="h-4 w-4" />
-                <span className="font-medium">La Cuisine</span>
-              </Link>
-              <Link
-                href="/fondamentaux"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Brain className="h-4 w-4" />
-                <span className="font-medium">Les Fondamentaux</span>
-              </Link>
-              <Link
-                href="/fondamentaux/lecon-1"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <GraduationCap className="h-4 w-4" />
-                <span className="font-medium">Cours 1 : Variables</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Code className="h-4 w-4" />
-                <span className="font-medium">Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Menu hamburger */}
+      <HamburgerMenu currentPage="analogie-architecture" />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Super Bandeau Motivant */}

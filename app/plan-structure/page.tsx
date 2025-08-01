@@ -115,12 +115,12 @@ export default function PlanStructurePage() {
                 <span className="font-medium">L'Architecte</span>
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Brain className="h-4 w-4" />
-                <span className="font-medium">Les Fondamentaux</span>
+                <Home className="h-4 w-4" />
+                <span className="font-medium">Accueil</span>
               </Link>
               <Link
                 href="/fondamentaux/lecon-1"
@@ -613,7 +613,7 @@ export default function PlanStructurePage() {
   </h2>
   <div className="grid grid-cols-1 md:grid-cols-2 
     lg:grid-cols-4 gap-6 mb-8">
-    <Link href="/fondamentaux" className="block">
+    <Link href="/" className="block">
       <Card className="text-center hover:shadow-2xl 
         hover:shadow-blue-500/50 transition-all 
         duration-500 hover:-translate-y-3 
@@ -715,7 +715,7 @@ export default function PlanStructurePage() {
       Rejoignez des milliers d'apprenants qui ont 
       transformé leur carrière
     </p>
-    <Link href="/fondamentaux" 
+    <Link href="/" 
       className="bg-white text-blue-600 px-8 py-4 
       rounded-full font-bold text-xl 
       hover:bg-blue-50 transition-all duration-300 
@@ -839,18 +839,18 @@ export default function PlanStructurePage() {
               </Card>
             </Link>
 
-            {/* Fondamentaux */}
-            <Link href="/fondamentaux" className="block">
+            {/* Accueil */}
+            <Link href="/" className="block">
               <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 group cursor-pointer">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                    <Brain className="h-8 w-8 text-white" />
+                    <Home className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
-                    🧠 Les Fondamentaux
+                    🏠 Accueil
                   </CardTitle>
                   <CardDescription className="text-gray-600">
-                    4 concepts essentiels du développement
+                    Page principale de la formation
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -993,7 +993,7 @@ export default function PlanStructurePage() {
                 Retour à l'Accueil
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="bg-blue-700 text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-blue-800 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 Commencer la Formation

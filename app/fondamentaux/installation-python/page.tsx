@@ -106,7 +106,7 @@ export default function InstallationPythonPage() {
         </button>
 
         {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-purple-200 p-4 min-w-[200px]">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-purple-200 p-4 min-w-[250px] max-h-[80vh] overflow-y-auto">
             <div className="space-y-2">
               <Link
                 href="/"
@@ -115,13 +115,177 @@ export default function InstallationPythonPage() {
                 <Home className="h-5 w-5" />
                 <span>Accueil</span>
               </Link>
-              <Link
-                href="/fondamentaux/lecon-1"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Cours 1 : Variables</span>
-              </Link>
+
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
+                  Analogies
+                </h3>
+                <Link
+                  href="/analogie-cuisine"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <ChefHat className="h-5 w-5" />
+                  <span>La Cuisine</span>
+                </Link>
+                <Link
+                  href="/analogie-architecture"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <Building2 className="h-5 w-5" />
+                  <span>L'Architecte</span>
+                </Link>
+              </div>
+
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
+                  Installation
+                </h3>
+                <Link
+                  href="/fondamentaux/installation-python"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-purple-50 text-purple-700 font-medium"
+                >
+                  <Code className="h-5 w-5" />
+                  <span>Installation Python</span>
+                </Link>
+              </div>
+
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
+                  Cours Fondamentaux
+                </h3>
+                <Link
+                  href="/fondamentaux/lecon-1"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 1 : Variables</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-2"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 2 : Types de données</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-3"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 3 : Opérateurs</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-4"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 4 : Structures conditionnelles</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-5"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 5 : Boucles</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-6"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 6 : Fonctions</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-7"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 7 : Listes et tableaux</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-8"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 8 : Dictionnaires</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-9"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 9 : Classes et objets</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-10"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 10 : Gestion d'erreurs</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-11"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 11 : Modules et packages</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-12"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 12 : Fichiers et I/O</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-13"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 13 : Programmation asynchrone</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-14"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 14 : Tests unitaires</span>
+                </Link>
+                <Link
+                  href="/fondamentaux/lecon-15"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <GraduationCap className="h-5 w-5" />
+                  <span>Cours 15 : Projet final</span>
+                </Link>
+              </div>
+
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
+                  Langages
+                </h3>
+                <Link
+                  href="/langages/python"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <Code className="h-5 w-5" />
+                  <span>Python</span>
+                </Link>
+                <Link
+                  href="/langages/javascript"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <Code className="h-5 w-5" />
+                  <span>JavaScript</span>
+                </Link>
+                <Link
+                  href="/langages/typescript"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
+                >
+                  <Code className="h-5 w-5" />
+                  <span>TypeScript</span>
+                </Link>
+              </div>
             </div>
           </div>
         )}
@@ -135,11 +299,8 @@ export default function InstallationPythonPage() {
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-purple-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-purple-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
             <Link

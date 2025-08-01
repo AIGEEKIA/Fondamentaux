@@ -15,8 +15,6 @@ import {
   GraduationCap,
   Home,
   ArrowLeft,
-  Menu,
-  X,
   Target,
   Play,
   PenTool,
@@ -33,10 +31,9 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import HamburgerMenu from "@/components/hamburger-menu";
 
 export default function AnalogieCuisinePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100">
       {/* Super Header Bandeau */}
@@ -81,68 +78,8 @@ export default function AnalogieCuisinePage() {
         </div>
       </header>
 
-      {/* Menu hamburger en dehors du header - Aligné sur le même axe X */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        {/* Menu hamburger */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {/* Menu déroulant */}
-        {isMenuOpen && (
-          <div className="absolute top-16 right-0 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-blue-200/50 min-w-48 z-10">
-            <div className="p-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Home className="h-4 w-4" />
-                <span className="font-medium">Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <BookOpen className="h-4 w-4" />
-                <span className="font-medium">L'Architecte</span>
-              </Link>
-              <Link
-                href="/fondamentaux"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Brain className="h-4 w-4" />
-                <span className="font-medium">Les Fondamentaux</span>
-              </Link>
-              <Link
-                href="/fondamentaux/lecon-1"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <GraduationCap className="h-4 w-4" />
-                <span className="font-medium">Cours 1 : Variables</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 px-4 py-3 text-gray-800 hover:bg-blue-100 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Code className="h-4 w-4" />
-                <span className="font-medium">Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Menu hamburger */}
+      <HamburgerMenu currentPage="analogie-cuisine" />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Super Bandeau Motivant */}
@@ -1482,30 +1419,30 @@ export default function AnalogieCuisinePage() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Link href="/fondamentaux" className="block">
+                <Link href="/" className="block">
                   <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-indigo-600/10 shadow-xl hover:border-indigo-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-indigo-600/20 group cursor-pointer">
                     <CardHeader>
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300">
-                          <Brain className="h-6 w-6 text-white" />
+                          <Home className="h-6 w-6 text-white" />
                         </div>
                         <div>
                           <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-indigo-700 transition-colors duration-300">
-                            🧠 Les Fondamentaux
+                            🏠 Accueil
                           </CardTitle>
                           <CardDescription className="text-indigo-600 font-semibold">
-                            37 Cours Pratiques
+                            Page Principale
                           </CardDescription>
                         </div>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-700 mb-4">
-                        Découvrez les 4 concepts fondamentaux avec 37 cours
-                        pratiques pour maîtriser la programmation.
+                        Retournez à la page d'accueil pour découvrir tous les
+                        cours et ressources disponibles.
                       </p>
                       <div className="inline-flex items-center gap-2 text-indigo-600 group-hover:text-indigo-800 font-semibold transition-colors">
-                        Voir les fondamentaux <ArrowRight className="h-4 w-4" />
+                        Retour à l'accueil <ArrowRight className="h-4 w-4" />
                       </div>
                     </CardContent>
                   </Card>

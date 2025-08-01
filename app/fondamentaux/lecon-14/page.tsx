@@ -61,11 +61,7 @@ export default function Lecon14Page() {
     cuisine: {
       title: "🍳 Cuisine",
       description: "Les modules comme des étagères d'épices",
-      examples: [
-        "étagère = module",
-        "épice = fonction",
-        "cuisine = package",
-      ],
+      examples: ["étagère = module", "épice = fonction", "cuisine = package"],
       explanation:
         "En cuisine, les étagères d'épices sont comme des modules : elles organisent les ingrédients par catégorie. Toute la cuisine est le package.",
     },
@@ -83,11 +79,7 @@ export default function Lecon14Page() {
     jardinage: {
       title: "🌱 Jardinage",
       description: "Les modules comme des zones de culture",
-      examples: [
-        "zone = module",
-        "plante = fonction",
-        "jardin = package",
-      ],
+      examples: ["zone = module", "plante = fonction", "jardin = package"],
       explanation:
         "Au jardin, les zones de culture sont comme des modules : elles organisent les plantes par type. Tout le jardin est le package.",
     },
@@ -802,11 +794,11 @@ calcAvancee.multiplication(4, 6);`;
                 <span>L'Architecte</span>
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
               >
-                <Brain className="h-5 w-5" />
-                <span>Les Fondamentaux</span>
+                <Home className="h-5 w-5" />
+                <span>Accueil</span>
               </Link>
               <Link
                 href="/fondamentaux/installation-python"
@@ -828,11 +820,8 @@ calcAvancee.multiplication(4, 6);`;
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-blue-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
@@ -1082,9 +1071,7 @@ calcAvancee.multiplication(4, 6);`;
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     Cours 15 : Tests et débogage
                   </h3>
-                  <p className="text-gray-600">
-                    Vérifier et corriger le code
-                  </p>
+                  <p className="text-gray-600">Vérifier et corriger le code</p>
                 </div>
                 <Link
                   href="/fondamentaux/lecon-15"
@@ -1100,4 +1087,4 @@ calcAvancee.multiplication(4, 6);`;
       </main>
     </div>
   );
-} 
+}

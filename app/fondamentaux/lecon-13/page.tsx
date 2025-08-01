@@ -79,11 +79,7 @@ export default function Lecon13Page() {
     jardinage: {
       title: "🌱 Jardinage",
       description: "Les classes comme des espèces de plantes",
-      examples: [
-        "espèce = classe",
-        "plante = objet",
-        "variétés = héritage",
-      ],
+      examples: ["espèce = classe", "plante = objet", "variétés = héritage"],
       explanation:
         "Au jardin, une espèce de plante est comme une classe. Chaque plante individuelle est un objet unique avec ses propres caractéristiques.",
     },
@@ -600,11 +596,11 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
                 <span>L'Architecte</span>
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
               >
-                <Brain className="h-5 w-5" />
-                <span>Les Fondamentaux</span>
+                <Home className="h-5 w-5" />
+                <span>Accueil</span>
               </Link>
               <Link
                 href="/fondamentaux/installation-python"
@@ -626,16 +622,11 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-blue-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-blue-600 font-semibold">
-              Cours 13 : POO
-            </span>
+            <span className="text-blue-600 font-semibold">Cours 13 : POO</span>
           </div>
         </nav>
 
@@ -898,4 +889,4 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
       </main>
     </div>
   );
-} 
+}

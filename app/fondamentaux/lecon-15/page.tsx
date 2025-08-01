@@ -730,11 +730,11 @@ testProperty(testAdditionCommutative, 50);`;
                 <span>L'Architecte</span>
               </Link>
               <Link
-                href="/fondamentaux"
+                href="/"
                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
               >
-                <Brain className="h-5 w-5" />
-                <span>Les Fondamentaux</span>
+                <Home className="h-5 w-5" />
+                <span>Accueil</span>
               </Link>
               <Link
                 href="/fondamentaux/installation-python"
@@ -756,11 +756,8 @@ testProperty(testAdditionCommutative, 50);`;
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-blue-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
@@ -1011,10 +1008,10 @@ testProperty(testAdditionCommutative, 50);`;
                   <p className="text-gray-600">Explorez les autres sections</p>
                 </div>
                 <Link
-                  href="/fondamentaux"
+                  href="/"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  <span>Retour</span>
+                  <span>Retour à l'Accueil</span>
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>

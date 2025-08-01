@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowLeft, CheckCircle, Shield, Lock, Eye, Key } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-export default function Lecon28Page() {
+export default function Lecon18Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Header */}
@@ -18,7 +18,7 @@ export default function Lecon28Page() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <Shield className="h-6 w-6 text-blue-600" />
-                <span className="text-lg font-semibold text-gray-800">Cours 28</span>
+                <span className="text-lg font-semibold text-gray-800">Cours 18</span>
               </div>
             </div>
           </div>

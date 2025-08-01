@@ -7,8 +7,6 @@ import {
   Database,
   Cloud,
   Home,
-  Menu,
-  X,
   BookOpen,
   ChefHat,
   ArrowRight,
@@ -42,9 +40,9 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import HamburgerMenu from "@/components/hamburger-menu";
 
 export default function Lecon1Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -186,60 +184,7 @@ console.log("Nouveau nom: " + nom);`;
       </header>
 
       {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/fondamentaux"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Brain className="h-5 w-5" />
-                <span>Les Fondamentaux</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      <HamburgerMenu currentPage="lecon-1" />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -249,11 +194,8 @@ console.log("Nouveau nom: " + nom);`;
               Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link
-              href="/fondamentaux"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Fondamentaux
+            <Link href="/" className="hover:text-blue-600 transition-colors">
+              Accueil
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-semibold">
