@@ -15,6 +15,35 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
 # Fichiers markdown source (ignorés)
 *.md
 !README.md
+
+# Dossiers de développement et backup
+backup-cours-16-20/
+html-version/
+prompts/
+.ignore/
+.cursor/
+
+# Fichiers de configuration et logs
+check-mcp-status.sh
+.mcp-config.json
+TODO_AMELIORATIONS_COURS.md
+SOLUTION_RADICALE_PORTS.md
+plan-structure-github.md
+
+# Images et assets lourds
+Logo_AIGEEKIA.png
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Fichiers temporaires
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
