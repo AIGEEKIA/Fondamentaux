@@ -41,10 +41,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import HamburgerMenu from "@/components/hamburger-menu";
 import Image from "next/image";
 
 export default function Lecon9Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -386,62 +386,9 @@ instance.methode();`;
           </div>
         </div>
       </header>
+      <HamburgerMenu currentPage="lecon-9" />
 
       {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -593,19 +540,6 @@ instance.methode();`;
                         En savoir plus sur Python
                       </Link>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(pythonCode, "python")}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "python" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "python" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{pythonCode}</code>
@@ -626,21 +560,6 @@ instance.methode();`;
                         En savoir plus sur JavaScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(javascriptCode, "javascript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "javascript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "javascript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{javascriptCode}</code>
@@ -661,21 +580,6 @@ instance.methode();`;
                         En savoir plus sur TypeScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(typescriptCode, "typescript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "typescript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "typescript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{typescriptCode}</code>
@@ -769,94 +673,6 @@ instance.methode();`;
                     <span className="text-gray-300 font-mono text-sm">
                       🐍 Explorateur de Scope Python
                     </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `# Explorateur de Scope - Mini-Application
-
-print("🔗 EXPLORATEUR DE CHAÎNES DE SCOPE")
-print("=" * 60)
-
-# 1. SCOPE GLOBAL
-variable_globale = "🌍 Je suis globale"
-print("1️⃣ Variable globale:", variable_globale)
-
-def niveau_1():
-    # 2. SCOPE NIVEAU 1
-    variable_niveau_1 = "🔧 Je suis au niveau 1"
-    print("2️⃣ Dans niveau_1 - globale:", variable_globale)
-    print("2️⃣ Dans niveau_1 - locale:", variable_niveau_1)
-    
-    def niveau_2():
-        # 3. SCOPE NIVEAU 2
-        variable_niveau_2 = "🔧 Je suis au niveau 2"
-        print("3️⃣ Dans niveau_2 - globale:", variable_globale)
-        print("3️⃣ Dans niveau_2 - niveau_1:", variable_niveau_1)
-        print("3️⃣ Dans niveau_2 - locale:", variable_niveau_2)
-        
-        def niveau_3():
-            # 4. SCOPE NIVEAU 3
-            variable_niveau_3 = "🔧 Je suis au niveau 3"
-            print("4️⃣ Dans niveau_3 - globale:", variable_globale)
-            print("4️⃣ Dans niveau_3 - niveau_1:", variable_niveau_1)
-            print("4️⃣ Dans niveau_3 - niveau_2:", variable_niveau_2)
-            print("4️⃣ Dans niveau_3 - locale:", variable_niveau_3)
-        
-        niveau_3()
-    
-    niveau_2()
-
-# Test de la chaîne de scope
-print("\\n🔗 TEST CHAÎNE DE SCOPE:")
-niveau_1()
-
-# 5. RÉSOLUTION DE VARIABLES
-print("\\n🔍 TEST RÉSOLUTION:")
-x = "globale"
-
-def test_resolution():
-    x = "locale"
-    print("X dans test_resolution:", x)
-    
-    def sous_fonction():
-        x = "sous-locale"
-        print("X dans sous_fonction:", x)
-    
-    sous_fonction()
-    print("X après sous_fonction:", x)
-
-test_resolution()
-print("X après test_resolution:", x)
-
-# 6. NONLOCAL ET GLOBAL
-print("\\n🌍 TEST NONLOCAL ET GLOBAL:")
-compteur_global = 0
-
-def createur_compteur():
-    compteur_local = 0
-    
-    def incrementer():
-        nonlocal compteur_local
-        global compteur_global
-        compteur_local += 1
-        compteur_global += 10
-        print(f"🔢 Local: {compteur_local}, Global: {compteur_global}")
-    
-    return incrementer
-
-mon_compteur = createur_compteur()
-mon_compteur()  # Local: 1, Global: 10
-mon_compteur()  # Local: 2, Global: 20
-
-print("=" * 60)`,
-                          "explorateur"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier l'explorateur
-                    </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
                     <code>{`# Explorateur de Scope - Mini-Application

@@ -1,4 +1,4 @@
-# Formation IA - Les Fondamentaux
+# FORMATION DEV CODEUR IA - LES FONDAMENTAUX INDISPENSABLES
 
 Une formation interactive et moderne sur les fondamentaux de l'IA pour les développeurs, construite avec Next.js et TypeScript.
 

@@ -41,10 +41,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import HamburgerMenu from "@/components/hamburger-menu";
 import Image from "next/image";
 
 export default function Lecon10Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -430,62 +430,9 @@ fonctionTest();`;
           </div>
         </div>
       </header>
+      <HamburgerMenu currentPage="lecon-10" />
 
       {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -636,19 +583,6 @@ fonctionTest();`;
                         En savoir plus sur Python
                       </Link>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(pythonCode, "python")}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "python" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "python" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{pythonCode}</code>
@@ -669,21 +603,6 @@ fonctionTest();`;
                         En savoir plus sur JavaScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(javascriptCode, "javascript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "javascript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "javascript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{javascriptCode}</code>
@@ -704,21 +623,6 @@ fonctionTest();`;
                         En savoir plus sur TypeScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(typescriptCode, "typescript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "typescript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "typescript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{typescriptCode}</code>
@@ -812,107 +716,6 @@ fonctionTest();`;
                     <span className="text-gray-300 font-mono text-sm">
                       🐍 Gestionnaire de Tâches avec Closures
                     </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `# Gestionnaire de Tâches - Mini-Application
-
-print("📋 GESTIONNAIRE DE TÂCHES AVEC CLOSURES")
-print("=" * 60)
-
-# 1. CRÉATEUR DE GESTIONNAIRE
-def createur_gestionnaire():
-    taches = []
-    
-    def ajouter_tache(tache):
-        taches.append({"tache": tache, "terminee": False})
-        print(f"✅ Tâche ajoutée: {tache}")
-    
-    def terminer_tache(index):
-        if 0 <= index < len(taches):
-            taches[index]["terminee"] = True
-            print(f"🎯 Tâche terminée: {taches[index]['tache']}")
-        else:
-            print("❌ Index invalide")
-    
-    def voir_taches():
-        if not taches:
-            print("📝 Aucune tâche")
-            return
-        
-        print("\\n📋 Liste des tâches:")
-        for i, tache in enumerate(taches):
-            statut = "✅" if tache["terminee"] else "⏳"
-            print(f"{i}. {statut} {tache['tache']}")
-    
-    def supprimer_tache(index):
-        if 0 <= index < len(taches):
-            tache_supprimee = taches.pop(index)
-            print(f"🗑️ Tâche supprimée: {tache_supprimee['tache']}")
-        else:
-            print("❌ Index invalide")
-    
-    return ajouter_tache, terminer_tache, voir_taches, supprimer_tache
-
-# 2. UTILISATION DU GESTIONNAIRE
-ajouter, terminer, voir, supprimer = createur_gestionnaire()
-
-print("\\n🔧 Test du gestionnaire:")
-ajouter("Apprendre les closures")
-ajouter("Faire des exercices")
-ajouter("Créer un projet")
-
-voir()
-
-terminer(0)
-voir()
-
-supprimer(1)
-voir()
-
-# 3. COMPTEUR DE TÂCHES
-def createur_compteur_taches():
-    total = 0
-    terminees = 0
-    
-    def ajouter():
-        nonlocal total
-        total += 1
-        print(f"📊 Total: {total}, Terminées: {terminees}")
-    
-    def terminer():
-        nonlocal terminees
-        if terminees < total:
-            terminees += 1
-            print(f"📊 Total: {total}, Terminées: {terminees}")
-        else:
-            print("❌ Toutes les tâches sont déjà terminées")
-    
-    def statistiques():
-        return f"📊 {terminees}/{total} tâches terminées"
-    
-    return ajouter, terminer, statistiques
-
-ajouter_compteur, terminer_compteur, stats = createur_compteur_taches()
-
-print("\\n📊 Test du compteur:")
-ajouter_compteur()
-ajouter_compteur()
-ajouter_compteur()
-print(stats())
-terminer_compteur()
-terminer_compteur()
-print(stats())
-
-print("=" * 60)`,
-                          "gestionnaire"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le gestionnaire
-                    </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
                     <code>{`# Gestionnaire de Tâches - Mini-Application

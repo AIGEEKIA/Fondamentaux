@@ -41,10 +41,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import HamburgerMenu from "@/components/hamburger-menu";
 import Image from "next/image";
 
 export default function Lecon6Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -322,62 +322,7 @@ console.log("Fibonacci(10):", fibonacciMemoise(10));`;
           </div>
         </div>
       </header>
-
-      {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      <HamburgerMenu currentPage="lecon-6" />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -529,19 +474,6 @@ console.log("Fibonacci(10):", fibonacciMemoise(10));`;
                         En savoir plus sur Python
                       </Link>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(pythonCode, "python")}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "python" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "python" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{pythonCode}</code>
@@ -562,21 +494,6 @@ console.log("Fibonacci(10):", fibonacciMemoise(10));`;
                         En savoir plus sur JavaScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(javascriptCode, "javascript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "javascript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "javascript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{javascriptCode}</code>
@@ -597,21 +514,6 @@ console.log("Fibonacci(10):", fibonacciMemoise(10));`;
                         En savoir plus sur TypeScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(typescriptCode, "typescript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "typescript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "typescript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{typescriptCode}</code>
@@ -705,72 +607,6 @@ console.log("Fibonacci(10):", fibonacciMemoise(10));`;
                     <span className="text-gray-300 font-mono text-sm">
                       🐍 Gestionnaire de Cache Python
                     </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `# Gestionnaire de Cache - Mini-Application
-
-# Variable globale
-cache_global = {}
-
-def createur_cache():
-    """Crée un cache local avec closure"""
-    cache_local = {}
-    
-    def ajouter(cle, valeur):
-        cache_local[cle] = valeur
-        print(f"✅ Ajouté au cache local: {cle} = {valeur}")
-    
-    def obtenir(cle):
-        if cle in cache_local:
-            print(f"🎯 Trouvé dans le cache local: {cle}")
-            return cache_local[cle]
-        else:
-            print(f"❌ Non trouvé dans le cache local: {cle}")
-            return None
-    
-    def afficher():
-        print("📋 Cache local:", cache_local)
-    
-    return ajouter, obtenir, afficher
-
-print("🧠 GESTIONNAIRE DE CACHE AVEC CLOSURES")
-print("=" * 50)
-
-# Créer deux caches différents
-cache1_ajouter, cache1_obtenir, cache1_afficher = createur_cache()
-cache2_ajouter, cache2_obtenir, cache2_afficher = createur_cache()
-
-# Utiliser le premier cache
-print("\\n🔧 CACHE 1:")
-cache1_ajouter("utilisateur", "Alice")
-cache1_ajouter("age", 25)
-cache1_afficher()
-
-# Utiliser le deuxième cache
-print("\\n🔧 CACHE 2:")
-cache2_ajouter("produit", "Laptop")
-cache2_ajouter("prix", 999)
-cache2_afficher()
-
-# Tester l'isolation
-print("\\n🔍 TEST D'ISOLATION:")
-print("Cache 1 - utilisateur:", cache1_obtenir("utilisateur"))
-print("Cache 2 - utilisateur:", cache2_obtenir("utilisateur"))
-
-# Variable globale
-cache_global["config"] = "globale"
-print("\\n🌍 CACHE GLOBAL:", cache_global)
-
-print("=" * 50)`,
-                          "cache"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le gestionnaire
-                    </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
                     <code>{`# Gestionnaire de Cache - Mini-Application

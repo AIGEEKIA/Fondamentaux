@@ -41,10 +41,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import HamburgerMenu from "@/components/hamburger-menu";
 import Image from "next/image";
 
 export default function Lecon8Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -340,62 +340,9 @@ testTDZTypee();`;
           </div>
         </div>
       </header>
+      <HamburgerMenu currentPage="lecon-8" />
 
       {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -544,19 +491,6 @@ testTDZTypee();`;
                         En savoir plus sur Python
                       </Link>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(pythonCode, "python")}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "python" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "python" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{pythonCode}</code>
@@ -577,21 +511,6 @@ testTDZTypee();`;
                         En savoir plus sur JavaScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(javascriptCode, "javascript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "javascript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "javascript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{javascriptCode}</code>
@@ -612,21 +531,6 @@ testTDZTypee();`;
                         En savoir plus sur TypeScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(typescriptCode, "typescript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "typescript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "typescript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{typescriptCode}</code>
@@ -720,87 +624,6 @@ testTDZTypee();`;
                     <span className="text-gray-300 font-mono text-sm">
                       🐍 Testeur de Hoisting Python
                     </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `# Testeur de Hoisting - Mini-Application
-
-print("⬆️ TESTEUR DE HOISTING")
-print("=" * 50)
-
-# 1. PYTHON N'A PAS DE HOISTING
-print("🐍 Python n'a pas de hoisting !")
-print("Les variables doivent être déclarées avant utilisation")
-
-# 2. TEST D'ERREUR
-try:
-    print("Tentative d'accès à variable non déclarée:")
-    print(variable_inexistante)
-except NameError as e:
-    print("❌ Erreur:", e)
-
-# 3. DÉCLARATION NORMALE
-print("\\n✅ Déclaration normale:")
-nom = "Alice"
-print("Nom:", nom)
-
-# 4. FONCTIONS - Doivent être déclarées avant
-print("\\n🔧 Test de fonction:")
-def ma_fonction():
-    return "Hello depuis la fonction"
-
-resultat = ma_fonction()
-print("Résultat:", resultat)
-
-# 5. CLASSES - Doivent être déclarées avant
-print("\\n🏗️ Test de classe:")
-class MaClasse:
-    def __init__(self):
-        self.valeur = 42
-    
-    def get_valeur(self):
-        return self.valeur
-
-instance = MaClasse()
-print("Valeur de l'instance:", instance.get_valeur())
-
-# 6. SCOPE LOCAL
-print("\\n🔍 Test de scope local:")
-def test_scope():
-    try:
-        print("Tentative d'accès à x avant déclaration:")
-        print(x)
-    except NameError as e:
-        print("❌ Erreur:", e)
-    
-    x = 10
-    print("✅ Après déclaration:", x)
-
-test_scope()
-
-# 7. GLOBAL - Doit être déclaré
-print("\\n🌍 Test de variable globale:")
-compteur = 0
-
-def incrementer():
-    global compteur
-    compteur += 1
-    print("Compteur dans fonction:", compteur)
-
-incrementer()  # 1
-incrementer()  # 2
-print("Compteur global:", compteur)
-
-print("=" * 50)
-print("🐍 Python : Pas de hoisting, déclaration stricte !")`,
-                          "testeur"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le testeur
-                    </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
                     <code>{`# Testeur de Hoisting - Mini-Application

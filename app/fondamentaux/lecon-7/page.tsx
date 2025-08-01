@@ -41,10 +41,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import HamburgerMenu from "@/components/hamburger-menu";
 import Image from "next/image";
 
 export default function Lecon7Page() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
 
@@ -324,62 +324,9 @@ instance.methode();`;
           </div>
         </div>
       </header>
+      <HamburgerMenu currentPage="lecon-7" />
 
       {/* Menu hamburger */}
-      <div className="fixed top-28 right-16 z-50 flex flex-col items-center gap-2">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center justify-center w-12 h-12 bg-blue-600/90 backdrop-blur-sm rounded-full hover:bg-blue-700/90 transition-all duration-300 hover:scale-110 shadow-xl border border-blue-500/50"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className="h-6 w-6 text-white" />
-          )}
-        </button>
-
-        {isMenuOpen && (
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-blue-200 p-4 min-w-[200px]">
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/analogie-cuisine"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <ChefHat className="h-5 w-5" />
-                <span>La Cuisine</span>
-              </Link>
-              <Link
-                href="/analogie-architecture"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <BookOpen className="h-5 w-5" />
-                <span>L'Architecte</span>
-              </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Home className="h-5 w-5" />
-                <span>Accueil</span>
-              </Link>
-              <Link
-                href="/fondamentaux/installation-python"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors text-gray-700 hover:text-blue-700"
-              >
-                <Code className="h-5 w-5" />
-                <span>Installation Python</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -531,19 +478,6 @@ instance.methode();`;
                         En savoir plus sur Python
                       </Link>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(pythonCode, "python")}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "python" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "python" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{pythonCode}</code>
@@ -564,21 +498,6 @@ instance.methode();`;
                         En savoir plus sur JavaScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(javascriptCode, "javascript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "javascript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "javascript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{javascriptCode}</code>
@@ -599,21 +518,6 @@ instance.methode();`;
                         En savoir plus sur TypeScript
                       </Link>
                     </div>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(typescriptCode, "typescript")
-                      }
-                      className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {copiedCode === "typescript" ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <Copy size={16} />
-                      )}
-                      <span className="text-sm">
-                        {copiedCode === "typescript" ? "Copié !" : "Copier"}
-                      </span>
-                    </button>
                   </div>
                   <pre className="text-green-400 font-mono text-sm overflow-x-auto">
                     <code>{typescriptCode}</code>
@@ -707,71 +611,6 @@ instance.methode();`;
                     <span className="text-gray-300 font-mono text-sm">
                       🐍 Testeur de Scope Python
                     </span>
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          `# Testeur de Scope - Mini-Application
-
-print("🔧 TESTEUR DE SCOPE")
-print("=" * 50)
-
-# 1. SCOPE GLOBAL
-variable_globale = "Je suis globale"
-print("🌍 Variable globale:", variable_globale)
-
-# 2. SCOPE DE FONCTION
-def test_scope_fonction():
-    variable_fonction = "Je suis dans la fonction"
-    print("🔧 Dans la fonction:", variable_fonction)
-    print("🌍 Dans la fonction - globale:", variable_globale)
-
-test_scope_fonction()
-print("🔧 Après fonction - locale:", variable_fonction)  # Erreur !
-
-# 3. SCOPE DE BLOC (Python n'a pas de scope de bloc)
-if True:
-    variable_bloc = "Je suis dans le bloc"
-    print("📦 Dans le bloc:", variable_bloc)
-
-print("📦 Après bloc:", variable_bloc)  # Fonctionne en Python !
-
-# 4. SCOPE IMBRIQUÉ
-def fonction_externe():
-    x = "externe"
-    print("🔧 Externe - début:", x)
-    
-    def fonction_interne():
-        x = "interne"
-        print("🔧 Interne:", x)
-    
-    fonction_interne()
-    print("🔧 Externe - fin:", x)
-
-print("\\n🔧 TEST SCOPE IMBRIQUÉ:")
-fonction_externe()
-
-# 5. GLOBAL DANS FONCTION
-compteur = 0
-
-def incrementer():
-    global compteur
-    compteur += 1
-    print("🔢 Compteur:", compteur)
-
-print("\\n🔢 TEST GLOBAL:")
-incrementer()  # 1
-incrementer()  # 2
-print("🌍 Compteur global:", compteur)
-
-print("=" * 50)`,
-                          "testeur"
-                        )
-                      }
-                      className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Copy className="h-4 w-4" />
-                      Copier le testeur
-                    </button>
                   </div>
                   <pre className="text-gray-100 font-mono text-sm">
                     <code>{`# Testeur de Scope - Mini-Application
