@@ -95,7 +95,9 @@
 ```json
 {
   "lucide-react": "^0.294.0",
-  "@radix-ui/react-slot": "^1.0.2"
+  "@radix-ui/react-slot": "^1.0.2",
+  "clsx": "^2.0.0",
+  "tailwind-merge": "^2.0.0"
 }
 ```
 
@@ -105,10 +107,12 @@
 - Icônes vectorielles et personnalisables
 - Utilisé dans le menu hamburger
 
-**Radix UI**
+**Radix UI + shadcn/ui**
 
 - Composants UI primitifs et accessibles
 - Support WCAG pour l'accessibilité
+- Design system cohérent et personnalisable
+- Intégration parfaite avec Tailwind CSS
 
 ### **Visualisation de Données**
 

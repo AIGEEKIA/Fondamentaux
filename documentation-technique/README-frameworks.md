@@ -74,11 +74,47 @@
   - 📱 Support mobile
   - 🔄 Animations fluides
 
-### **7. Radix UI** - Composants Accessibles
+### **7. Radix UI + shadcn/ui** - Système de Composants Moderne
 
 - **@radix-ui/react-slot 1.0.2**
 - **Rôle** : Composants UI primitifs et accessibles
-- **Avantages** : Accessibilité WCAG, personnalisation totale
+- **Architecture** : Radix UI (primitifs) + shadcn/ui (design system)
+- **Avantages** :
+  - ♿ Accessibilité WCAG 2.1 AA native
+  - 🎨 Design system cohérent et personnalisable
+  - ⚡ Composants optimisés et légers
+  - 🎯 Intégration parfaite avec Tailwind CSS
+
+#### **🏗️ Architecture UI Détailée**
+
+```
+┌─────────────────┐
+│   shadcn/ui     │  ← Système de composants
+├─────────────────┤
+│   Radix UI      │  ← Composants primitifs accessibles
+├─────────────────┤
+│   Tailwind CSS  │  ← Framework CSS
+└─────────────────┘
+```
+
+#### **📁 Structure des Composants**
+
+- **`/components/ui/card.tsx`** : Composant Card shadcn/ui
+- **`/components/ui/chart.tsx`** : Composant Chart pour Recharts
+- **`/lib/utils.ts`** : Fonction `cn()` pour fusion des classes
+
+#### **🎯 Utilisation dans le Projet**
+
+```typescript
+// Importé dans toutes les pages
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+```
 
 ### **8. Utilitaires CSS Avancés**
 
@@ -146,7 +182,9 @@ fondamentauxV2/
   "tailwindcss": "^3.3.0",
   "lucide-react": "^0.294.0",
   "recharts": "^2.8.0",
-  "@radix-ui/react-slot": "^1.0.2"
+  "@radix-ui/react-slot": "^1.0.2",
+  "clsx": "^2.0.0",
+  "tailwind-merge": "^2.0.0"
 }
 ```
 
@@ -188,9 +226,10 @@ fondamentauxV2/
 
 ### **Accessibilité**
 
-- ♿ Composants Radix UI accessibles
-- 🎯 Navigation clavier
-- 📱 Support mobile
+- ♿ Composants Radix UI + shadcn/ui accessibles
+- 🎯 Navigation clavier native
+- 📱 Support mobile responsive
+- 🎨 Design system cohérent
 
 ---
 

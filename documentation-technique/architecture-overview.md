@@ -104,6 +104,64 @@ export default function HamburgerMenu({ currentPage }: HamburgerMenuProps) {
 - ✅ **Responsive** : Adapté mobile/desktop
 - ✅ **Accessible** : Support navigation clavier
 
+### **🏗️ Architecture UI Moderne**
+
+#### **Stack UI Complète**
+
+```
+┌─────────────────┐
+│   shadcn/ui     │  ← Système de composants
+├─────────────────┤
+│   Radix UI      │  ← Composants primitifs accessibles
+├─────────────────┤
+│   Tailwind CSS  │  ← Framework CSS
+└─────────────────┘
+```
+
+#### **Composants shadcn/ui Utilisés**
+
+- **Card Components** : Utilisés dans toutes les pages de leçons
+- **Chart Components** : Pour les graphiques de progression
+- **Utils** : Fonction `cn()` pour la fusion des classes
+
+#### **Structure des Composants UI**
+
+```
+components/
+├── ui/
+│   ├── card.tsx      # Composant Card shadcn/ui
+│   └── chart.tsx     # Composant Chart pour Recharts
+├── hamburger-menu.tsx # Menu hamburger personnalisé
+└── progress-chart.tsx # Graphique de progression
+```
+
+#### **Lib Utils**
+
+```
+lib/
+└── utils.ts          # Fonction cn() pour fusion des classes
+```
+
+#### **🎯 Avantages de l'Architecture UI**
+
+**Accessibilité**
+
+- ♿ **WCAG 2.1 AA** : Accessibilité native avec Radix UI
+- 🎯 **Navigation clavier** : Support complet
+- 📱 **Responsive** : Adaptation mobile/desktop
+
+**Performance**
+
+- ⚡ **Composants optimisés** : shadcn/ui léger et rapide
+- 🎨 **Design system cohérent** : Réutilisabilité maximale
+- 🔧 **Personnalisation facile** : Avec Tailwind CSS
+
+**Développement**
+
+- 🛠️ **DX excellente** : Composants prêts à l'emploi
+- 📚 **Documentation intégrée** : shadcn/ui bien documenté
+- 🔄 **Maintenance simplifiée** : Architecture modulaire
+
 ### **Pattern de Pages**
 
 ```typescript
