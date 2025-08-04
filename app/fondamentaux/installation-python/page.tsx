@@ -154,105 +154,105 @@ export default function InstallationPythonPage() {
                   Cours Fondamentaux
                 </h3>
                 <Link
-                  href="/fondamentaux/lecon-1"
+                  href="/fondamentaux/cours-1"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 1 : Variables</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-2"
+                  href="/fondamentaux/cours-2"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 2 : Types de données</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-3"
+                  href="/fondamentaux/cours-3"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 3 : Opérateurs</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-4"
+                  href="/fondamentaux/cours-4"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 4 : Structures conditionnelles</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-5"
+                  href="/fondamentaux/cours-5"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 5 : Boucles</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-6"
+                  href="/fondamentaux/cours-6"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 6 : Fonctions</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-7"
+                  href="/fondamentaux/cours-7"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 7 : Listes et tableaux</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-8"
+                  href="/fondamentaux/cours-8"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 8 : Dictionnaires</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-9"
+                  href="/fondamentaux/cours-9"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 9 : Classes et objets</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-10"
+                  href="/fondamentaux/cours-10"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 10 : Gestion d'erreurs</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-11"
+                  href="/fondamentaux/cours-11"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 11 : Modules et packages</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-12"
+                  href="/fondamentaux/cours-12"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 12 : Fichiers et I/O</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-13"
+                  href="/fondamentaux/cours-13"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 13 : Programmation asynchrone</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-14"
+                  href="/fondamentaux/cours-14"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
                   <span>Cours 14 : Tests unitaires</span>
                 </Link>
                 <Link
-                  href="/fondamentaux/lecon-15"
+                  href="/fondamentaux/cours-15"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-700"
                 >
                   <GraduationCap className="h-5 w-5" />
@@ -304,7 +304,7 @@ export default function InstallationPythonPage() {
             </Link>
             <ChevronRight className="h-4 w-4" />
             <Link
-              href="/fondamentaux/lecon-1"
+              href="/fondamentaux/cours-1"
               className="hover:text-purple-600 transition-colors"
             >
               Cours 1
@@ -436,7 +436,7 @@ export default function InstallationPythonPage() {
                     Vous verrez quelque chose comme "Python 3.11.0" - vous
                     pouvez retourner au{" "}
                     <Link
-                      href="/fondamentaux/lecon-1"
+                      href="/fondamentaux/cours-1"
                       className="text-blue-600 hover:text-blue-700 underline"
                     >
                       Cours 1
@@ -855,7 +855,7 @@ export default function InstallationPythonPage() {
                   <p className="text-green-700 text-sm">
                     Si tous les tests passent, vous êtes prêt pour le{" "}
                     <Link
-                      href="/fondamentaux/lecon-1"
+                      href="/fondamentaux/cours-1"
                       className="text-green-600 hover:text-green-700 underline font-semibold"
                     >
                       Cours 1 : Variables
@@ -890,7 +890,7 @@ export default function InstallationPythonPage() {
                   </p>
                 </div>
                 <Link
-                  href="/fondamentaux/lecon-1"
+                  href="/fondamentaux/cours-1"
                   className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <span>Commencer</span>

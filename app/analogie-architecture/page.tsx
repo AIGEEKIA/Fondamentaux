@@ -654,7 +654,7 @@ export default function AnalogieArchitecturePage() {
               Commencez par maîtriser les matériaux, puis construisez des
               bâtiments numériques extraordinaires.
             </p>
-            <Link href="/fondamentaux/lecon-1">
+            <Link href="/fondamentaux/cours-1">
               <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg">
                 Commencer la Construction
               </button>

@@ -1,0 +1,408 @@
+# 🌍 RÈGLES UNIVERSELLES - TOUS PROJETS
+
+## 🎯 **PRINCIPES FONDAMENTAUX**
+
+### **1. ARCHITECTURE OBLIGATOIRE**
+
+#### **Structure de Projet Standardisée**
+
+```
+projet/
+├── app/                    # App Router Next.js 13+
+│   ├── page.tsx           # Page d'accueil
+│   ├── layout.tsx         # Layout principal
+│   └── globals.css        # Styles globaux
+├── components/             # Composants réutilisables
+│   ├── ui/                # Composants shadcn/ui
+│   └── [nom].tsx          # Composants personnalisés
+├── lib/                   # Utilitaires
+│   └── utils.ts           # Fonctions utilitaires
+├── public/                # Assets statiques
+├── documentation/          # Documentation technique
+└── .cursor/rules/         # Règles Cursor
+```
+
+#### **Stack Technique Universelle**
+
+- ✅ **Next.js 15.4.5** : Framework React moderne
+- ✅ **React 18** : Bibliothèque UI avec Concurrent Features
+- ✅ **TypeScript 5** : Typage statique obligatoire
+- ✅ **Tailwind CSS 3.3.0** : Framework CSS utility-first
+- ✅ **shadcn/ui** : Système de composants professionnels
+- ✅ **Radix UI** : Composants primitifs accessibles
+- ✅ **Lucide React** : Icônes modernes
+
+### **2. STANDARDS DE CODE OBLIGATOIRES**
+
+#### **Conventions de Nommage**
+
+```typescript
+// Composants : PascalCase
+const UserProfile = () => {};
+
+// Fonctions : camelCase
+const calculateTotal = () => {};
+
+// Constantes : UPPER_SNAKE_CASE
+const API_BASE_URL = "https://api.example.com";
+
+// Types/Interfaces : PascalCase
+interface UserData {}
+type ApiResponse = {};
+
+// Fichiers : kebab-case
+user - profile.tsx;
+api - client.ts;
+```
+
+#### **Structure de Composant Standard**
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Icon1, Icon2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+interface ComponentProps {
+  title: string;
+  description?: string;
+  children?: React.ReactNode;
+}
+
+export default function Component({
+  title,
+  description,
+  children,
+}: ComponentProps) {
+  const [state, setState] = useState<string>("");
+
+  const handleAction = () => {
+    // Logique du composant
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
+      <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-gray-800">
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>{children}</CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+### **3. PÉDAGOGIE OBLIGATOIRE**
+
+#### **Structure de Leçon (7 Étapes)**
+
+Chaque leçon DOIT suivre cette structure :
+
+1. **En-tête de Leçon** : Titre, description, badges personnalisés
+2. **Objectifs du Cours** : 3 objectifs avec icônes CheckCircle
+3. **Analogies Simples** : 3 analogies côte à côte avec hover effects
+4. **Définition Simple** : Explication claire du concept + **Bout de code structurel obligatoire**
+5. **Exemples de Code** : Code côte à côte pour 3 langages (JS, Python, TS)
+6. **Mini-Application** : Instructions et code exécutable
+7. **Quiz Interactifs** : 5 quiz avec feedback immédiat
+8. **Navigation** : Liens vers leçons précédente/suivante
+
+#### **Contenu Pédagogique**
+
+- ✅ **Explications simples** : Langage accessible
+- ✅ **Analogies concrètes** : Relier à la vie réelle
+- ✅ **Exemples pratiques** : Code fonctionnel
+- ✅ **Progression logique** : Du simple au complexe
+
+### **4. DESIGN SYSTEM UNIVERSEL**
+
+#### **Palette de Couleurs par Section**
+
+- **Introduction** : `blue-500/10` → `blue-600/10`
+- **Analogies** : `blue-100` → `blue-100`
+- **Définition** : `green-500/10` → `emerald-500/10`
+- **Exemples Code** : `orange-500/10` → `red-500/10`
+- **Mini-Application** : `blue-500/10` → `indigo-500/10`
+- **Quiz** : `purple-500/10` → `indigo-500/10`
+- **Navigation** : `gray-500/10` → `gray-600/10`
+
+#### **Composants Obligatoires**
+
+```tsx
+// Cards avec gradients
+<Card className="bg-gradient-to-br from-[color]-500/10 to-[color]-600/10 border-2 border-[color]-300/50 shadow-xl">
+
+// Boutons interactifs
+<button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+
+// Code blocks
+<div className="bg-gray-900 rounded-lg p-6">
+  <pre className="text-green-400 font-mono text-sm">
+    <code>{codeContent}</code>
+  </pre>
+</div>
+```
+
+### **5. RESPONSIVE DESIGN OBLIGATOIRE**
+
+#### **Mobile First Approach**
+
+```css
+/* Base styles (mobile) */
+.container {
+  padding: 1rem;
+}
+
+/* md: (768px+) */
+@media (min-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+/* lg: (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 2rem;
+  }
+}
+```
+
+#### **Classes Responsive Standard**
+
+- `grid md:grid-cols-2 lg:grid-cols-3` pour les grilles
+- `text-sm md:text-base lg:text-lg` pour la typographie
+- `p-4 md:p-6 lg:p-8` pour les espacements
+- `w-full md:w-auto` pour les largeurs
+
+### **6. PERFORMANCE ET OPTIMISATION**
+
+#### **Core Web Vitals**
+
+- ✅ **LCP** : < 2.5s (Largest Contentful Paint)
+- ✅ **FID** : < 100ms (First Input Delay)
+- ✅ **CLS** : < 0.1 (Cumulative Layout Shift)
+
+#### **Optimisations Next.js**
+
+```tsx
+// Images optimisées
+import Image from "next/image";
+
+<Image
+  src="/image.png"
+  alt="Description"
+  width={100}
+  height={100}
+  priority={true} // Pour les images above the fold
+/>;
+
+// Lazy loading des composants
+import dynamic from "next/dynamic";
+
+const LazyComponent = dynamic(() => import("./Component"), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-32 rounded"></div>,
+});
+```
+
+### **7. ACCESSIBILITÉ OBLIGATOIRE**
+
+#### **Standards WCAG 2.1 AA**
+
+- **Contraste** : Minimum 4.5:1 pour le texte normal
+- **Navigation** : Tous les éléments interactifs focusables
+- **Sémantique** : Utilisation correcte des balises HTML
+- **Alternatives** : Textes alternatifs pour les images
+
+#### **Implémentation**
+
+```tsx
+// Focus visible
+<button
+  className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  tabIndex={0}
+>
+
+// Textes alternatifs
+<Image
+  src="/image.png"
+  alt="Description détaillée de l'image"
+  width={100}
+  height={100}
+/>
+
+// Labels pour les formulaires
+<label htmlFor="email" className="sr-only">Email</label>
+<input id="email" type="email" aria-describedby="email-help" />
+```
+
+### **8. SÉCURITÉ ET BONNES PRATIQUES**
+
+#### **Validation des Données**
+
+```typescript
+// Validation côté client
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+// Sanitisation des entrées
+import DOMPurify from "dompurify";
+
+const sanitizeInput = (input: string): string => {
+  return DOMPurify.sanitize(input);
+};
+```
+
+#### **Gestion des Erreurs**
+
+```tsx
+// Error boundaries
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+### **9. TESTS ET QUALITÉ**
+
+#### **Tests Obligatoires**
+
+```typescript
+// Tests unitaires avec Jest
+import { render, screen } from "@testing-library/react";
+import Component from "./Component";
+
+describe("Component", () => {
+  it("renders correctly", () => {
+    render(<Component title="Test" />);
+    expect(screen.getByText("Test")).toBeInTheDocument();
+  });
+});
+```
+
+#### **Linting et Formatting**
+
+```json
+// .eslintrc.json
+{
+  "extends": ["next/core-web-vitals", "@typescript-eslint/recommended"],
+  "rules": {
+    "no-unused-vars": "error",
+    "prefer-const": "error"
+  }
+}
+```
+
+### **10. DOCUMENTATION OBLIGATOIRE**
+
+#### **README.md Standard**
+
+````markdown
+# Nom du Projet
+
+## Description
+
+Brève description du projet
+
+## Technologies
+
+- Next.js 15.4.5
+- React 18
+- TypeScript 5
+- Tailwind CSS 3.3.0
+
+## Installation
+
+```bash
+npm install
+npm run dev
+```
+````
+
+## Structure
+
+Description de l'architecture
+
+## Contribution
+
+Guidelines pour contribuer
+
+````
+
+#### **Documentation Technique**
+
+- ✅ **Architecture** : Diagrammes et explications
+- ✅ **API** : Documentation des endpoints
+- ✅ **Composants** : Props et utilisation
+- ✅ **Déploiement** : Instructions de mise en production
+
+### **11. DÉPLOIEMENT ET CI/CD**
+
+#### **Environnements**
+
+- **Development** : `npm run dev`
+- **Staging** : Tests et validation
+- **Production** : Optimisé et sécurisé
+
+#### **Pipeline CI/CD**
+
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test
+````
+
+### **12. MAINTENANCE ET ÉVOLUTION**
+
+#### **Versioning Semantic**
+
+- **Major** : Changements breaking
+- **Minor** : Nouvelles fonctionnalités
+- **Patch** : Corrections de bugs
+
+#### **Monitoring**
+
+- ✅ **Performance** : Core Web Vitals
+- ✅ **Erreurs** : Error tracking
+- ✅ **Analytics** : Comportement utilisateur
+- ✅ **Uptime** : Disponibilité du service
+
+---
+
+**Note** : Ces règles s'appliquent à TOUS les projets pour maintenir la cohérence, la qualité et la maintenabilité du code.
+description:
+globs:
+alwaysApply: false
+
+---

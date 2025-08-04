@@ -1,0 +1,273 @@
+# ✅ VÉRIFICATION OBLIGATOIRE - AVANT MODIFICATION
+
+## 🎯 **CHECKLIST DE VÉRIFICATION**
+
+### **1. VÉRIFICATION ARCHITECTURE**
+
+#### **Structure de Projet**
+- [ ] **App Router** : Utilisation de Next.js 13+ App Router
+- [ ] **Layout** : Layout principal dans `app/layout.tsx`
+- [ ] **Pages** : Pages dans `app/[section]/page.tsx`
+- [ ] **Composants** : Composants dans `components/`
+- [ ] **Utilitaires** : Fonctions dans `lib/utils.ts`
+- [ ] **Assets** : Images dans `public/`
+
+#### **Stack Technique**
+- [ ] **Next.js 15.4.5** : Version correcte
+- [ ] **React 18** : Avec Concurrent Features
+- [ ] **TypeScript 5** : Typage statique
+- [ ] **Tailwind CSS 3.3.0** : Framework CSS
+- [ ] **shadcn/ui** : Composants UI
+- [ ] **Lucide React** : Icônes
+
+### **2. VÉRIFICATION DESIGN**
+
+#### **Palette de Couleurs**
+- [ ] **Introduction** : `blue-500/10` → `blue-600/10`
+- [ ] **Analogies** : `blue-100` → `blue-100`
+- [ ] **Définition** : `green-500/10` → `emerald-500/10`
+- [ ] **Exemples Code** : `orange-500/10` → `red-500/10`
+- [ ] **Mini-Application** : `blue-500/10` → `indigo-500/10`
+- [ ] **Quiz** : `purple-500/10` → `indigo-500/10`
+- [ ] **Navigation** : `gray-500/10` → `gray-600/10`
+
+#### **Composants Obligatoires**
+- [ ] **Cards** : Avec gradients et bordures
+- [ ] **Boutons** : Avec hover effects et transitions
+- [ ] **Code Blocks** : Avec syntax highlighting
+- [ ] **Navigation** : Avec breadcrumbs
+- [ ] **Responsive** : Mobile-first design
+
+### **3. VÉRIFICATION PÉDAGOGIE**
+
+#### **Structure de Leçon (7 Étapes)**
+- [ ] **En-tête** : Titre, description, badges
+- [ ] **Objectifs** : 3 objectifs avec CheckCircle
+- [ ] **Analogies** : 3 analogies côte à côte
+- [ ] **Définition Simple** : Explication + **Bout de code structurel obligatoire**
+- [ ] **Exemples** : Code côte à côte (JS, Python, TS)
+- [ ] **Mini-App** : Instructions et code exécutable
+- [ ] **Quiz** : 5 quiz avec feedback
+- [ ] **Navigation** : Liens précédent/suivant
+
+#### **Contenu Pédagogique**
+- [ ] **Langage simple** : Accessible aux débutants
+- [ ] **Analogies concrètes** : Relier à la vie réelle
+- [ ] **Exemples pratiques** : Code fonctionnel
+- [ ] **Progression logique** : Du simple au complexe
+
+### **4. VÉRIFICATION CODE**
+
+#### **Conventions de Nommage**
+- [ ] **Composants** : PascalCase (`UserProfile`)
+- [ ] **Fonctions** : camelCase (`calculateTotal`)
+- [ ] **Constantes** : UPPER_SNAKE_CASE (`API_BASE_URL`)
+- [ ] **Types** : PascalCase (`UserData`)
+- [ ] **Fichiers** : kebab-case (`user-profile.tsx`)
+
+#### **Structure de Composant**
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Icon } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+interface ComponentProps {
+  title: string;
+  description?: string;
+}
+
+export default function Component({ title, description }: ComponentProps) {
+  const [state, setState] = useState<string>("");
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
+      <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-gray-800">
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {description}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+### **5. VÉRIFICATION RESPONSIVE**
+
+#### **Breakpoints Tailwind**
+- [ ] **Mobile** : Base styles (320px+)
+- [ ] **md** : 768px+
+- [ ] **lg** : 1024px+
+- [ ] **xl** : 1280px+
+
+#### **Classes Responsive**
+- [ ] **Grilles** : `grid md:grid-cols-2 lg:grid-cols-3`
+- [ ] **Typographie** : `text-sm md:text-base lg:text-lg`
+- [ ] **Espacement** : `p-4 md:p-6 lg:p-8`
+- [ ] **Largeurs** : `w-full md:w-auto`
+
+### **6. VÉRIFICATION ACCESSIBILITÉ**
+
+#### **Standards WCAG 2.1 AA**
+- [ ] **Contraste** : Minimum 4.5:1 pour le texte
+- [ ] **Focus** : Tous les éléments interactifs focusables
+- [ ] **Sémantique** : Balises HTML appropriées
+- [ ] **Alternatives** : Textes alternatifs pour images
+
+#### **Implémentation**
+```tsx
+// Focus visible
+<button 
+  className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  tabIndex={0}
+>
+
+// Textes alternatifs
+<Image 
+  src="/image.png" 
+  alt="Description détaillée"
+  width={100} 
+  height={100} 
+/>
+```
+
+### **7. VÉRIFICATION PERFORMANCE**
+
+#### **Core Web Vitals**
+- [ ] **LCP** : < 2.5s (Largest Contentful Paint)
+- [ ] **FID** : < 100ms (First Input Delay)
+- [ ] **CLS** : < 0.1 (Cumulative Layout Shift)
+
+#### **Optimisations**
+- [ ] **Images** : Optimisées avec Next.js Image
+- [ ] **Lazy Loading** : Composants chargés à la demande
+- [ ] **Bundle** : Taille optimisée
+- [ ] **Caching** : Stratégie de cache appropriée
+
+### **8. VÉRIFICATION SÉCURITÉ**
+
+#### **Validation des Données**
+- [ ] **Entrées utilisateur** : Validation côté client
+- [ ] **Sanitisation** : Protection contre XSS
+- [ ] **Authentification** : Si nécessaire
+- [ ] **Autorisation** : Contrôle d'accès
+
+#### **Bonnes Pratiques**
+```typescript
+// Validation email
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+// Sanitisation
+import DOMPurify from 'dompurify';
+const sanitizeInput = (input: string): string => {
+  return DOMPurify.sanitize(input);
+};
+```
+
+### **9. VÉRIFICATION TESTS**
+
+#### **Tests Obligatoires**
+- [ ] **Tests unitaires** : Avec Jest et Testing Library
+- [ ] **Tests d'intégration** : Flux utilisateur
+- [ ] **Tests E2E** : Avec Playwright ou Cypress
+- [ ] **Tests d'accessibilité** : Avec axe-core
+
+#### **Exemple de Test**
+```typescript
+import { render, screen } from '@testing-library/react';
+import Component from './Component';
+
+describe('Component', () => {
+  it('renders correctly', () => {
+    render(<Component title="Test" />);
+    expect(screen.getByText('Test')).toBeInTheDocument();
+  });
+});
+```
+
+### **10. VÉRIFICATION DOCUMENTATION**
+
+#### **README.md**
+- [ ] **Description** : Projet clairement expliqué
+- [ ] **Technologies** : Stack technique listée
+- [ ] **Installation** : Instructions d'installation
+- [ ] **Usage** : Comment utiliser le projet
+- [ ] **Contribution** : Guidelines pour contribuer
+
+#### **Documentation Technique**
+- [ ] **Architecture** : Diagrammes et explications
+- [ ] **API** : Documentation des endpoints
+- [ ] **Composants** : Props et utilisation
+- [ ] **Déploiement** : Instructions de mise en production
+
+### **11. VÉRIFICATION DÉPLOIEMENT**
+
+#### **Environnements**
+- [ ] **Development** : `npm run dev`
+- [ ] **Staging** : Tests et validation
+- [ ] **Production** : Optimisé et sécurisé
+
+#### **CI/CD**
+- [ ] **Tests automatiques** : À chaque commit
+- [ ] **Build** : Vérification du build
+- [ ] **Déploiement** : Automatisé
+- [ ] **Monitoring** : Surveillance en production
+
+### **12. CHECKLIST FINALE**
+
+#### **Avant Commit**
+- [ ] **Linting** : `npm run lint` passe
+- [ ] **Tests** : `npm run test` passe
+- [ ] **Build** : `npm run build` réussit
+- [ ] **TypeScript** : Aucune erreur de type
+- [ ] **Accessibilité** : Tests axe-core passent
+
+#### **Avant Déploiement**
+- [ ] **Performance** : Core Web Vitals OK
+- [ ] **Sécurité** : Scan de vulnérabilités
+- [ ] **Responsive** : Test sur tous les devices
+- [ ] **Cross-browser** : Test sur Chrome, Firefox, Safari
+- [ ] **Mobile** : Test sur iOS et Android
+
+---
+
+## 🚨 **RÈGLES CRITIQUES - JAMAIS VIOLER**
+
+### **❌ INTERDICTIONS ABSOLUES**
+
+1. **Pas de code non typé** : TypeScript obligatoire
+2. **Pas de CSS inline** : Tailwind CSS uniquement
+3. **Pas de console.log en production** : Logger approprié
+4. **Pas de données sensibles en frontend** : API sécurisée
+5. **Pas de composants non accessibles** : WCAG 2.1 AA
+6. **Pas de code non testé** : Tests obligatoires
+7. **Pas de documentation manquante** : README complet
+8. **Pas de performance dégradée** : Core Web Vitals
+
+### **✅ OBLIGATIONS ABSOLUES**
+
+1. **Structure de leçon** : 7 étapes respectées
+2. **Définition Simple** : Explication + code structurel
+3. **Design cohérent** : Palette de couleurs respectée
+4. **Responsive** : Mobile-first design
+5. **Accessibilité** : Standards WCAG respectés
+6. **Performance** : Core Web Vitals optimaux
+7. **Sécurité** : Validation et sanitisation
+8. **Tests** : Couverture de tests appropriée
+
+---
+
+**Note** : Cette vérification DOIT être effectuée AVANT chaque modification pour maintenir la qualité et la cohérence du projet.
+description:
+globs:
+alwaysApply: false
+---

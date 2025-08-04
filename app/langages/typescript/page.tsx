@@ -92,7 +92,7 @@ export default function TypeScriptPage() {
             </Link>
             <ArrowRight className="h-4 w-4" />
             <Link
-              href="/fondamentaux/lecon-1"
+              href="/fondamentaux/cours-1"
               className="hover:text-blue-600 transition-colors"
             >
               Cours 1
@@ -491,7 +491,7 @@ export default function TypeScriptPage() {
               JavaScript
             </Link>
             <Link
-              href="/fondamentaux/lecon-1"
+              href="/fondamentaux/cours-1"
               className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
             >
               Retour au Cours 1

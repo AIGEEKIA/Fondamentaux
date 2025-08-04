@@ -501,6 +501,131 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-emerald-500/10 to-green-600/10 border-2 border-emerald-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Gestion d'État et Programmation Asynchrone
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg p-6 border border-emerald-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    🔄 Qu'est-ce que la Gestion d'État ?
+                  </h4>
+                  <p className="text-gray-700 mb-4">
+                    La <strong>gestion d'état</strong> c'est comme gérer les
+                    informations dans votre application. C'est la façon dont
+                    votre programme se souvient des choses et les partage entre
+                    différentes parties.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-emerald-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-emerald-800 mb-2">
+                        🌍 État Global
+                      </h5>
+                      <p className="text-sm text-gray-600">
+                        Accessible partout dans l'application. Comme un tableau
+                        d'affichage dans une entreprise.
+                      </p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-blue-800 mb-2">
+                        🏠 État Local
+                      </h5>
+                      <p className="text-sm text-gray-600">
+                        Accessible seulement dans une fonction ou composant.
+                        Comme les notes personnelles.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-emerald-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    ⚡ Qu'est-ce que la Programmation Asynchrone ?
+                  </h4>
+                  <p className="text-gray-700 mb-4">
+                    La <strong>programmation asynchrone</strong> permet à votre
+                    code de faire plusieurs choses en même temps sans bloquer
+                    l'interface utilisateur. C'est comme cuisiner plusieurs
+                    plats simultanément.
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-orange-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-orange-800 mb-2">
+                        📞 Callbacks
+                      </h5>
+                      <p className="text-sm text-gray-600">
+                        "Appelle-moi quand tu as fini" - fonction qui s'exécute
+                        après une autre.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-2">
+                        🤝 Promises
+                      </h5>
+                      <p className="text-sm text-gray-600">
+                        "Je te promets un résultat" - objet qui représente une
+                        opération future.
+                      </p>
+                    </div>
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-green-800 mb-2">
+                        ⏳ Async/Await
+                      </h5>
+                      <p className="text-sm text-gray-600">
+                        "Attends que je finisse" - syntaxe moderne pour gérer
+                        l'asynchrone.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-emerald-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    🎯 Pourquoi c'est Important ?
+                  </h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        🚀 Performance
+                      </h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Applications plus rapides</li>
+                        <li>• Interface utilisateur fluide</li>
+                        <li>• Gestion efficace des ressources</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        🔧 Maintenabilité
+                      </h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Code plus organisé</li>
+                        <li>• Debugging plus facile</li>
+                        <li>• Évolution simplifiée</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Exemples de Code */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-100/50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl">
@@ -835,6 +960,315 @@ print("=" * 60)`}</code>
           </Card>
         </section>
 
+        {/* Quiz Interactifs */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-indigo-500/10 to-purple-600/10 border-2 border-indigo-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Gamepad2 className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    🎮 Quiz Interactifs
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Testez vos connaissances sur la gestion d'état et
+                    l'asynchrone
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {/* Question 1 */}
+                <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-4">
+                    1️⃣ Qu'est-ce que l'état global ?
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q1"
+                        id="q1a"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q1a"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        A) Des données accessibles partout dans l'application
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q1"
+                        id="q1b"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q1b"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        B) Des données accessibles seulement dans une fonction
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q1"
+                        id="q1c"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q1c"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        C) Des données temporaires qui disparaissent
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Question 2 */}
+                <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-4">
+                    2️⃣ Que fait async/await ?
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q2"
+                        id="q2a"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q2a"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        A) Ralentit l'application
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q2"
+                        id="q2b"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q2b"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        B) Permet d'attendre une opération sans bloquer
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q2"
+                        id="q2c"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q2c"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        C) Synchronise toutes les opérations
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Question 3 */}
+                <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-4">
+                    3️⃣ Qu'est-ce qu'une Promise ?
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q3"
+                        id="q3a"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q3a"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        A) Un objet qui représente une opération future
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q3"
+                        id="q3b"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q3b"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        B) Une fonction qui s'exécute immédiatement
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q3"
+                        id="q3c"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q3c"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        C) Un type de variable
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Question 4 */}
+                <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-4">
+                    4️⃣ Pourquoi utiliser la programmation asynchrone ?
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q4"
+                        id="q4a"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q4a"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        A) Pour ralentir l'application
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q4"
+                        id="q4b"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q4b"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        B) Pour améliorer la performance et la réactivité
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q4"
+                        id="q4c"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q4c"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        C) Pour simplifier le code
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Question 5 */}
+                <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-4">
+                    5️⃣ Qu'est-ce qu'un callback ?
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q5"
+                        id="q5a"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q5a"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        A) Une fonction qui s'exécute après une autre
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q5"
+                        id="q5b"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q5b"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        B) Un type de variable
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 cursor-pointer transition-colors">
+                      <input
+                        type="radio"
+                        name="q5"
+                        id="q5c"
+                        className="text-indigo-600"
+                      />
+                      <label
+                        htmlFor="q5c"
+                        className="text-gray-700 cursor-pointer"
+                      >
+                        C) Un objet de données
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Résultats */}
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border border-green-200">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    🎯 Réponses Correctes :
+                  </h4>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p>
+                      <strong>1.</strong> A) Des données accessibles partout
+                      dans l'application
+                    </p>
+                    <p>
+                      <strong>2.</strong> B) Permet d'attendre une opération
+                      sans bloquer
+                    </p>
+                    <p>
+                      <strong>3.</strong> A) Un objet qui représente une
+                      opération future
+                    </p>
+                    <p>
+                      <strong>4.</strong> B) Pour améliorer la performance et la
+                      réactivité
+                    </p>
+                    <p>
+                      <strong>5.</strong> A) Une fonction qui s'exécute après
+                      une autre
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Navigation */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-indigo-600/10 border-2 border-blue-300/50 shadow-xl">
@@ -851,7 +1285,7 @@ print("=" * 60)`}</code>
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Cours 12 : Gestion d'erreurs et exceptions
+                    Leçon 12 : Gestion d'erreurs et exceptions
                   </h3>
                   <p className="text-gray-600">
                     Gérer les erreurs et les exceptions proprement

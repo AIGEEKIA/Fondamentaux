@@ -76,14 +76,21 @@
 
 ### **7. Radix UI + shadcn/ui** - Système de Composants Moderne
 
-- **@radix-ui/react-slot 1.0.2**
-- **Rôle** : Composants UI primitifs et accessibles
+- **@radix-ui/react-slot 1.0.2** : Composants primitifs accessibles
+- **shadcn/ui** : Système de composants professionnels
 - **Architecture** : Radix UI (primitifs) + shadcn/ui (design system)
 - **Avantages** :
   - ♿ Accessibilité WCAG 2.1 AA native
   - 🎨 Design system cohérent et personnalisable
   - ⚡ Composants optimisés et légers
   - 🎯 Intégration parfaite avec Tailwind CSS
+
+### **8. Utilitaires CSS Avancés**
+
+- **class-variance-authority 0.7.0** : Gestion des variantes de composants
+- **clsx 2.0.0** : Utilitaire pour combiner des classes CSS
+- **tailwind-merge 2.0.0** : Fusion intelligente des classes Tailwind
+- **tailwindcss-animate 1.0.7** : Animations pour Tailwind
 
 #### **🏗️ Architecture UI Détailée**
 
@@ -101,12 +108,13 @@
 
 - **`/components/ui/card.tsx`** : Composant Card shadcn/ui
 - **`/components/ui/chart.tsx`** : Composant Chart pour Recharts
+- **`/components/hamburger-menu.tsx`** : Menu de navigation
 - **`/lib/utils.ts`** : Fonction `cn()` pour fusion des classes
 
 #### **🎯 Utilisation dans le Projet**
 
 ```typescript
-// Importé dans toutes les pages
+// Composants UI principaux
 import {
   Card,
   CardContent,
@@ -114,14 +122,48 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
+// Navigation
+import HamburgerMenu from "@/components/hamburger-menu";
+
+// Utilitaires CSS (utilisés par shadcn/ui)
+import { cn } from "@/lib/utils";
+
+// Icônes Lucide React (30+ icônes)
+import {
+  Brain,
+  Code,
+  Database,
+  Cloud,
+  Home,
+  Menu,
+  X,
+  BookOpen,
+  ChefHat,
+  ArrowRight,
+  CheckCircle,
+  Play,
+  Target,
+  Lightbulb,
+  Users,
+  GraduationCap,
+  Package,
+  Shield,
+  Wrench,
+  Hammer,
+  Building2,
+  ChevronLeft,
+  ChevronRight,
+  Copy,
+  Check,
+  AlertCircle,
+  ArrowLeft,
+  Gamepad2,
+  Sprout,
+  Leaf,
+  Calculator,
+} from "lucide-react";
 ```
-
-### **8. Utilitaires CSS Avancés**
-
-- **class-variance-authority 0.7.0** : Gestion des variantes de composants
-- **clsx 2.0.0** : Utilitaire pour combiner des classes CSS
-- **tailwind-merge 2.0.0** : Fusion intelligente des classes Tailwind
-- **tailwindcss-animate 1.0.7** : Animations pour Tailwind
 
 ---
 
@@ -183,8 +225,10 @@ fondamentauxV2/
   "lucide-react": "^0.294.0",
   "recharts": "^2.8.0",
   "@radix-ui/react-slot": "^1.0.2",
+  "class-variance-authority": "^0.7.0",
   "clsx": "^2.0.0",
-  "tailwind-merge": "^2.0.0"
+  "tailwind-merge": "^2.0.0",
+  "tailwindcss-animate": "^1.0.7"
 }
 ```
 
@@ -267,23 +311,158 @@ npm run lint
 
 ## 🎨 Design System
 
-### **Couleurs**
+### **Standards de Design (EXIGENCES_DESIGN_UI.md)**
 
-- Palette bleue cohérente
-- Gradients modernes
-- Support du mode sombre
+Le projet suit des standards de design professionnels définis dans `EXIGENCES_DESIGN_UI.md` :
 
-### **Animations**
+#### **Composants UI Obligatoires**
 
-- Transitions fluides
-- Hover effects
-- Loading states
+- **shadcn/ui** : Système de composants professionnels
+- **Radix UI** : Composants primitifs accessibles
+- **Lucide React** : 30+ icônes modernes
+- **HamburgerMenu** : Navigation mobile
 
-### **Responsive**
+#### **Structure de Navigation**
 
-- Mobile-first design
-- Breakpoints Tailwind
-- Touch-friendly
+- **Bandeau de navigation** : Gradient bleu avec logo AIGEEKIA
+- **Menu Hamburger** : Navigation mobile responsive
+- **Breadcrumb** : Navigation hiérarchique
+
+### **Palette de Couleurs Standardisée**
+
+#### **Couleurs par Section**
+
+- **Introduction** : `blue-500/10` → `blue-600/10`
+- **Analogies** : `blue-100` → `blue-100`
+- **Définition** : `green-500/10` → `emerald-500/10`
+- **Exemples Code** : `orange-500/10` → `red-500/10`
+- **Mini-Application** : `blue-500/10` → `indigo-500/10`
+- **Quiz** : `purple-500/10` → `indigo-500/10`
+- **Navigation** : `gray-500/10` → `gray-600/10`
+
+#### **Couleurs d'Accent**
+
+- **Succès** : `green-400`, `green-600`, `green-800`
+- **Erreur** : `red-400`, `red-600`, `red-800`
+- **Info** : `blue-400`, `blue-600`, `blue-800`
+- **Warning** : `orange-400`, `orange-600`, `orange-800`
+
+### **Animations et Transitions**
+
+#### **Transitions Obligatoires**
+
+```css
+/* Boutons */
+transition-all duration-300
+
+/* Cards */
+hover:scale-105 transition-transform duration-300
+
+/* Liens */
+hover:text-blue-600 transition-colors
+```
+
+#### **États Interactifs**
+
+- **Hover** : Changement de couleur/scale
+- **Focus** : Outline visible pour l'accessibilité
+- **Active** : Feedback visuel immédiat
+- **Disabled** : Opacité réduite + cursor-not-allowed
+
+### **Responsive Design**
+
+#### **Breakpoints Tailwind CSS**
+
+```css
+/* Mobile First */
+.container {
+  /* Base styles */
+}
+
+/* md: (768px+) */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* lg: (1024px+) */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+#### **Classes Responsive Obligatoires**
+
+- `grid md:grid-cols-2 lg:grid-cols-3` pour les grilles
+- `text-sm md:text-base lg:text-lg` pour la typographie
+- `p-4 md:p-6 lg:p-8` pour les espacements
+- `w-full md:w-auto` pour les largeurs
+
+### **Structure de Contenu (7 Étapes)**
+
+Chaque leçon suit une structure standardisée :
+
+1. **En-tête de Leçon** : Titre, description, badges
+2. **Objectifs du Cours** : 3 objectifs avec icônes CheckCircle
+3. **Analogies Simples** : 3 analogies côte à côte
+4. **Définition Simple** : Explication claire du concept + **Bout de code structurel obligatoire**
+5. **Exemples de Code** : Code côte à côte pour 3 langages
+6. **Mini-Application** : Instructions et code exécutable
+7. **Quiz Interactifs** : 5 quiz avec feedback immédiat
+8. **Navigation** : Liens vers leçons précédente/suivante
+
+### **Composants Interactifs**
+
+#### **Quiz Component**
+
+- Feedback immédiat sur les réponses
+- États : non-répondu, correct, incorrect
+- Animations de transition fluides
+
+#### **Code Copy Component**
+
+- Copie dans le presse-papiers
+- Feedback visuel (2 secondes)
+- Support multi-langages
+
+#### **Score et Badges System**
+
+- Système de points progressif
+- Badges de réussite
+- Progression visuelle
+
+### **Accessibilité**
+
+#### **Standards WCAG 2.1 AA**
+
+- ♿ **Navigation clavier** complète
+- 🎨 **Contraste** suffisant (4.5:1 minimum)
+- 📖 **Screen readers** compatibles
+- 🎯 **Focus management** approprié
+
+#### **Composants Accessibles**
+
+- **Radix UI** : Composants primitifs accessibles
+- **shadcn/ui** : Design system cohérent
+- **HamburgerMenu** : Navigation mobile accessible
+
+### **Performance**
+
+#### **Objectifs de Qualité**
+
+- ⚡ **Temps de chargement** < 2s
+- 🎨 **Animations** 60fps
+- 📱 **Responsive** sur tous les appareils
+
+#### **Optimisations**
+
+- **Next.js** : Optimisations automatiques
+- **Code splitting** : Chargement à la demande
+- **Tree shaking** : Réduction de la taille
+- **Image optimization** : Formats modernes
 
 ---
 

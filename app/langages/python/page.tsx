@@ -92,7 +92,7 @@ export default function PythonPage() {
             </Link>
             <ArrowRight className="h-4 w-4" />
             <Link
-              href="/fondamentaux/lecon-1"
+              href="/fondamentaux/cours-1"
               className="hover:text-purple-600 transition-colors"
             >
               Cours 1

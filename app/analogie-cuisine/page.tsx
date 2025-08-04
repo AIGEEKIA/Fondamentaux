@@ -1448,7 +1448,7 @@ export default function AnalogieCuisinePage() {
                   </Card>
                 </Link>
 
-                <Link href="/fondamentaux/lecon-1" className="block">
+                <Link href="/fondamentaux/cours-1" className="block">
                   <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-indigo-600/10 shadow-xl hover:border-indigo-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-indigo-600/20 group cursor-pointer">
                     <CardHeader>
                       <div className="flex items-center gap-4 mb-4">

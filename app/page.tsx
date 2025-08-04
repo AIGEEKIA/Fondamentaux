@@ -264,7 +264,7 @@ export default function FormationPage() {
               <CardContent>
                 <div className="space-y-3">
                   <Link
-                    href="/fondamentaux/lecon-1"
+                    href="/fondamentaux/cours-1"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -276,19 +276,19 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-2"
+                    href="/fondamentaux/cours-2"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 2 : Fonctions comparatives
+                        Cours 2 : Types de données
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-3"
+                    href="/fondamentaux/cours-3"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -300,7 +300,7 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-4"
+                    href="/fondamentaux/cours-4"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -312,7 +312,7 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-5"
+                    href="/fondamentaux/cours-5"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -357,19 +357,19 @@ export default function FormationPage() {
               <CardContent>
                 <div className="space-y-3">
                   <Link
-                    href="/fondamentaux/lecon-6"
+                    href="/fondamentaux/cours-6"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 6 : Variables globales vs locales
+                        Cours 6 : Scope & Closures
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-7"
+                    href="/fondamentaux/cours-7"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -381,7 +381,7 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-8"
+                    href="/fondamentaux/cours-8"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -393,7 +393,7 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-9"
+                    href="/fondamentaux/cours-9"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
@@ -405,13 +405,13 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-10"
+                    href="/fondamentaux/cours-10"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 10 : Fonctions imbriquées et closures
+                        Cours 10 : Fonctions imbriquées
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
@@ -450,61 +450,61 @@ export default function FormationPage() {
               <CardContent>
                 <div className="space-y-3">
                   <Link
-                    href="/fondamentaux/lecon-11"
+                    href="/fondamentaux/cours-11"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 11 : Gestion d'état et programmation asynchrone
+                        Cours 11 : Gestion d'état
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-12"
+                    href="/fondamentaux/cours-12"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 12 : Gestion d'erreurs et exceptions
+                        Cours 12 : Gestion d'erreurs
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-13"
+                    href="/fondamentaux/cours-13"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 13 : Programmation orientée objet (POO)
+                        Cours 13 : POO
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-14"
+                    href="/fondamentaux/cours-14"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 14 : Modules et packages
+                        Cours 14 : Modules
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                   <Link
-                    href="/fondamentaux/lecon-15"
+                    href="/fondamentaux/cours-15"
                     className="course-button group"
                   >
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 15 : Tests et débogage
+                        Cours 15 : Tests
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />

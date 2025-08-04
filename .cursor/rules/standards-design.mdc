@@ -1,0 +1,285 @@
+# 🎨 RÈGLES DE DESIGN - STANDARDS UI/UX
+
+## 🎯 **PRINCIPES FONDAMENTAUX**
+
+### **1. DESIGN SYSTEM OBLIGATOIRE**
+
+#### **Palette de Couleurs Standardisée**
+
+- **Introduction** : `blue-500/10` → `blue-600/10`
+- **Analogies** : `blue-100` → `blue-100`
+- **Définition** : `green-500/10` → `emerald-500/10`
+- **Exemples Code** : `orange-500/10` → `red-500/10`
+- **Mini-Application** : `blue-500/10` → `indigo-500/10`
+- **Quiz** : `purple-500/10` → `indigo-500/10`
+- **Navigation** : `gray-500/10` → `gray-600/10`
+
+#### **Typographie Hiérarchisée**
+
+```css
+/* Titres */
+h1: text-5xl font-bold
+h2: text-3xl font-semibold
+h3: text-2xl font-bold
+h4: text-xl font-semibold
+
+/* Corps de texte */
+p: text-base text-gray-700
+small: text-sm text-gray-600
+code: text-sm font-mono
+```
+
+#### **Espacement Cohérent**
+
+```css
+/* Marges */
+section: mb-12
+card: p-6
+button: px-6 py-3
+
+/* Padding */
+container: px-4 py-8
+header: py-6
+content: p-4
+```
+
+### **2. COMPOSANTS OBLIGATOIRES**
+
+#### **Cards avec Gradients**
+
+```tsx
+<Card className="bg-gradient-to-br from-[color]-500/10 to-[color]-600/10 border-2 border-[color]-300/50 shadow-xl">
+  <CardHeader>
+    <CardTitle className="text-2xl font-bold text-gray-800">
+      Titre de la Section
+    </CardTitle>
+    <CardDescription className="text-lg text-gray-600">
+      Description de la section
+    </CardDescription>
+  </CardHeader>
+  <CardContent>{/* Contenu */}</CardContent>
+</Card>
+```
+
+#### **Boutons Interactifs**
+
+```tsx
+<button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+  <Icon className="h-5 w-5" />
+  <span>Texte du bouton</span>
+</button>
+```
+
+#### **Code Blocks avec Syntax Highlighting**
+
+```tsx
+<div className="bg-gray-900 rounded-lg p-6">
+  <div className="flex justify-between items-center mb-4">
+    <span className="text-gray-300 font-mono text-sm">Langage</span>
+    <button className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+      <Copy size={16} />
+      <span className="text-sm">Copier</span>
+    </button>
+  </div>
+  <pre className="text-green-400 font-mono text-sm overflow-x-auto">
+    <code>{codeContent}</code>
+  </pre>
+</div>
+```
+
+### **3. RESPONSIVE DESIGN OBLIGATOIRE**
+
+#### **Breakpoints Tailwind**
+
+```css
+/* Mobile First */
+.container {
+  /* Base styles */
+}
+
+/* md: (768px+) */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* lg: (1024px+) */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+#### **Classes Responsive Obligatoires**
+
+- `grid md:grid-cols-2 lg:grid-cols-3` pour les grilles
+- `text-sm md:text-base lg:text-lg` pour la typographie
+- `p-4 md:p-6 lg:p-8` pour les espacements
+- `w-full md:w-auto` pour les largeurs
+
+### **4. ANIMATIONS ET TRANSITIONS**
+
+#### **Transitions Standardisées**
+
+```css
+/* Boutons */
+transition-all duration-300
+
+/* Cards */
+hover:scale-105 transition-transform duration-300
+
+/* Liens */
+hover:text-blue-600 transition-colors
+```
+
+#### **États Interactifs**
+
+- **Hover** : Changement de couleur/scale
+- **Focus** : Outline visible pour l'accessibilité
+- **Active** : Feedback visuel immédiat
+- **Disabled** : Opacité réduite + cursor-not-allowed
+
+### **5. STRUCTURE DE CONTENU (7 ÉTAPES)**
+
+Chaque leçon suit une structure standardisée :
+
+1. **En-tête de Leçon** : Titre, description, badges personnalisés
+2. **Objectifs du Cours** : 3 objectifs avec icônes CheckCircle
+3. **Analogies Simples** : 3 analogies côte à côte avec hover effects
+4. **Définition Simple** : Explication claire du concept + **Bout de code structurel obligatoire**
+5. **Exemples de Code** : Code côte à côte pour 3 langages (JS, Python, TS)
+6. **Mini-Application** : Instructions et code exécutable
+7. **Quiz Interactifs** : 5 quiz avec feedback immédiat
+8. **Navigation** : Liens vers leçons précédente/suivante
+
+### **6. ACCESSIBILITÉ OBLIGATOIRE**
+
+#### **Contraste et Lisibilité**
+
+- **Contraste minimum** : 4.5:1 pour le texte normal
+- **Contraste élevé** : 7:1 pour le texte petit
+- **Couleurs** : Ne pas utiliser uniquement la couleur pour transmettre l'information
+
+#### **Navigation au Clavier**
+
+```tsx
+// Tous les éléments interactifs doivent être focusables
+<button
+  className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  tabIndex={0}
+>
+  Contenu
+</button>
+```
+
+#### **Textes Alternatifs**
+
+```tsx
+<Image
+  src="/image.png"
+  alt="Description détaillée de l'image"
+  width={100}
+  height={100}
+/>
+```
+
+### **7. PERFORMANCE ET OPTIMISATION**
+
+#### **Images Optimisées**
+
+```tsx
+import Image from "next/image";
+
+<Image
+  src="/logo.png"
+  alt="Logo"
+  width={56}
+  height={56}
+  className="object-cover rounded-full"
+  priority={true} // Pour les images above the fold
+/>;
+```
+
+#### **Lazy Loading**
+
+```tsx
+// Composants chargés à la demande
+const LazyComponent = dynamic(() => import("./Component"), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-32 rounded"></div>,
+});
+```
+
+### **8. ICÔNES ET ÉMOJIS**
+
+#### **Système d'Iconographie**
+
+- **Lucide React** : Icônes principales
+- **Émojis** : Pour les sections et catégories
+- **Cohérence** : Même style d'icônes dans toute l'app
+
+#### **Mapping des Icônes**
+
+```tsx
+const iconMapping = {
+  introduction: <Target className="h-6 w-6" />,
+  definition: <BookOpen className="h-6 w-6" />,
+  examples: <Code className="h-6 w-6" />,
+  quiz: <Brain className="h-6 w-6" />,
+  navigation: <ArrowRight className="h-6 w-6" />,
+};
+```
+
+### **9. VALIDATION ET TESTS**
+
+#### **Tests Visuels**
+
+- ✅ **Mobile** : Test sur iPhone SE, Android
+- ✅ **Tablet** : Test sur iPad, Android tablet
+- ✅ **Desktop** : Test sur 1920x1080, 1366x768
+- ✅ **Accessibilité** : Test avec lecteur d'écran
+
+#### **Checklist de Validation**
+
+- [ ] Tous les éléments sont focusables
+- [ ] Les couleurs respectent le contraste
+- [ ] Les animations sont fluides (60fps)
+- [ ] Le responsive fonctionne sur tous les breakpoints
+- [ ] Les images sont optimisées
+- [ ] Les transitions sont cohérentes
+
+### **10. MAINTENANCE ET ÉVOLUTION**
+
+#### **Documentation des Changements**
+
+```markdown
+## Changelog Design
+
+### v1.2.0 - 2024-01-15
+
+- ✅ Ajout de nouvelles couleurs pour les quiz
+- ✅ Amélioration de l'accessibilité
+- ✅ Optimisation des animations
+
+### v1.1.0 - 2024-01-10
+
+- ✅ Standardisation des gradients
+- ✅ Ajout de transitions hover
+- ✅ Correction des contrastes
+```
+
+#### **Système de Versioning**
+
+- **Major** : Changements breaking (couleurs, structure)
+- **Minor** : Nouvelles fonctionnalités (animations, composants)
+- **Patch** : Corrections et optimisations
+
+---
+
+**Note** : Tous les composants DOIVENT respecter ces standards pour maintenir la cohérence visuelle et l'expérience utilisateur optimale.
+description:
+globs:
+alwaysApply: false
+
+---

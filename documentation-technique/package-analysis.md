@@ -42,6 +42,42 @@
 
 ## 📚 Dépendances Principales
 
+### **Règle "Définition Simple" Obligatoire**
+
+**POUR TOUTE SECTION "DÉFINITION SIMPLE" :**
+
+- ✅ **Explication claire** du concept en langage simple
+- ✅ **Bout de code structurel obligatoire** dans la section
+- ✅ **Design standardisé** : Gradient vert avec icône BookOpen
+- ✅ **Structure obligatoire** : Explication + Code structurel
+
+#### **Format Standard :**
+
+```tsx
+{
+  /* Section Définition Simple */
+}
+<section className="mb-12">
+  <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+    <CardHeader>
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+          <BookOpen className="h-6 w-6 text-white" />
+        </div>
+        <div>
+          <CardTitle className="text-2xl font-bold text-gray-800">
+            📖 DÉFINITION SIMPLE
+          </CardTitle>
+        </div>
+      </div>
+    </CardHeader>
+    <CardContent>
+      {/* Explication claire + Bout de code structurel obligatoire */}
+    </CardContent>
+  </Card>
+</section>;
+```
+
 ### **Framework Core**
 
 ```json
