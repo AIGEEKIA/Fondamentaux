@@ -321,6 +321,100 @@ console.log("Premier :", premier);`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                    🎯 Qu'est-ce qu'une Collection ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Une <strong>collection</strong> est un conteneur qui regroupe plusieurs éléments de données. 
+                    C'est comme une boîte organisée qui peut contenir différents types d'objets selon des règles spécifiques.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Les collections permettent de :
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                    <li><strong>Organiser</strong> les données de manière logique</li>
+                    <li><strong>Accéder</strong> rapidement aux éléments</li>
+                    <li><strong>Modifier</strong> le contenu facilement</li>
+                    <li><strong>Optimiser</strong> les performances selon l'usage</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    💻 Bout de Code Structurel Obligatoire
+                  </h4>
+                  <div className="bg-gray-900 rounded-lg p-4">
+                    <pre className="text-green-400 font-mono text-sm">
+                      <code>{`# Structure de base des collections
+
+# 1. LISTE - Collection ordonnée et modifiable
+ma_liste = [element1, element2, element3]
+ma_liste.append(nouvel_element)  # Ajouter
+ma_liste.remove(element)         # Supprimer
+
+# 2. DICTIONNAIRE - Collection clé-valeur
+mon_dict = {"cle1": valeur1, "cle2": valeur2}
+mon_dict["nouvelle_cle"] = nouvelle_valeur  # Ajouter
+del mon_dict["cle"]              # Supprimer
+
+# 3. ENSEMBLE - Collection d'éléments uniques
+mon_set = {element1, element2, element3}
+mon_set.add(nouvel_element)      # Ajouter
+mon_set.discard(element)         # Supprimer
+
+# 4. TUPLE - Collection ordonnée et immuable
+mon_tuple = (element1, element2, element3)
+# Pas de modification possible après création`}</code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    🎯 Types de Collections Principaux
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-2">📋 Listes (Array)</h5>
+                      <p className="text-sm text-gray-600">Collection ordonnée et modifiable. Permet les doublons.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-2">🗂️ Dictionnaires (Object/Map)</h5>
+                      <p className="text-sm text-gray-600">Collection clé-valeur. Accès rapide par clé.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-2">🔢 Ensembles (Set)</h5>
+                      <p className="text-sm text-gray-600">Collection d'éléments uniques. Pas d'ordre garanti.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-gray-800 mb-2">📦 Tuples (Tuple)</h5>
+                      <p className="text-sm text-gray-600">Collection ordonnée et immuable. Performance optimale.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Analogies Universelles */}
         <section className="mb-12">
           <Card className="mb-8 bg-gradient-to-r from-blue-100 to-blue-100 border-2 border-blue-300 shadow-xl">
