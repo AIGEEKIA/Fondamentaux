@@ -47,6 +47,11 @@ import Image from "next/image";
 export default function Lecon7Page() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+  const [points, setPoints] = useState(0);
+  const [badges, setBadges] = useState<string[]>([]);
 
   const copyToClipboard = (code: string, language: string) => {
     navigator.clipboard.writeText(code);
@@ -54,232 +59,369 @@ export default function Lecon7Page() {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
-  const analogies = {
-    cuisine: {
-      title: "🍳 Cuisine",
-      description: "Les scopes comme des zones de préparation",
-      examples: [
-        "fonction = zone de préparation",
-        "bloc = sous-zone spécifique",
-        "if/for = zone temporaire",
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    const quiz = quizData[quizId as keyof typeof quizData];
+    if (!quiz) return;
+
+    const isCorrect = selectedAnswer === quiz.correctAnswer;
+
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
+    }));
+
+    if (isCorrect) {
+      setPoints((prev) => prev + 10);
+      if (!badges.includes("Programmation Orientée Objet")) {
+        setBadges((prev) => [...prev, "Programmation Orientée Objet"]);
+      }
+    }
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Données des quiz
+  const quizData = {
+    quiz1: {
+      question: "Qu'est-ce qu'une classe en POO ?",
+      options: [
+        "Un modèle qui définit la structure et le comportement d'objets",
+        "Une fonction qui retourne des valeurs",
+        "Un type de boucle",
+        "Une variable globale",
       ],
-      explanation:
-        "En cuisine, vous avez des zones : la zone de préparation (fonction), des sous-zones spécifiques (blocs), et des zones temporaires (if/for). Les scopes sont comme ces zones d'activité.",
+      correctAnswer: 0,
+      explication:
+        "Une classe est un modèle (template) qui définit la structure (propriétés) et le comportement (méthodes) que tous les objets de ce type auront.",
     },
-    gamer: {
-      title: "🎮 Gamer",
-      description: "Les scopes comme des zones de jeu",
-      examples: [
-        "fonction = zone de mission",
-        "bloc = zone de combat",
-        "if/for = zone temporaire",
+    quiz2: {
+      question: "Qu'est-ce que l'encapsulation ?",
+      options: [
+        "Cacher les détails internes et exposer seulement ce qui est nécessaire",
+        "Créer plusieurs classes identiques",
+        "Hériter d'une classe parent",
+        "Créer des objets",
       ],
-      explanation:
-        "Dans un jeu, vous avez des zones : la zone de mission (fonction), des zones de combat (blocs), et des zones temporaires (if/for). Les scopes sont comme ces zones de jeu.",
+      correctAnswer: 0,
+      explication:
+        "L'encapsulation consiste à cacher les détails internes d'une classe et à exposer seulement les méthodes et propriétés nécessaires pour interagir avec l'objet.",
     },
-    jardinage: {
-      title: "🌱 Jardinage",
-      description: "Les scopes comme des zones de culture",
-      examples: [
-        "fonction = parcelle principale",
-        "bloc = zone de semis",
-        "if/for = zone temporaire",
+    quiz3: {
+      question: "Qu'est-ce que l'héritage ?",
+      options: [
+        "Une classe qui hérite des propriétés et méthodes d'une autre classe",
+        "Créer un nouvel objet",
+        "Modifier une classe existante",
+        "Supprimer une classe",
       ],
-      explanation:
-        "Au jardin, vous avez des zones : la parcelle principale (fonction), des zones de semis (blocs), et des zones temporaires (if/for). Les scopes sont comme ces zones de culture.",
+      correctAnswer: 0,
+      explication:
+        "L'héritage permet à une classe (enfant) d'hériter des propriétés et méthodes d'une autre classe (parent), évitant la duplication de code.",
     },
   };
 
-  const pythonCode = `# Scope de fonction et de bloc en Python
+  const analogies = {
+    cuisine: {
+      title: "🍳 Cuisine",
+      description: "Les classes comme des recettes",
+      examples: [
+        "classe = recette de base",
+        "objet = plat préparé",
+        "héritage = recette améliorée",
+      ],
+      explanation:
+        "En cuisine, une recette (classe) définit comment préparer un plat. Chaque plat préparé (objet) suit la même recette mais peut avoir des ingrédients différents.",
+    },
+    gamer: {
+      title: "🎮 Gamer",
+      description: "Les classes comme des modèles de personnages",
+      examples: [
+        "classe = type de personnage",
+        "objet = personnage créé",
+        "héritage = classe spécialisée",
+      ],
+      explanation:
+        "Dans un jeu, un type de personnage (classe) définit les capacités. Chaque personnage créé (objet) suit le même modèle mais peut avoir des stats différentes.",
+    },
+    jardinage: {
+      title: "🌱 Jardinage",
+      description: "Les classes comme des espèces de plantes",
+      examples: [
+        "classe = espèce de plante",
+        "objet = plante individuelle",
+        "héritage = variété spécialisée",
+      ],
+      explanation:
+        "Au jardin, une espèce (classe) définit les caractéristiques. Chaque plante (objet) suit le même modèle mais peut avoir une taille ou couleur différente.",
+    },
+  };
 
-# 1. SCOPE DE FONCTION
-def fonction_exemple():
-    variable_fonction = "Je suis dans la fonction"
-    print("Dans la fonction:", variable_fonction)
-    # Cette variable n'existe que dans la fonction
+  const pythonCode = `# Programmation Orientée Objet en Python
 
-fonction_exemple()
-# print(variable_fonction)  # Erreur ! Variable non définie
-
-# 2. SCOPE DE BLOC - Python n'a PAS de scope de bloc !
-x = 10
-if x > 5:
-    variable_bloc = "Je suis dans le bloc"
-    print("Dans le bloc:", variable_bloc)
-
-# En Python, la variable est accessible après le bloc !
-print("Après le bloc:", variable_bloc)  # Fonctionne !
-
-# 3. SCOPE IMBRIQUÉ
-def fonction_externe():
-    x = "externe"
+# 1. DÉFINITION DE CLASSE
+class Voiture:
+    def __init__(self, marque, modele, annee):
+        self.marque = marque      # Propriété
+        self.modele = modele      # Propriété
+        self.annee = annee        # Propriété
     
-    def fonction_interne():
-        x = "interne"  # Nouvelle variable locale
-        print("Interne:", x)
+    def demarrer(self):           # Méthode
+        return f"{self.marque} {self.modele} démarre"
     
-    fonction_interne()
-    print("Externe:", x)
+    def info(self):               # Méthode
+        return f"{self.marque} {self.modele} ({self.annee})"
 
-fonction_externe()
+# 2. CRÉATION D'OBJETS
+voiture1 = Voiture("Toyota", "Corolla", 2020)
+voiture2 = Voiture("Honda", "Civic", 2021)
 
-# 4. GLOBAL DANS FONCTION
-compteur = 0
+print(voiture1.demarrer())  # Toyota Corolla démarre
+print(voiture2.info())      # Honda Civic (2021)
 
-def incrementer():
-    global compteur  # Déclarer qu'on modifie la globale
-    compteur += 1
-    print("Compteur:", compteur)
-
-incrementer()  # 1
-incrementer()  # 2
-
-# 5. NONLOCAL - Variables des fonctions parentes
-def fonction_parent():
-    x = "parent"
+# 3. HÉRITAGE
+class VoitureElectrique(Voiture):
+    def __init__(self, marque, modele, annee, autonomie):
+        super().__init__(marque, modele, annee)
+        self.autonomie = autonomie
     
-    def fonction_enfant():
-        nonlocal x  # Référence à la variable du parent
-        x = "enfant"
-        print("Enfant:", x)
+    def demarrer(self):
+        return f"{self.marque} {self.modele} démarre silencieusement"
     
-    fonction_enfant()
-    print("Parent:", x)
+    def info_autonomie(self):
+        return f"Autonomie: {self.autonomie}km"
 
-fonction_parent()`;
-
-  const javascriptCode = `// Scope de fonction et de bloc en JavaScript
-
-// 1. SCOPE DE FONCTION
-function fonctionExemple() {
-    let variableFonction = "Je suis dans la fonction";
-    console.log("Dans la fonction:", variableFonction);
-    // Cette variable n'existe que dans la fonction
-}
-
-fonctionExemple();
-// console.log(variableFonction);  // Erreur ! Variable non définie
-
-// 2. SCOPE DE BLOC - JavaScript A un scope de bloc !
-let x = 10;
-if (x > 5) {
-    let variableBloc = "Je suis dans le bloc";
-    console.log("Dans le bloc:", variableBloc);
-}
-// console.log(variableBloc);  // Erreur ! Variable non définie
-
-// 3. VAR vs LET - Différence importante
-if (true) {
-    var variableVar = "Je suis accessible partout";
-    let variableLet = "Je suis dans le bloc seulement";
-}
-console.log("Var accessible:", variableVar);  // OK
-// console.log("Let accessible:", variableLet);  // Erreur !
-
-// 4. SCOPE IMBRIQUÉ
-function fonctionExterne() {
-    let x = "externe";
+# 4. ENCAPSULATION
+class CompteBancaire:
+    def __init__(self, titulaire, solde):
+        self._titulaire = titulaire  # Propriété protégée
+        self.__solde = solde         # Propriété privée
     
-    function fonctionInterne() {
-        let x = "interne";  // Nouvelle variable locale
-        console.log("Interne:", x);
+    def deposer(self, montant):
+        if montant > 0:
+            self.__solde += montant
+            return f"Dépôt de {montant}€ effectué"
+        return "Montant invalide"
+    
+    def consulter_solde(self):
+        return f"Solde: {self.__solde}€"
+
+# Test de la POO
+voiture_electrique = VoitureElectrique("Tesla", "Model 3", 2023, 500)
+print(voiture_electrique.demarrer())
+print(voiture_electrique.info_autonomie())
+
+# Test encapsulation
+compte = CompteBancaire("Alice", 1000)
+print(compte.deposer(500))
+print(compte.consulter_solde())`;
+
+  const javascriptCode = `// Programmation Orientée Objet en JavaScript
+
+// 1. DÉFINITION DE CLASSE
+class Voiture {
+    constructor(marque, modele, annee) {
+        this.marque = marque;      // Propriété
+        this.modele = modele;      // Propriété
+        this.annee = annee;        // Propriété
     }
     
-    fonctionInterne();
-    console.log("Externe:", x);
-}
-
-fonctionExterne();
-
-// 5. CLOSURE AVEC SCOPE
-function createurCompteur() {
-    let compteur = 0;  // Variable dans le scope de la fonction
+    demarrer() {                   // Méthode
+        return \`\${this.marque} \${this.modele} démarre\`;
+    }
     
-    return {
-        incrementer: () => ++compteur,
-        obtenir: () => compteur
-    };
+    info() {                       // Méthode
+        return \`\${this.marque} \${this.modele} (\${this.annee})\`;
+    }
 }
 
-const monCompteur = createurCompteur();
-console.log("Compteur:", monCompteur.obtenir());  // 0
-monCompteur.incrementer();
-console.log("Compteur:", monCompteur.obtenir());  // 1`;
+// 2. CRÉATION D'OBJETS
+const voiture1 = new Voiture("Toyota", "Corolla", 2020);
+const voiture2 = new Voiture("Honda", "Civic", 2021);
 
-  const typescriptCode = `// Scope de fonction et de bloc en TypeScript
+console.log(voiture1.demarrer());  // Toyota Corolla démarre
+console.log(voiture2.info());      // Honda Civic (2021)
 
-// 1. SCOPE DE FONCTION
-function fonctionExemple(): void {
-    let variableFonction: string = "Je suis dans la fonction";
-    console.log("Dans la fonction:", variableFonction);
-    // Cette variable n'existe que dans la fonction
-}
-
-fonctionExemple();
-// console.log(variableFonction);  // Erreur ! Variable non définie
-
-// 2. SCOPE DE BLOC - TypeScript A un scope de bloc !
-let x: number = 10;
-if (x > 5) {
-    let variableBloc: string = "Je suis dans le bloc";
-    console.log("Dans le bloc:", variableBloc);
-}
-// console.log(variableBloc);  // Erreur ! Variable non définie
-
-// 3. TYPES AVEC SCOPE
-interface Compteur {
-    incrementer(): number;
-    obtenir(): number;
-}
-
-function createurCompteur(): Compteur {
-    let compteur: number = 0;  // Variable dans le scope de la fonction
+// 3. HÉRITAGE
+class VoitureElectrique extends Voiture {
+    constructor(marque, modele, annee, autonomie) {
+        super(marque, modele, annee);
+        this.autonomie = autonomie;
+    }
     
-    return {
-        incrementer: (): number => ++compteur,
-        obtenir: (): number => compteur
-    };
+    demarrer() {
+        return \`\${this.marque} \${this.modele} démarre silencieusement\`;
+    }
+    
+    infoAutonomie() {
+        return \`Autonomie: \${this.autonomie}km\`;
+    }
 }
 
-const monCompteur: Compteur = createurCompteur();
-console.log("Compteur:", monCompteur.obtenir());  // 0
-monCompteur.incrementer();
-console.log("Compteur:", monCompteur.obtenir());  // 1
-
-// 4. GENERICS AVEC SCOPE
-function createurMemoise<T, R>(fn: (arg: T) => R): (arg: T) => R {
-    const cache = new Map<T, R>();  // Variable dans le scope de la fonction
+// 4. ENCAPSULATION
+class CompteBancaire {
+    constructor(titulaire, solde) {
+        this._titulaire = titulaire;  // Propriété protégée
+        this.#solde = solde;          // Propriété privée
+    }
     
-    return function(arg: T): R {
-        if (cache.has(arg)) {
-            return cache.get(arg)!;
+    deposer(montant) {
+        if (montant > 0) {
+            this.#solde += montant;
+            return \`Dépôt de \${montant}€ effectué\`;
         }
-        const resultat = fn(arg);
-        cache.set(arg, resultat);
-        return resultat;
-    };
-}
-
-const fibonacciMemoise = createurMemoise((n: number): number => {
-    if (n <= 1) return n;
-    return fibonacciMemoise(n - 1) + fibonacciMemoise(n - 2);
-});
-
-console.log("Fibonacci(10):", fibonacciMemoise(10));
-
-// 5. SCOPE AVEC CLASSES
-class ExempleClasse {
-    private variablePrivee: string = "privée";
+        return "Montant invalide";
+    }
     
-    public methode(): void {
-        let variableLocale: string = "locale";
-        console.log("Privée:", this.variablePrivee);
-        console.log("Locale:", variableLocale);
+    consulterSolde() {
+        return \`Solde: \${this.#solde}€\`;
     }
 }
 
-const instance = new ExempleClasse();
-instance.methode();`;
+// Test de la POO
+const voitureElectrique = new VoitureElectrique("Tesla", "Model 3", 2023, 500);
+console.log(voitureElectrique.demarrer());
+console.log(voitureElectrique.infoAutonomie());
+
+// Test encapsulation
+const compte = new CompteBancaire("Alice", 1000);
+console.log(compte.deposer(500));
+console.log(compte.consulterSolde());`;
+
+  const typescriptCode = `// Programmation Orientée Objet en TypeScript
+
+// 1. DÉFINITION DE CLASSE
+class Voiture {
+    private marque: string;
+    private modele: string;
+    private annee: number;
+    
+    constructor(marque: string, modele: string, annee: number) {
+        this.marque = marque;      // Propriété
+        this.modele = modele;      // Propriété
+        this.annee = annee;        // Propriété
+    }
+    
+    demarrer(): string {           // Méthode
+        return \`\${this.marque} \${this.modele} démarre\`;
+    }
+    
+    info(): string {               // Méthode
+        return \`\${this.marque} \${this.modele} (\${this.annee})\`;
+    }
+}
+
+// 2. CRÉATION D'OBJETS
+const voiture1: Voiture = new Voiture("Toyota", "Corolla", 2020);
+const voiture2: Voiture = new Voiture("Honda", "Civic", 2021);
+
+console.log(voiture1.demarrer());  // Toyota Corolla démarre
+console.log(voiture2.info());      // Honda Civic (2021)
+
+// 3. HÉRITAGE
+class VoitureElectrique extends Voiture {
+    private autonomie: number;
+    
+    constructor(marque: string, modele: string, annee: number, autonomie: number) {
+        super(marque, modele, annee);
+        this.autonomie = autonomie;
+    }
+    
+    demarrer(): string {
+        return \`\${this.marque} \${this.modele} démarre silencieusement\`;
+    }
+    
+    infoAutonomie(): string {
+        return \`Autonomie: \${this.autonomie}km\`;
+    }
+}
+
+// 4. ENCAPSULATION
+class CompteBancaire {
+    private _titulaire: string;    // Propriété protégée
+    private #solde: number;        // Propriété privée
+    
+    constructor(titulaire: string, solde: number) {
+        this._titulaire = titulaire;
+        this.#solde = solde;
+    }
+    
+    deposer(montant: number): string {
+        if (montant > 0) {
+            this.#solde += montant;
+            return \`Dépôt de \${montant}€ effectué\`;
+        }
+        return "Montant invalide";
+    }
+    
+    consulterSolde(): string {
+        return \`Solde: \${this.#solde}€\`;
+    }
+}
+
+// Test de la POO
+const voitureElectrique: VoitureElectrique = new VoitureElectrique("Tesla", "Model 3", 2023, 500);
+console.log(voitureElectrique.demarrer());
+console.log(voitureElectrique.infoAutonomie());
+
+// Test encapsulation
+const compte: CompteBancaire = new CompteBancaire("Alice", 1000);
+console.log(compte.deposer(500));
+console.log(compte.consulterSolde());`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-100">
@@ -349,18 +491,15 @@ instance.methode();`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre les différences entre scope de fonction et scope de
                 bloc
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -409,7 +548,8 @@ instance.methode();`;
                 🌟 Analogies Simples
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Trois façons de comprendre les scopes selon votre univers
+                Trois façons de comprendre la Programmation Orientée Objet selon
+                votre univers
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -450,6 +590,202 @@ instance.methode();`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    La Programmation Orientée Objet, c'est quoi exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce que la Programmation Orientée Objet ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    La <strong>Programmation Orientée Objet</strong> (POO) est
+                    un paradigme de programmation qui organise le code autour
+                    d'objets qui contiennent des données (propriétés) et du code
+                    (méthodes). Une{" "}
+                    <code className="text-blue-600">classe</code> est un modèle
+                    qui définit la structure et le comportement des objets.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Les principes fondamentaux sont :{" "}
+                    <strong>l'encapsulation</strong> (cacher les détails
+                    internes), <strong>l'héritage</strong> (réutiliser le code),
+                    et <strong>le polymorphisme</strong> (utiliser des objets de
+                    manière uniforme).
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🏗️</div>
+                      <div className="font-semibold text-blue-800">Classe</div>
+                      <div className="text-sm text-blue-600">
+                        Modèle pour créer des objets
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📦</div>
+                      <div className="font-semibold text-purple-800">Objet</div>
+                      <div className="text-sm text-purple-600">
+                        Instance créée à partir d'une classe
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Principes Fondamentaux
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔒</div>
+                      <div className="font-semibold text-orange-800">
+                        Encapsulation
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Cacher les détails internes
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔄</div>
+                      <div className="font-semibold text-orange-800">
+                        Héritage
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Réutiliser le code
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🎭</div>
+                      <div className="font-semibold text-orange-800">
+                        Polymorphisme
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Utiliser des objets uniformément
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    🏗️ Structure d'une Classe et d'un Objet
+                  </h3>
+                  <div className="bg-gray-900 rounded-lg p-4">
+                    <pre className="text-green-400 font-mono text-sm">
+                      <code>{`// Exemple de classe et objet
+class Voiture {
+    constructor(marque, modele) {
+        this.marque = marque;    // Propriété
+        this.modele = modele;    // Propriété
+    }
+    
+    demarrer() {                 // Méthode
+        return \`\${this.marque} \${this.modele} démarre\`;
+    }
+    
+    info() {                     // Méthode
+        return \`\${this.marque} \${this.modele}\`;
+    }
+}
+
+// Création d'objets
+const voiture1 = new Voiture("Toyota", "Corolla");
+const voiture2 = new Voiture("Honda", "Civic");
+
+console.log(voiture1.demarrer()); // Toyota Corolla démarre
+console.log(voiture2.info());     // Honda Civic
+
+// Héritage
+class VoitureElectrique extends Voiture {
+    constructor(marque, modele, autonomie) {
+        super(marque, modele);
+        this.autonomie = autonomie;
+    }
+    
+    demarrer() {
+        return \`\${this.marque} \${this.modele} démarre silencieusement\`;
+    }
+}`}</code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    💡 Pourquoi utiliser la POO ?
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Organisation du code
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Structure claire et logique
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Réutilisabilité
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Code réutilisable via l'héritage
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Maintenance
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Code plus facile à maintenir
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Modélisation du réel
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Représente le monde réel
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Exemples de Code */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-100/50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl">
@@ -458,7 +794,8 @@ instance.methode();`;
                 💻 Exemples de Code
               </CardTitle>
               <CardDescription>
-                Comparez les scopes dans les trois langages principaux
+                Comparez la Programmation Orientée Objet dans les trois langages
+                principaux
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -674,86 +1011,22 @@ print("=" * 50)`}</code>
           </Card>
         </section>
 
-        {/* Points clés */}
+        {/* Quiz Interactifs */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border-2 border-indigo-300/50 shadow-xl">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
               </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension de la Programmation Orientée Objet
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Scope de fonction
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Variables accessibles seulement dans la fonction
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Scope de bloc
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Variables accessibles seulement dans le bloc (JS/TS)
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Python vs JS/TS
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Python n'a pas de scope de bloc
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        VAR vs LET
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        VAR ignore les blocs, LET respecte les blocs
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Scope imbriqué
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Fonctions dans des fonctions
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Pratique essentielle
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base de la programmation avancée
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -767,7 +1040,7 @@ print("=" * 50)`}</code>
                 🚀 Prêt pour la suite ?
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
-                Maintenant que vous maîtrisez les scopes, passez au hoisting !
+                Maintenant que vous maîtrisez la POO, passez au hoisting !
               </CardDescription>
             </CardHeader>
             <CardContent>

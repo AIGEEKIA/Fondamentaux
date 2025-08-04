@@ -1,0 +1,179 @@
+# 🚀 RÈGLES D'ÉVOLUTION DES COURS
+
+## 🎯 **OBJECTIF**
+
+Règles spécifiques pour l'évolution et la mise à jour des cours selon les standards établis.
+
+## ⚡ **QUAND ÉVOLUER UN COURS**
+
+### **Déclencheurs d'Évolution**
+
+- [ ] **Nouvelle fonctionnalité** ajoutée au template cours-1
+- [ ] **Amélioration pédagogique** validée
+- [ ] **Correction de bug** critique
+- [ ] **Mise à jour design** du template
+- [ ] **Nouvelle exigence** pédagogique
+
+### **Processus d'Évolution**
+
+1. **Analyser l'impact** sur tous les cours
+2. **Prioriser les cours** à mettre à jour
+3. **Appliquer le standard** universel
+4. **Tester la cohérence** globale
+5. **Documenter les changements**
+
+## 📊 **HIÉRARCHIE D'ÉVOLUTION**
+
+### **🟢 Évolution Critique (Immédiate)**
+
+- **Sécurité** : Vulnérabilités
+- **Fonctionnalité** : Bugs critiques
+- **Accessibilité** : Problèmes WCAG
+
+### **🟡 Évolution Importante (Priorité haute)**
+
+- **Design** : Incohérences visuelles
+- **Pédagogie** : Améliorations majeures
+- **Performance** : Optimisations significatives
+
+### **🔵 Évolution Standard (Priorité normale)**
+
+- **Contenu** : Mises à jour mineures
+- **Documentation** : Clarifications
+- **Optimisations** : Améliorations mineures
+
+## 🎯 **RÈGLES D'INSTANT POUR L'ÉVOLUTION**
+
+### **MÉTHODOLOGIE STANDARDISÉE (OBLIGATOIRE)**
+
+#### **Vérifications AVANT modification :**
+
+1. ✅ **Lire le fichier complet** pour comprendre la structure actuelle
+2. ✅ **Vérifier l'ordre des sections** : Objectifs → Analogies → Définition Simple → Exemples → Mini-App → Quiz → Navigation
+3. ✅ **Comparer le design du quiz EXACTEMENT** avec cours-1
+4. ✅ **Identifier les sections manquantes** (Définition Simple, Quiz Interactifs)
+5. ✅ **Identifier les sections à supprimer** (Points clés)
+
+#### **Design Quiz standard (cours-1) :**
+
+- **Container** : `bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50`
+- **Gestion états** : `Boolean(quizStates[quizId])` + `quizStates[\`${quizId}\_selected\`]`
+- **onClick** : `setQuizStates` avec deux clés (`[quizId]: true` + `[\`${quizId}\_selected\`]: index`)
+- **Feedback** : `selectedAnswer === quiz.correctAnswer`
+- **Icône** : `<Brain className="h-6 w-6 text-purple-600" />`
+- **Titre** : `Quiz : {quiz.question}`
+
+#### **Structure "Définition Simple" standard :**
+
+- **Container** : `bg-gradient-to-br from-green-500/10 to-emerald-500/10`
+- **Icône** : `BookOpen` dans un cercle vert
+- **Sections** : Explication + Cartes visuelles + "Pourquoi c'est important"
+- **Couleurs** : Vert/emerald pour la cohérence
+
+### **Avant Toute Évolution**
+
+- [ ] **Vérifier l'impact** sur tous les cours
+- [ ] **Tester sur cours-1** en premier
+- [ ] **Valider la cohérence** globale
+- [ ] **Documenter les changements**
+
+### **Pendant l'Évolution**
+
+- [ ] **Suivre le standard** universel
+- [ ] **Maintenir la qualité** établie
+- [ ] **Tester chaque modification**
+- [ ] **Vérifier la régression**
+
+### **Après l'Évolution**
+
+- [ ] **Tester tous les cours** affectés
+- [ ] **Mettre à jour la documentation**
+- [ ] **Valider la cohérence** globale
+- [ ] **Documenter les changements**
+
+## 🔄 **GESTION DES VERSIONS**
+
+### **Versioning des Cours**
+
+- **Template** : cours-1 (référence)
+- **Cours actifs** : cours-2 à cours-15
+- **Évolution** : Synchronisation avec template
+
+### **Synchronisation**
+
+- [ ] **Template à jour** : cours-1 toujours actuel
+- [ ] **Cours synchronisés** : Tous alignés sur template
+- [ ] **Documentation** : Toujours à jour
+- [ ] **Règles** : Évolutives avec le projet
+
+## 🚨 **ERREURS COURANTES À ÉVITER**
+
+### **Erreurs de Design Quiz :**
+
+- ❌ **Container blanc** au lieu du gradient purple/indigo
+- ❌ **Gestion états simple** au lieu de deux clés
+- ❌ **onClick direct** au lieu de setQuizStates avec deux clés
+- ❌ **Titre simple** au lieu de "Quiz : {question}"
+- ❌ **Pas d'icône Brain** dans l'en-tête
+
+### **Erreurs de Structure :**
+
+- ❌ **Section "Points clés"** (interdite)
+- ❌ **Mauvais ordre** des sections
+- ❌ **Définition Simple manquante** ou trop pauvre
+- ❌ **Quiz Interactifs manquant**
+
+### **Erreurs de Méthode :**
+
+- ❌ **Approche "tentative"** au lieu de méthodique
+- ❌ **Pas de comparaison** avec cours-1
+- ❌ **Vérifications partielles** au lieu de complètes
+- ❌ **Pas de documentation** des apprentissages
+
+## 📋 **CHECKLIST D'ÉVOLUTION**
+
+### **Phase 1 : Préparation**
+
+- [ ] **Identifier le besoin** d'évolution
+- [ ] **Analyser l'impact** sur tous les cours
+- [ ] **Prioriser les cours** à modifier
+- [ ] **Planifier l'approche** selon le standard
+
+### **Phase 2 : Exécution**
+
+- [ ] **Suivre le standard** universel de modification
+- [ ] **Tester chaque modification** individuellement
+- [ ] **Maintenir la cohérence** avec cours-1
+- [ ] **Vérifier la régression** sur les autres cours
+
+### **Phase 3 : Validation**
+
+- [ ] **Tester tous les cours** affectés
+- [ ] **Valider la cohérence** globale
+- [ ] **Mettre à jour la documentation**
+- [ ] **Documenter les changements**
+
+## 🎯 **MÉTRIQUES D'ÉVOLUTION**
+
+### **Qualité**
+
+- **Cohérence** : 100% aligné sur cours-1
+- **Fonctionnalité** : Tous les cours fonctionnels
+- **Performance** : Pas de dégradation
+- **Accessibilité** : Standards WCAG maintenus
+
+### **Efficacité**
+
+- **Temps d'évolution** : Optimisé
+- **Régression** : Minimisée
+- **Documentation** : Toujours à jour
+- **Maintenance** : Simplifiée
+
+---
+
+**Note** : Ces règles s'appliquent spécifiquement à l'évolution des cours et complètent les règles essentielles.
+description:
+globs:
+alwaysApply: false
+
+---

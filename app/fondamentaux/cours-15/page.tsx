@@ -93,6 +93,112 @@ export default function Lecon15Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question: "Qu'est-ce qu'un test unitaire ?",
+      options: [
+        "Un test qui vérifie une fonction individuellement",
+        "Un test qui vérifie toute l'application",
+        "Un test de performance",
+        "Un test d'interface utilisateur",
+      ],
+      correctAnswer: 0,
+      explication:
+        "Un test unitaire vérifie une fonction ou méthode individuellement, en s'assurant qu'elle produit le bon résultat pour des entrées données.",
+    },
+    quiz2: {
+      question: "Quel est l'objectif principal du débogage ?",
+      options: [
+        "Rendre le code plus rapide",
+        "Rechercher et corriger les erreurs",
+        "Ajouter de nouvelles fonctionnalités",
+        "Optimiser la mémoire",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Le débogage consiste à identifier, localiser et corriger les erreurs (bugs) dans le code pour qu'il fonctionne correctement.",
+    },
+    quiz3: {
+      question: "Pourquoi écrire des tests est important ?",
+      options: [
+        "Pour compliquer le code",
+        "Pour détecter les erreurs avant la production et avoir confiance en ses modifications",
+        "Pour ralentir le développement",
+        "Pour utiliser plus de ressources",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Les tests permettent de détecter les erreurs avant qu'elles n'atteignent les utilisateurs finaux et donnent confiance lors des modifications du code.",
+    },
+  };
+
   const pythonCode = `# Tests et débogage en Python
 
 # 1. TESTS UNITAIRES AVEC UNITTEST
@@ -716,17 +822,14 @@ testProperty(testAdditionCommutative, 50);`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Vérifier et corriger le code efficacement
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -814,6 +917,147 @@ testProperty(testAdditionCommutative, 50);`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Les tests et le débogage, c'est quoi exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce que les tests ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Les <strong>tests</strong> sont des vérifications
+                    automatiques qui s'assurent que votre code fonctionne
+                    correctement. Ils permettent de détecter les erreurs avant
+                    qu'elles n'atteignent les utilisateurs finaux.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Le <strong>débogage</strong> est le processus de recherche
+                    et de correction des erreurs dans le code. Il utilise des
+                    outils spécialisés pour identifier et résoudre les
+                    problèmes.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🧪</div>
+                      <div className="font-semibold text-blue-800">Tests</div>
+                      <div className="text-sm text-blue-600">
+                        Vérifications automatiques du code
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🐛</div>
+                      <div className="font-semibold text-purple-800">
+                        Débogage
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Recherche et correction d'erreurs
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Types de Tests
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔬</div>
+                      <div className="font-semibold text-orange-800">
+                        Tests Unitaires
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Tester une fonction individuellement
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔗</div>
+                      <div className="font-semibold text-orange-800">
+                        Tests d'Intégration
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Tester l'interaction entre composants
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🎯</div>
+                      <div className="font-semibold text-orange-800">
+                        Tests End-to-End
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Tester le flux complet de l'application
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">⚡</div>
+                      <div className="font-semibold text-orange-800">
+                        Tests de Performance
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Vérifier la vitesse d'exécution
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Qualité du code
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Détecter les erreurs avant la production
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">Confiance</strong>
+                        <p className="text-sm text-gray-600">
+                          Avoir confiance en ses modifications
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">Maintenance</strong>
+                        <p className="text-sm text-gray-600">
+                          Faciliter les modifications futures
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Exemples de Code */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-100/50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl">
@@ -887,6 +1131,27 @@ testProperty(testAdditionCommutative, 50);`;
                     <code>{typescriptCode}</code>
                   </pre>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Quiz Interactifs */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension des tests et du débogage
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

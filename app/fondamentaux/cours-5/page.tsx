@@ -47,11 +47,129 @@ import Image from "next/image";
 export default function Lecon5Page() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeAnalogy, setActiveAnalogy] = useState("cuisine");
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+  const [points, setPoints] = useState(0);
+  const [badges, setBadges] = useState<string[]>([]);
 
   const copyToClipboard = (code: string, language: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(language);
     setTimeout(() => setCopiedCode(null), 2000);
+  };
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    const quiz = quizData[quizId as keyof typeof quizData];
+    if (!quiz) return;
+
+    const isCorrect = selectedAnswer === quiz.correctAnswer;
+
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
+    }));
+
+    if (isCorrect) {
+      setPoints((prev) => prev + 10);
+      if (!badges.includes("Fonctions de haut niveau")) {
+        setBadges((prev) => [...prev, "Fonctions de haut niveau"]);
+      }
+    }
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Données des quiz
+  const quizData = {
+    quiz1: {
+      question: "Que fait la fonction map ?",
+      options: [
+        "Elle transforme chaque élément de la collection",
+        "Elle supprime des éléments de la collection",
+        "Elle combine tous les éléments en une seule valeur",
+      ],
+      correctAnswer: 0,
+      explication:
+        "Map transforme chaque élément en appliquant une fonction. Elle retourne une nouvelle collection de la même taille avec les éléments transformés.",
+    },
+    quiz2: {
+      question: "Quelle est la différence entre filter et reduce ?",
+      options: [
+        "Filter garde des éléments, reduce combine tout",
+        "Filter transforme, reduce garde des éléments",
+        "Il n'y a pas de différence, elles font la même chose",
+      ],
+      correctAnswer: 0,
+      explication:
+        "Filter garde seulement les éléments qui passent le test, tandis que reduce combine tous les éléments en une seule valeur.",
+    },
+    quiz3: {
+      question: "Pourquoi utiliser des fonctions de haut niveau ?",
+      options: [
+        "Pour écrire du code plus lisible et fonctionnel",
+        "Pour que le code soit plus lent",
+        "Pour compliquer le code",
+      ],
+      correctAnswer: 0,
+      explication:
+        "Les fonctions de haut niveau rendent le code plus lisible, plus maintenable et suivent les principes de la programmation fonctionnelle.",
+    },
   };
 
   const analogies = {
@@ -278,18 +396,15 @@ console.log("Total âge :", totalAge);`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Maîtriser la programmation fonctionnelle avec map, filter et
                 reduce
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -375,6 +490,183 @@ console.log("Total âge :", totalAge);`;
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Les fonctions de haut niveau, c'est quoi exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce qu'une Fonction de Haut Niveau ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Une <strong>fonction de haut niveau</strong> c'est une
+                    fonction qui peut prendre d'autres fonctions en paramètre ou
+                    retourner une fonction. C'est comme avoir des{" "}
+                    <strong>outils intelligents</strong> qui savent comment
+                    traiter des collections de données sans que vous ayez à
+                    écrire des boucles manuellement.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🔧</div>
+                      <div className="font-semibold text-blue-800">
+                        Prend des Fonctions
+                      </div>
+                      <div className="text-sm text-blue-600">
+                        Accepte d'autres fonctions comme paramètres
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🔄</div>
+                      <div className="font-semibold text-purple-800">
+                        Retourne des Fonctions
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Peut créer et retourner de nouvelles fonctions
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Fonctions Essentielles
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🗺️</div>
+                      <div className="font-semibold text-orange-800">MAP</div>
+                      <div className="text-sm text-orange-600">
+                        Transforme chaque élément
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔍</div>
+                      <div className="font-semibold text-orange-800">
+                        FILTER
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Filtre les éléments
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">📊</div>
+                      <div className="font-semibold text-orange-800">
+                        REDUCE
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Combine tous les éléments
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    🏗️ Structure des Fonctions de Haut Niveau
+                  </h3>
+                  <div className="bg-gray-900 rounded-lg p-4">
+                    <pre className="text-green-400 font-mono text-sm">
+                      <code>{`// Structure de base des fonctions de haut niveau
+const nombres = [1, 2, 3, 4, 5];
+
+// MAP - Transformer chaque élément
+const carres = nombres.map(x => x * x);
+// Résultat: [1, 4, 9, 16, 25]
+
+// FILTER - Filtrer les éléments
+const pairs = nombres.filter(x => x % 2 === 0);
+// Résultat: [2, 4]
+
+// REDUCE - Combiner tous les éléments
+const somme = nombres.reduce((acc, x) => acc + x, 0);
+// Résultat: 15
+
+// Chaînage des fonctions
+const resultat = nombres
+  .filter(x => x > 2)        // [3, 4, 5]
+  .map(x => x * 2)           // [6, 8, 10]
+  .reduce((acc, x) => acc + x, 0); // 24`}</code>
+                    </pre>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    💡 Pourquoi utiliser les fonctions de haut niveau ?
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Code plus lisible
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Plus expressif que les boucles
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Moins d'erreurs
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Évite les bugs de boucles
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Code fonctionnel
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Style de programmation moderne
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mt-1" />
+                        <div>
+                          <h5 className="font-semibold text-gray-800">
+                            Chaînage possible
+                          </h5>
+                          <p className="text-sm text-gray-600">
+                            Combiner plusieurs opérations
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -699,84 +991,22 @@ print("=" * 50)`}</code>
           </Card>
         </section>
 
-        {/* Points clés */}
+        {/* Quiz Interactifs */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border-2 border-indigo-300/50 shadow-xl">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
               </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension des fonctions de haut niveau
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        MAP = Transformer
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Applique une fonction à chaque élément
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        FILTER = Sélectionner
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Garde seulement les éléments qui passent le test
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        REDUCE = Combiner
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Réduit tous les éléments en une seule valeur
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Fonctions pures
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Même entrée = même sortie, pas d'effets de bord
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Chaînage</h4>
-                      <p className="text-sm text-gray-600">
-                        Enchaîner map, filter et reduce
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Pratique essentielle
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base de la programmation fonctionnelle moderne
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

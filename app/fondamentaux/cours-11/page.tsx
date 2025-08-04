@@ -539,17 +539,14 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre la gestion d'état et la programmation asynchrone
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -1041,91 +1038,6 @@ if __name__ == "__main__":
 
 print("=" * 60)`}</code>
                   </pre>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Points clés */}
-        <section className="mb-12">
-          <Card className="bg-gradient-to-br from-indigo-500/20 to-blue-600/20 border-2 border-indigo-300/50 shadow-xl">
-            <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        État global vs local
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Bien séparer pour éviter les bugs
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Programmation asynchrone
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Vital pour la performance
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        async/await
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Rend l'asynchrone naturel
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Callbacks et promises
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Patterns asynchrones essentiels
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Applications réactives
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Performance et réactivité
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Gestion d'état moderne
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base pour les frameworks
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </CardContent>

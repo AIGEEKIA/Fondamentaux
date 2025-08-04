@@ -1,0 +1,122 @@
+# 🚨 RÈGLES ESSENTIELLES - CRITIQUES UNIQUEMENT
+
+## 🎯 **OBJECTIF**
+
+Règles critiques et vérifications obligatoires pour maintenir la qualité du projet.
+
+## ⚠️ **RÈGLES CRITIQUES - JAMAIS VIOLER**
+
+### **❌ INTERDICTIONS ABSOLUES**
+
+1. **Pas de code non typé** : TypeScript obligatoire
+2. **Pas de CSS inline** : Tailwind CSS uniquement
+3. **Pas de console.log en production** : Logger approprié
+4. **Pas de données sensibles en frontend** : API sécurisée
+5. **Pas de composants non accessibles** : WCAG 2.1 AA
+6. **Pas de code non testé** : Tests obligatoires
+7. **Pas de documentation manquante** : README complet
+8. **Pas de performance dégradée** : Core Web Vitals
+
+### **✅ OBLIGATIONS ABSOLUES**
+
+1. **Structure de leçon** : 7 étapes respectées DANS L'ORDRE EXACT
+2. **Définition Simple** : Explication + code structurel
+3. **Design cohérent** : Palette de couleurs respectée
+4. **Responsive** : Mobile-first design
+5. **Accessibilité** : Standards WCAG respectés
+6. **Performance** : Core Web Vitals optimaux
+7. **Sécurité** : Validation et sanitisation
+8. **Tests** : Couverture de tests appropriée
+9. **Ordre des sections** : Vérification obligatoire contre template
+10. **Comparaison structurelle** : Analyse complète avant validation
+
+## 🔍 **VÉRIFICATION OBLIGATOIRE AVANT MODIFICATION**
+
+### **1. VÉRIFICATION TECHNIQUE**
+
+- [ ] **TypeScript** : Aucune erreur de type
+- [ ] **Tailwind CSS** : Classes cohérentes
+- [ ] **Performance** : Pas de re-renders inutiles
+- [ ] **Accessibilité** : Tests axe-core passent
+- [ ] **Structure** : Ordre des sections conforme au template
+- [ ] **Sections** : Toutes les 7 étapes présentes dans l'ordre
+
+### **2. VÉRIFICATION PÉDAGOGIE**
+
+#### **Structure de Leçon (7 Étapes) - ORDRE OBLIGATOIRE**
+
+- [ ] **En-tête** : Titre, description, badges
+- [ ] **Objectifs** : 3 objectifs avec CheckCircle
+- [ ] **Analogies** : 3 analogies côte à côte
+- [ ] **Définition Simple** : Explication + code structurel
+- [ ] **Exemples Code** : Code côte à côte pour 3 langages
+- [ ] **Mini-App** : Instructions et code exécutable
+- [ ] **Quiz** : 5 quiz avec feedback
+- [ ] **Navigation** : Liens précédent/suivant
+
+#### **🟢 VÉRIFICATION CRITIQUE : RICHESSE DE LA "DÉFINITION SIMPLE"**
+
+**OBLIGATOIRE :** Vérifier que la "Définition Simple" est aussi riche que les cours 1, 2, 3, 4.
+
+- [ ] **Question d'accroche** : Présente et spécifique au cours
+- [ ] **Explication vulgarisée** : Claire et progressive
+- [ ] **Cartes visuelles** : Icônes, couleurs, titres présents
+- [ ] **Exemples concrets** : Analogies et exemples
+- [ ] **Structure de code** : Commentée et pédagogique
+- [ ] **Mise en contexte** : "Pourquoi c'est utile ?"
+- [ ] **Mots-clés** : Mis en valeur avec `<strong>` et `<code>`
+- [ ] **Structure visuelle** : 4 sections (explication, types, code, pourquoi)
+- [ ] **Pas de définition pauvre** : Interdiction des définitions textuelles uniquement
+
+**RÉFÉRENCE :** Comparer avec la richesse des cours 1, 2, 3, 4.
+
+#### **VÉRIFICATION ORDRE DES SECTIONS - OBLIGATOIRE**
+
+- [ ] **Ordre exact** : Objectifs → Analogies → Définition → Exemples → Mini-App → Quiz → Navigation
+- [ ] **Pas d'inversion** : Les sections doivent être dans l'ordre exact du template
+- [ ] **Pas de section manquante** : Toutes les 7 étapes doivent être présentes
+- [ ] **Pas de section supplémentaire** : Seules les 7 étapes autorisées
+- [ ] **Comparaison avec template** : Vérifier contre cours-1/page.tsx
+
+### **3. VÉRIFICATION DESIGN**
+
+- [ ] **Palette de couleurs** : Respectée
+- [ ] **Composants UI** : shadcn/ui utilisés
+- [ ] **Responsive** : Mobile-first
+- [ ] **Animations** : Transitions fluides
+- [ ] **Accessibilité** : Contrastes et focus
+
+### **4. VÉRIFICATION CONTENU**
+
+- [ ] **Section "Définition Simple"** : Présente et complète
+- [ ] **Code structurel** : Bout de code obligatoire
+- [ ] **Quiz** : Design identique au cours-1
+- [ ] **Navigation** : Liens fonctionnels
+- [ ] **Cohérence** : Titres et descriptions
+
+## 🚨 **CHECKLIST CRITIQUE AVANT COMMIT**
+
+### **✅ OBLIGATIONS ABSOLUES**
+
+1. **Structure de leçon** : 7 étapes respectées DANS L'ORDRE EXACT
+2. **Définition Simple** : Explication + code structurel
+3. **Design cohérent** : Palette de couleurs respectée
+4. **Responsive** : Mobile-first design
+5. **Accessibilité** : Standards WCAG respectés
+6. **Performance** : Core Web Vitals optimaux
+7. **Sécurité** : Validation et sanitisation
+8. **Tests** : Couverture de tests appropriée
+9. **Ordre des sections** : Vérification obligatoire contre template
+10. **Comparaison structurelle** : Analyse complète avant validation
+
+## 📋 **MÉTRIQUES DE QUALITÉ**
+
+- **Erreurs TypeScript** : 0 toléré
+- **Performance** : Core Web Vitals > 90
+- **Accessibilité** : WCAG 2.1 AA
+- **Structure** : 100% conforme au template
+- **Sections** : 7/7 étapes présentes
+
+---
+
+**Note** : Ces règles DOIVENT être respectées AVANT chaque modification pour maintenir la qualité et la cohérence du projet.

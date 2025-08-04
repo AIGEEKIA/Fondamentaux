@@ -90,6 +90,114 @@ export default function Lecon8Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question:
+        "Que se passe-t-il quand on utilise une variable avec 'var' avant sa déclaration ?",
+      options: [
+        "Une erreur ReferenceError",
+        "La variable est undefined",
+        "La variable est null",
+        "Une erreur TypeError",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Avec 'var', la variable est hoistée et initialisée à undefined, donc pas d'erreur mais la valeur est undefined.",
+    },
+    quiz2: {
+      question: "Qu'est-ce que la Temporal Dead Zone (TDZ) ?",
+      options: [
+        "Une zone où les variables sont toujours accessibles",
+        "Une zone où let/const ne sont pas accessibles avant leur déclaration",
+        "Une zone où les fonctions ne peuvent pas être appelées",
+        "Une zone de mémoire réservée",
+      ],
+      correctAnswer: 1,
+      explication:
+        "La TDZ est la zone entre le début du scope et la déclaration de let/const où ces variables ne sont pas accessibles.",
+    },
+    quiz3: {
+      question:
+        "Quelle est la différence entre 'var' et 'let' en termes de hoisting ?",
+      options: [
+        "Aucune différence, ils sont identiques",
+        "var est hoisté et initialisé à undefined, let est hoisté mais pas initialisé",
+        "let est hoisté et initialisé à undefined, var n'est pas hoisté",
+        "Aucun des deux n'est hoisté",
+      ],
+      correctAnswer: 1,
+      explication:
+        "var est hoisté et initialisé à undefined, tandis que let est hoisté mais reste dans la TDZ jusqu'à sa déclaration.",
+    },
+  };
+
   const pythonCode = `# Hoisting et temporal dead zone en Python
 
 # Python N'A PAS de hoisting !
@@ -365,17 +473,14 @@ testTDZTypee();`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre le hoisting en JavaScript et la temporal dead zone
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -458,6 +563,153 @@ testTDZTypee();`;
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Le hoisting et la temporal dead zone, c'est quoi exactement
+                    ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce que le Hoisting ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Le <strong>hoisting</strong> est un comportement de
+                    JavaScript où les déclarations de variables et de fonctions
+                    sont "remontées" au début de leur scope lors de l'exécution.
+                    Cela signifie que vous pouvez utiliser une variable ou une
+                    fonction avant de l'avoir déclarée dans le code.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Cependant, il y a une différence importante :{" "}
+                    <strong>
+                      les déclarations sont hoistées, pas les initialisations
+                    </strong>
+                    . Une variable déclarée avec{" "}
+                    <code className="text-blue-600">var</code> sera hoistée et
+                    initialisée avec{" "}
+                    <code className="text-blue-600">undefined</code>, tandis que{" "}
+                    <code className="text-blue-600">let</code> et{" "}
+                    <code className="text-blue-600">const</code> ont une
+                    "temporal dead zone".
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📈</div>
+                      <div className="font-semibold text-blue-800">
+                        Hoisting
+                      </div>
+                      <div className="text-sm text-blue-600">
+                        Remonte les déclarations
+                      </div>
+                    </div>
+                    <div className="bg-red-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">⏰</div>
+                      <div className="font-semibold text-red-800">
+                        Temporal Dead Zone
+                      </div>
+                      <div className="text-sm text-red-600">
+                        Zone d'inaccessibilité pour let/const
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Types de Hoisting
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">📦</div>
+                      <div className="font-semibold text-orange-800">VAR</div>
+                      <div className="text-sm text-orange-600">
+                        Hoisté et initialisé à undefined
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔒</div>
+                      <div className="font-semibold text-orange-800">
+                        LET/CONST
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Hoisté mais avec TDZ
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">⚡</div>
+                      <div className="font-semibold text-orange-800">
+                        FONCTIONS
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Complètement hoistées
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Éviter les bugs
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Comprendre le hoisting aide à éviter les erreurs
+                          "undefined"
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Code plus propre
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Utiliser let/const au lieu de var pour un code plus
+                          prévisible
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Debugging efficace
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Comprendre pourquoi certaines erreurs se produisent
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -703,80 +955,23 @@ print("🐍 Python : Pas de hoisting, déclaration stricte !")`}</code>
           </Card>
         </section>
 
-        {/* Points clés */}
+        {/* Quiz Interactifs */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border-2 border-indigo-300/50 shadow-xl">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
               </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension du hoisting et de la temporal dead
+                zone
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Hoisting</h4>
-                      <p className="text-sm text-gray-600">
-                        JavaScript "remonte" les déclarations
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Temporal Dead Zone
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Zone où LET/CONST ne sont pas accessibles
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        VAR vs LET/CONST
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        VAR est hoisté, LET/CONST ont une TDZ
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Python</h4>
-                      <p className="text-sm text-gray-600">
-                        Pas de hoisting, déclaration stricte
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Fonctions</h4>
-                      <p className="text-sm text-gray-600">
-                        Fonctions déclarées sont hoistées
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Pratique essentielle
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base de la compréhension JavaScript
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

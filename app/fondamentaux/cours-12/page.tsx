@@ -89,6 +89,112 @@ export default function Lecon12Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question: "Qu'est-ce qu'une exception en programmation ?",
+      options: [
+        "Un type de variable",
+        "Un objet qui représente une erreur ou condition exceptionnelle",
+        "Une fonction spéciale",
+        "Un commentaire dans le code",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Une exception est un objet qui représente une erreur ou une condition exceptionnelle. Elle est levée quand quelque chose ne va pas et peut être attrapée par du code spécialisé.",
+    },
+    quiz2: {
+      question: "Quel est le rôle du bloc 'finally' ?",
+      options: [
+        "Il s'exécute seulement si une erreur se produit",
+        "Il s'exécute seulement si tout va bien",
+        "Il s'exécute toujours, qu'il y ait une erreur ou non",
+        "Il s'exécute seulement une fois",
+      ],
+      correctAnswer: 2,
+      explication:
+        "Le bloc 'finally' s'exécute toujours, qu'il y ait une erreur ou non. Il est parfait pour le nettoyage (fermer des fichiers, connexions, etc.).",
+    },
+    quiz3: {
+      question: "Pourquoi la gestion d'erreurs est-elle importante ?",
+      options: [
+        "Pour ralentir le programme",
+        "Pour créer des applications robustes qui ne plantent pas complètement",
+        "Pour compliquer le code",
+        "Pour utiliser plus de mémoire",
+      ],
+      correctAnswer: 1,
+      explication:
+        "La gestion d'erreurs permet de créer des applications robustes qui peuvent continuer à fonctionner même quand quelque chose ne va pas, au lieu de planter complètement.",
+    },
+  };
+
   const pythonCode = `# Gestion d'erreurs et exceptions en Python
 
 # 1. TRY/EXCEPT SIMPLE
@@ -419,17 +525,14 @@ executerOperation();`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre la gestion d'erreurs et les exceptions
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -520,6 +623,143 @@ executerOperation();`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    La gestion d'erreurs et les exceptions, c'est quoi
+                    exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce que la Gestion d'Erreurs ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    La <strong>gestion d'erreurs</strong> est un mécanisme qui
+                    permet à un programme de continuer à fonctionner même quand
+                    quelque chose ne va pas comme prévu. Au lieu de planter
+                    complètement, le programme peut détecter, traiter et
+                    récupérer des erreurs de manière élégante.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Les <strong>exceptions</strong> sont des objets qui
+                    représentent des erreurs ou des conditions exceptionnelles.
+                    Quand une erreur se produit, une exception est "levée"
+                    (thrown) et peut être "attrapée" (caught) par du code
+                    spécialisé.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🛡️</div>
+                      <div className="font-semibold text-blue-800">
+                        Try/Catch
+                      </div>
+                      <div className="text-sm text-blue-600">
+                        Essayer et attraper les erreurs
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🧹</div>
+                      <div className="font-semibold text-purple-800">
+                        Finally
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Nettoyer quoi qu'il arrive
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Blocs Principaux
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🎯</div>
+                      <div className="font-semibold text-orange-800">TRY</div>
+                      <div className="text-sm text-orange-600">
+                        Code qui peut échouer
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🛡️</div>
+                      <div className="font-semibold text-orange-800">CATCH</div>
+                      <div className="text-sm text-orange-600">
+                        Gérer l'erreur
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🧹</div>
+                      <div className="font-semibold text-orange-800">
+                        FINALLY
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Nettoyer toujours
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Applications robustes
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Les programmes ne plantent pas complètement
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Expérience utilisateur
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Messages d'erreur clairs et informatifs
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Debugging facilité
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Identifier et corriger les problèmes rapidement
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Exemples de Code */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-100/50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl">
@@ -593,6 +833,28 @@ executerOperation();`;
                     <code>{typescriptCode}</code>
                   </pre>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Quiz Interactifs */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension de la gestion d'erreurs et des
+                exceptions
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

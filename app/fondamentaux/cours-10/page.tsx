@@ -92,6 +92,112 @@ export default function Lecon10Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question: "Qu'est-ce qu'une fonction imbriquée ?",
+      options: [
+        "Une fonction qui appelle une autre fonction",
+        "Une fonction définie à l'intérieur d'une autre fonction",
+        "Une fonction qui retourne une autre fonction",
+        "Une fonction avec beaucoup de paramètres",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Une fonction imbriquée est une fonction définie à l'intérieur d'une autre fonction. Elle a accès aux variables de la fonction parent.",
+    },
+    quiz2: {
+      question: "Qu'est-ce qu'une closure ?",
+      options: [
+        "Une fonction qui se termine",
+        "Une fonction qui capture des variables de son scope parent",
+        "Une fonction qui retourne true",
+        "Une fonction qui n'a pas de paramètres",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Une closure est une fonction qui capture et 'souvient' des variables de son scope parent, même après que la fonction parent ait terminé son exécution.",
+    },
+    quiz3: {
+      question: "Quel est l'avantage principal des fonctions imbriquées ?",
+      options: [
+        "Elles sont plus rapides",
+        "Elles permettent l'encapsulation et l'accès aux variables parent",
+        "Elles utilisent moins de mémoire",
+        "Elles sont plus faciles à écrire",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Les fonctions imbriquées permettent l'encapsulation (cacher les détails) et donnent accès aux variables de la fonction parent, créant des closures utiles.",
+    },
+  };
+
   const pythonCode = `# Fonctions imbriquées en Python
 
 # 1. FONCTION IMBRIQUÉE SIMPLE
@@ -455,17 +561,14 @@ fonctionTest();`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre les fonctions imbriquées et les closures
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -549,6 +652,147 @@ fonctionTest();`;
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Les fonctions imbriquées et les closures, c'est quoi
+                    exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce qu'une Fonction Imbriquée ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Une <strong>fonction imbriquée</strong> (nested function)
+                    est une fonction définie à l'intérieur d'une autre fonction.
+                    Elle a accès aux variables de la fonction parent (scope
+                    externe) et peut les utiliser ou les modifier selon les
+                    règles du langage.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Les fonctions imbriquées créent une{" "}
+                    <strong>hiérarchie de scope</strong> où la fonction interne
+                    peut accéder aux variables de la fonction externe, mais pas
+                    l'inverse. C'est la base du concept de{" "}
+                    <strong>closure</strong>.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🔗</div>
+                      <div className="font-semibold text-blue-800">
+                        Fonction Imbriquée
+                      </div>
+                      <div className="text-sm text-blue-600">
+                        Fonction dans une fonction
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📦</div>
+                      <div className="font-semibold text-purple-800">
+                        Closure
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Fonction qui capture des variables
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Avantages Principaux
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔒</div>
+                      <div className="font-semibold text-orange-800">
+                        Encapsulation
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Cacher les détails internes
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔄</div>
+                      <div className="font-semibold text-orange-800">
+                        État Persistant
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Maintenir des données entre appels
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">⚡</div>
+                      <div className="font-semibold text-orange-800">
+                        Factory Pattern
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Créer des fonctions spécialisées
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Programmation modulaire
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Organiser le code en unités logiques et réutilisables
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Éviter la pollution globale
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Garder les variables locales à leur contexte d'usage
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Patterns avancés
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Base pour les décorateurs, currying, et memoization
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -815,84 +1059,23 @@ print("=" * 60)`}</code>
           </Card>
         </section>
 
-        {/* Points clés */}
+        {/* Quiz Interactifs */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-br from-emerald-500/20 to-green-600/20 border-2 border-emerald-300/50 shadow-xl">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
               </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension des fonctions imbriquées et des
+                closures
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Fonctions imbriquées
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Fonctions définies dans d'autres fonctions
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Closures</h4>
-                      <p className="text-sm text-gray-600">
-                        Fonctions qui capturent des variables
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Accès aux variables
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Variables du parent accessibles
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Applications pratiques
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Compteurs, gestionnaires, décorateurs
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Encapsulation
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Données privées dans les closures
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-emerald-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Programmation avancée
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base pour des patterns complexes
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

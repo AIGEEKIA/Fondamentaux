@@ -90,6 +90,114 @@ export default function Lecon9Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question:
+        "Comment fonctionne la résolution de variables dans les chaînes de scope ?",
+      options: [
+        "De l'extérieur vers l'intérieur",
+        "De l'intérieur vers l'extérieur",
+        "Aléatoirement",
+        "Par ordre alphabétique",
+      ],
+      correctAnswer: 1,
+      explication:
+        "La résolution se fait de l'intérieur vers l'extérieur : le moteur cherche d'abord dans le scope actuel, puis remonte vers les scopes parents.",
+    },
+    quiz2: {
+      question: "Qu'est-ce que le lexical scoping ?",
+      options: [
+        "La résolution basée sur le moment d'exécution",
+        "La résolution basée sur la structure du code",
+        "La résolution basée sur l'ordre alphabétique",
+        "La résolution basée sur la mémoire disponible",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Le lexical scoping (ou static scoping) signifie que la résolution des variables est déterminée par la structure du code au moment de l'écriture.",
+    },
+    quiz3: {
+      question:
+        "Quelle est la différence entre 'global' et 'nonlocal' en Python ?",
+      options: [
+        "Aucune différence",
+        "global accède au scope global, nonlocal au scope parent",
+        "nonlocal accède au scope global, global au scope parent",
+        "Les deux accèdent au scope global",
+      ],
+      correctAnswer: 1,
+      explication:
+        "global permet d'accéder aux variables du scope global, tandis que nonlocal permet d'accéder aux variables du scope parent (fonction englobante).",
+    },
+  };
+
   const pythonCode = `# Chaînes de scope en Python
 
 # 1. SCOPE GLOBAL
@@ -411,17 +519,14 @@ instance.methode();`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Comprendre la résolution de variables et le lexical scoping
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -507,6 +612,150 @@ instance.methode();`;
                     </div>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Les chaînes de scope et le lexical scoping, c'est quoi
+                    exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce que les Chaînes de Scope ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Les <strong>chaînes de scope</strong> (scope chains) sont le
+                    mécanisme par lequel JavaScript et d'autres langages
+                    résolvent les variables. Quand vous accédez à une variable,
+                    le moteur JavaScript cherche d'abord dans le scope actuel,
+                    puis remonte la chaîne vers les scopes parents jusqu'à
+                    trouver la variable.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Le <strong>lexical scoping</strong> (ou static scoping)
+                    signifie que la résolution des variables est déterminée par
+                    la structure du code au moment de l'écriture, pas au moment
+                    de l'exécution. C'est comme une hiérarchie de boîtes
+                    imbriquées où chaque boîte peut accéder aux variables des
+                    boîtes qui la contiennent.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">🔗</div>
+                      <div className="font-semibold text-blue-800">
+                        Chaîne de Scope
+                      </div>
+                      <div className="text-sm text-blue-600">
+                        Ordre de recherche des variables
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📝</div>
+                      <div className="font-semibold text-purple-800">
+                        Lexical Scoping
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Résolution basée sur la structure du code
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Trois Niveaux de Scope
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🌍</div>
+                      <div className="font-semibold text-orange-800">
+                        Scope Global
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Variables accessibles partout
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔧</div>
+                      <div className="font-semibold text-orange-800">
+                        Scope de Fonction
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Variables locales à la fonction
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">📦</div>
+                      <div className="font-semibold text-orange-800">
+                        Scope de Bloc
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Variables dans les blocs (if, for, etc.)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Comprendre les bugs
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Savoir pourquoi une variable n'est pas trouvée ou
+                          prend une mauvaise valeur
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Code plus prévisible
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Éviter les conflits de noms et les effets de bord
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Debugging efficace
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Tracer facilement l'origine des variables
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -759,80 +1008,23 @@ print("=" * 60)`}</code>
           </Card>
         </section>
 
-        {/* Points clés */}
+        {/* Quiz Interactifs */}
         <section className="mb-12">
-          <Card className="bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border-2 border-indigo-300/50 shadow-xl">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                📚 Points clés à retenir
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
               </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension des chaînes de scope et du lexical
+                scoping
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Chaînes de scope
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Variables résolues de l'intérieur vers l'extérieur
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Lexical scoping
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Résolution basée sur la structure du code
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">NONLOCAL</h4>
-                      <p className="text-sm text-gray-600">
-                        Accéder aux variables des fonctions parentes
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">GLOBAL</h4>
-                      <p className="text-sm text-gray-600">
-                        Modifier les variables globales
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Closures</h4>
-                      <p className="text-sm text-gray-600">
-                        Fonctions qui capturent des variables
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-indigo-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        Pratique essentielle
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Base de la programmation avancée
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>

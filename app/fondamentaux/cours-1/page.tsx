@@ -405,39 +405,13 @@ print("✅ Calcul terminé avec succès!")`;
         </nav>
 
         {/* En-tête de Leçon */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            📦 Variables et Types de Données
-          </h1>
-          <p className="text-xl text-gray-600 mb-6">
-            Maîtrisez les fondamentaux du stockage de données dans vos
-            programmes
-          </p>
-          <div className="flex justify-center gap-4">
-            <div className="flex items-center gap-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              <BookOpen className="h-4 w-4" />
-              Fondamentaux
-            </div>
-            <div className="flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              <Code className="h-4 w-4" />
-              Variables
-            </div>
-            <div className="flex items-center gap-2 bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-              <Calculator className="h-4 w-4" />
-              Types
-            </div>
-          </div>
-        </div>
 
         {/* Objectifs du Cours */}
         <section className="mb-12">
           <Card className="rounded-lg bg-card text-card-foreground bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
             <div className="flex flex-col space-y-1.5 p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="tracking-tight text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
               </h3>
               <p className="text-lg text-gray-600">
                 Comprendre les variables et types de données dans 3 langages

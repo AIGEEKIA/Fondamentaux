@@ -1,121 +1,159 @@
-# 🎨 FORMATION DEV CODEUR IA - LES FONDAMENTAUX INDISPENSABLES
+# 📚 FORMATION DEV CODEUR IA - FONDAMENTAUX DE PROGRAMMATION
 
-Une formation interactive et moderne sur les fondamentaux de la programmation, construite avec Next.js et TypeScript selon des standards de design professionnels.
+## 🎯 **Description du Projet**
 
-## 📊 **État Actuel du Projet**
+Formation interactive et moderne sur les fondamentaux de la programmation, construite avec Next.js et TypeScript selon des standards de design professionnels. Cette formation couvre les concepts essentiels de la programmation à travers Python, JavaScript et TypeScript.
 
-### **✅ Éléments Cohérents et À Jour**
+## 🚀 **Technologies Utilisées**
 
-- **Menu hamburger** : Synchronisé avec la page d'accueil
-- **Cours 1, 2, 3** : Section "Définition Simple" présente
-- **Cours 11** : Gestion d'état - Section "Définition Simple" présente
-- **Progression logique** : 15 cours organisés par niveau de difficulté
+- **Framework** : Next.js 15.4.5
+- **Langage** : TypeScript
+- **Styling** : Tailwind CSS
+- **UI Components** : shadcn/ui + Radix UI
+- **Icônes** : Lucide React
+- **Déploiement** : Vercel (recommandé)
 
-### **❌ Éléments À Mettre À Jour**
+## 📚 **Structure Pédagogique**
 
-- **11 cours** manquent la section "Définition Simple" (4-10, 12-15)
-- **Progression** : 27% complète (4/15 cours à jour)
+### **Progression par Niveau**
 
-## 🚀 Fonctionnalités
+#### **🟢 Niveau Débutant (Cours 1-3)**
 
-- **Design moderne** avec interface responsive et animations fluides (60fps)
-- **Standards de design** basés sur `EXIGENCES_DESIGN_UI.md`
-- **Composants shadcn/ui** pour une cohérence visuelle parfaite
-- **Structure pédagogique** : 7 étapes par leçon (Introduction, Analogies, Définition, Code, Mini-app, Quiz, Navigation)
-- **Palette de couleurs standardisée** pour chaque section
-- **Animations et transitions** fluides avec feedback immédiat
-- **Accessibilité complète** (navigation clavier, contraste, screen readers)
+- **Cours 1** : Variables et Types de Données ✅
+- **Cours 2** : Types de données ✅
+- **Cours 3** : Structures de contrôle ✅
 
-## 🛠️ Technologies
+#### **🟡 Niveau Intermédiaire (Cours 4-7)**
 
-- **Next.js 15.4.5** - Framework React moderne
-- **TypeScript** - Typage statique
-- **Tailwind CSS** - Design system utilitaire
-- **shadcn/ui** - Composants UI professionnels
-- **Lucide React** - 30+ icônes modernes
-- **Recharts** - Graphiques interactifs
+- **Cours 4** : Collections avancées ✅
+- **Cours 5** : Fonctions de haut niveau ❌
+- **Cours 6** : Scope & Closures ❌
+- **Cours 7** : Scope de fonction et de bloc ❌
 
-## 📦 Installation
+#### **🔴 Niveau Avancé (Cours 8-12)**
 
-1. **Cloner le projet :**
+- **Cours 8** : Hoisting et temporal dead zone ❌
+- **Cours 9** : Chaînes de scope ❌
+- **Cours 10** : Fonctions imbriquées ❌
+- **Cours 11** : Gestion d'état ✅
+- **Cours 12** : Gestion d'erreurs ❌
+
+#### **🟣 Niveau Expert (Cours 13-15)**
+
+- **Cours 13** : POO ❌
+- **Cours 14** : Modules ❌
+- **Cours 15** : Tests ❌
+
+### **Structure Obligatoire des Cours (7 Étapes)**
+
+Chaque cours suit une structure pédagogique standardisée :
+
+1. **En-tête de Leçon** - Titre et description
+2. **Objectifs du Cours** - 3 objectifs avec icônes
+3. **Analogies Simples** - 3 analogies côte à côte
+4. **Définition Simple** ⭐ **OBLIGATOIRE** - Explication + code structurel
+5. **Exemples de Code** - Code côte à côte pour 3 langages
+6. **Mini-Application** - Instructions et code exécutable
+7. **Quiz Interactifs** - 5 quiz avec feedback immédiat
+
+## 🔧 **Installation et Développement**
+
+### **Prérequis**
+
+- Node.js 18+
+- npm ou yarn
+
+### **Installation**
 
 ```bash
-git clone https://github.com/ChronoHarmonia/Fondamentaux.git
-cd Fondamentaux
-```
+# Cloner le projet
+git clone [repository-url]
+cd fondamentauxV2
 
-2. **Installer les dépendances :**
-
-```bash
+# Installer les dépendances
 npm install
-```
 
-3. **Lancer le serveur de développement :**
-
-```bash
+# Lancer en développement
 npm run dev
 ```
 
-4. **Ouvrir dans le navigateur :**
+### **Scripts Disponibles**
 
+```bash
+npm run dev          # Développement local
+npm run build        # Build de production
+npm run start        # Démarrer en production
+npm run lint         # Vérification ESLint
 ```
-http://localhost:3000
+
+## 📊 **Progression du Projet**
+
+### **Statut Actuel**
+
+- **Total cours** : 15
+- **Cours à jour** : 5 (1, 2, 3, 4, 11)
+- **Cours à mettre à jour** : 10 (5-10, 12-15)
+- **Progression** : 33% complète
+
+## 📋 **Documentation Importante**
+
+### **📖 Fichiers de Référence**
+
+- **`DOCUMENTATION_COMPLETE.md`** - Documentation complète du projet
+- **`ETAT_ACTUEL_PROJET.md`** - État actuel et prochaines étapes
+- **`EXIGENCES_DESIGN_UI.md`** - Standards de design détaillés
+- **`TRAME_PEDAGOGIQUE_GLOBALE.md`** - Trame pédagogique complète
+
+### **🔧 Règles de Développement**
+
+- **`.cursor/rules/regles-essentielles.mdc`** - Règles critiques et modification
+- **`.cursor/rules/standards-pedagogiques.mdc`** - Standards pédagogiques
+- **`.cursor/rules/design-system.mdc`** - Standards UI/UX
+
+## 🚀 **Déploiement**
+
+### **Vercel (Recommandé)**
+
+```bash
+# Installer Vercel CLI
+npm i -g vercel
+
+# Déployer
+vercel
 ```
 
-## 🎨 Standards de Design
+## 📈 **Métriques et Qualité**
 
-### **Composants UI Obligatoires**
+### **Indicateurs de Qualité**
 
-```typescript
-// Composants de base (toujours requis)
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+- **Erreurs TypeScript** : 0 toléré
+- **Performance** : Core Web Vitals > 90
+- **Accessibilité** : WCAG 2.1 AA
+- **Structure** : 100% conforme au template
+- **Sections** : 7/7 étapes présentes
 
-// Navigation obligatoire
-import HamburgerMenu from "@/components/hamburger-menu";
-import Image from "next/image";
-import Link from "next/link";
+---
 
-// Icônes Lucide React (30+ icônes)
-import {
-  Brain,
-  Code,
-  Database,
-  Cloud,
-  Home,
-  Menu,
-  X,
-  BookOpen,
-  ChefHat,
-  ArrowRight,
-  CheckCircle,
-  Play,
-  Target,
-  Lightbulb,
-  Users,
-  GraduationCap,
-  Package,
-  Shield,
-  Wrench,
-  Hammer,
-  Building2,
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-  Check,
-  AlertCircle,
-  ArrowLeft,
-  Gamepad2,
-  Sprout,
-  Leaf,
-  Calculator,
+**Note** : Cette formation est en développement actif. Consultez `ETAT_ACTUEL_PROJET.md` pour l'état le plus récent du projet.
+GraduationCap,
+Package,
+Shield,
+Wrench,
+Hammer,
+Building2,
+ChevronLeft,
+ChevronRight,
+Copy,
+Check,
+AlertCircle,
+ArrowLeft,
+Gamepad2,
+Sprout,
+Leaf,
+Calculator,
 } from "lucide-react";
-```
+
+````
 
 ### **Structure de Navigation**
 
@@ -140,7 +178,7 @@ import {
     <span className="text-blue-600 font-semibold">Cours X : Titre</span>
   </div>
 </nav>
-```
+````
 
 ### **Palette de Couleurs Standardisée**
 
@@ -220,6 +258,8 @@ hover:text-blue-600 transition-colors
 
 - 3 objectifs clairs avec icônes CheckCircle
 - Gradient bleu avec icône Target
+- **Nouveau standard** : Titre avec cibles symétriques et bordure colorée
+- **Style** : `🎯 Objectifs du Cours 🎯` avec bordure bleue en bas
 
 ### **3. Analogies Simples**
 

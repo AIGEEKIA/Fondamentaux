@@ -1,0 +1,151 @@
+# 🔧 STANDARDS TECHNIQUES - DÉPENDANCES & ARCHITECTURE
+
+## 🎯 **OBJECTIF**
+
+Standards techniques, dépendances et architecture pour maintenir la cohérence technique.
+
+## ⚠️ **RÈGLES DE MODIFICATION - CRITIQUES**
+
+### **AVANT TOUTE MODIFICATION**
+
+- ✅ **Vérifier les dépendances** dans `package.json`
+- ✅ **Vérifier l'utilisation** avec `grep_search`
+- ✅ **Vérifier les imports** dans les fichiers
+- ✅ **Vérifier la documentation** existante
+- ✅ **Demander confirmation** si incertain
+
+### **DÉPENDANCES ESSENTIELLES - NE JAMAIS SUPPRIMER**
+
+- `@radix-ui/react-slot` : Utilisé par shadcn/ui
+- `clsx` : Utilisé dans `lib/utils.ts`
+- `tailwind-merge` : Utilisé dans `lib/utils.ts`
+- `class-variance-authority` : Pour les variantes
+- `tailwindcss-animate` : Pour les animations
+
+### **COMMANDES DE VÉRIFICATION**
+
+```bash
+# Vérifier une dépendance
+npm list nom-dependance
+
+# Chercher l'utilisation
+grep_search "nom-dependance" --include-pattern "*.{ts,tsx,js,jsx}"
+
+# Vérifier les imports
+grep_search "import.*nom-dependance" --include-pattern "*.{ts,tsx}"
+
+# Tester le build
+npm run build
+```
+
+### **ARCHITECTURE À RESPECTER**
+
+```
+┌─────────────────┐
+│   shadcn/ui     │  ← Système de composants
+├─────────────────┤
+│   Radix UI      │  ← Composants primitifs accessibles
+├─────────────────┤
+│   Utilitaires   │  ← clsx, tailwind-merge, etc.
+├─────────────────┤
+│   Tailwind CSS  │  ← Framework CSS
+└─────────────────┘
+```
+
+## 🎯 **EXIGENCES TECHNIQUES - MCP CONTEXT 7**
+
+### **PRIORITÉ ABSOLUE**
+
+- ✅ **Privilégier MCP Context7** pour toutes les exigences techniques
+- ✅ **Consulter les docs officielles** via MCP Context 7
+- ✅ **Vérifier les versions** avec MCP Context 7
+- ✅ **Respecter les breaking changes** via MCP Context 7
+
+### **AVANTAGES MCP CONTEXT7**
+
+- **Docs officielles** : Toujours à jour
+- **Versions actuelles** : Pas de risque d'obsolescence
+- **Breaking changes** : Alertes automatiques
+- **Best practices** : Recommandations officielles
+- **Sécurité** : Vulnérabilités connues
+
+## 🎯 **STANDARD UNIVERSEL - MODIFICATION DES COURS**
+
+### **PROCESSUS OBLIGATOIRE POUR TOUT COURS**
+
+#### **1. ANALYSE PRÉLIMINAIRE**
+
+- [ ] **Identifier le cours** à modifier/mettre à jour
+- [ ] **Vérifier l'état actuel** contre le template cours-1
+- [ ] **Déterminer les modifications** nécessaires
+- [ ] **Planifier l'approche** selon les règles établies
+
+#### **2. VÉRIFICATION STRUCTURELLE (OBLIGATOIRE)**
+
+- [ ] **Comparer avec cours-1** : Structure exacte
+- [ ] **Vérifier l'ordre** : Objectifs → Analogies → Définition → Exemples → Mini-App → Quiz → Navigation
+- [ ] **Contrôler les sections** : 7/7 étapes présentes
+- [ ] **Valider les espaces** : `space-y-8` pour quiz, `mb-12` pour sections
+
+#### **3. VALIDATION PÉDAGOGIQUE**
+
+- [ ] **Section "Définition Simple"** : Présente et complète ⭐
+- [ ] **Code structurel** : Bout de code obligatoire
+- [ ] **Quiz design** : Identique au cours-1
+- [ ] **Navigation** : Liens fonctionnels
+- [ ] **Cohérence** : Titres et descriptions
+
+#### **4. CONTRÔLE DESIGN**
+
+- [ ] **Palette de couleurs** : Respectée
+- [ ] **Composants UI** : shadcn/ui utilisés
+- [ ] **Responsive** : Mobile-first design
+- [ ] **Animations** : Transitions fluides
+- [ ] **Accessibilité** : Contrastes et focus
+
+#### **5. VÉRIFICATION TECHNIQUE**
+
+- [ ] **TypeScript** : Aucune erreur de type
+- [ ] **Performance** : Pas de re-renders inutiles
+- [ ] **Accessibilité** : Tests axe-core passent
+- [ ] **Structure** : Ordre des sections conforme
+
+### **MÉTRIQUES DE QUALITÉ OBLIGATOIRES**
+
+- **Erreurs TypeScript** : 0 toléré
+- **Performance** : Core Web Vitals > 90
+- **Accessibilité** : WCAG 2.1 AA
+- **Structure** : 100% conforme au template
+- **Sections** : 7/7 étapes présentes
+
+### **RÉFÉRENCES OBLIGATOIRES**
+
+- **Template** : `cours-1/page.tsx`
+- **Quiz** : Design du cours-1
+- **Palette** : Standards définis
+- **Règles** : `.cursor/rules/`
+
+### **NIVEAUX DE QUALITÉ**
+
+#### **Niveau Acceptable**
+
+- ✅ Structure complète (7/7 étapes)
+- ✅ Section "Définition Simple" présente
+- ✅ Quiz design identique cours-1
+- ✅ Navigation fonctionnelle
+
+#### **Niveau Optimal**
+
+- ✅ Toutes les vérifications passent
+- ✅ Performance optimale
+- ✅ Accessibilité complète
+- ✅ Design parfaitement cohérent
+
+---
+
+**Note** : Ces standards techniques complètent les règles essentielles.
+description:
+globs:
+alwaysApply: false
+
+---

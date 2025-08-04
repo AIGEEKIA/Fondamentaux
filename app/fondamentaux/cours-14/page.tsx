@@ -85,6 +85,112 @@ export default function Lecon14Page() {
     },
   };
 
+  const [quizStates, setQuizStates] = useState<{
+    [key: string]: boolean | number;
+  }>({});
+
+  const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: selectedAnswer,
+    }));
+  };
+
+  const QuizComponent = ({ quizId, quiz }: { quizId: string; quiz: any }) => {
+    const isAnswered = Boolean(quizStates[quizId]);
+    const selectedAnswer = quizStates[`${quizId}_selected`] as number;
+
+    return (
+      <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
+        <div className="flex items-center gap-3 mb-4">
+          <Brain className="h-6 w-6 text-purple-600" />
+          <h3 className="text-xl font-bold text-gray-800">
+            Quiz : {quiz.question}
+          </h3>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          {quiz.options.map((option: string, index: number) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnswered) {
+                  setQuizStates((prev) => ({
+                    ...prev,
+                    [quizId]: true,
+                    [`${quizId}_selected`]: index,
+                  }));
+                  handleQuizAnswer(quizId, index);
+                }
+              }}
+              className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                isAnswered
+                  ? index === quiz.correctAnswer
+                    ? "border-green-500 bg-green-50 text-green-800"
+                    : index === selectedAnswer
+                    ? "border-red-500 bg-red-50 text-red-800"
+                    : "border-gray-200 bg-gray-50 text-gray-600"
+                  : "border-gray-200 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {isAnswered && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-semibold">
+              {selectedAnswer === quiz.correctAnswer
+                ? "✅ Correct !"
+                : "❌ Incorrect"}
+            </p>
+            <p className="text-blue-700 mt-2">{quiz.explication}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const quizData = {
+    quiz1: {
+      question: "Qu'est-ce qu'un module en programmation ?",
+      options: [
+        "Un fichier contenant des fonctions et classes réutilisables",
+        "Un type de variable",
+        "Une fonction spéciale",
+        "Un commentaire dans le code",
+      ],
+      correctAnswer: 0,
+      explication:
+        "Un module est un fichier qui contient des fonctions, des classes ou des variables que vous pouvez réutiliser dans d'autres parties de votre code.",
+    },
+    quiz2: {
+      question: "Quelle est la différence entre un module et un package ?",
+      options: [
+        "Il n'y a pas de différence",
+        "Un module est un fichier, un package est un dossier avec plusieurs modules",
+        "Un package est plus petit qu'un module",
+        "Un module contient toujours des classes",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Un module est un fichier unique avec des fonctions, tandis qu'un package est un dossier qui contient plusieurs modules organisés ensemble.",
+    },
+    quiz3: {
+      question: "Pourquoi utiliser des modules ?",
+      options: [
+        "Pour compliquer le code",
+        "Pour éviter de réécrire le même code et organiser le projet",
+        "Pour utiliser plus de mémoire",
+        "Pour ralentir l'exécution",
+      ],
+      correctAnswer: 1,
+      explication:
+        "Les modules permettent d'éviter de réécrire le même code et d'organiser le projet en unités logiques et réutilisables.",
+    },
+  };
+
   const pythonCode = `# Modules et packages en Python
 
 # 1. CRÉATION D'UN MODULE SIMPLE
@@ -780,17 +886,14 @@ calcAvancee.multiplication(4, 6);`;
         {/* Objectifs du cours */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                🎯 Objectifs du Cours
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600">
+            <div className="flex flex-col space-y-1.5 p-6 text-center">
+              <h3 className="tracking-tight text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2 text-center flex items-center justify-center gap-4">
+                🎯 Objectifs du Cours 🎯
+              </h3>
+              <p className="text-lg text-gray-600">
                 Organiser et réutiliser le code efficacement
-              </CardDescription>
-            </CardHeader>
+              </p>
+            </div>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -880,6 +983,152 @@ calcAvancee.multiplication(4, 6);`;
           </Card>
         </section>
 
+        {/* Définition Simple */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-2xl font-bold text-gray-800">
+                    📖 DÉFINITION SIMPLE
+                  </CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Les modules et packages, c'est quoi exactement ?
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🎯 Qu'est-ce qu'un module ?
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Un <strong>module</strong> est un fichier Python ou
+                    JavaScript qui contient des fonctions, des classes ou des
+                    variables que vous pouvez réutiliser dans d'autres parties
+                    de votre code. C'est comme une boîte à outils spécialisée
+                    que vous pouvez importer quand vous en avez besoin.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Un <strong>package</strong> est un ensemble de modules
+                    organisés dans un dossier. Il permet de regrouper des
+                    fonctionnalités liées et de créer une structure plus
+                    complexe et organisée.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-blue-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📄</div>
+                      <div className="font-semibold text-blue-800">Module</div>
+                      <div className="text-sm text-blue-600">
+                        Fichier avec des fonctions réutilisables
+                      </div>
+                    </div>
+                    <div className="bg-purple-100 rounded-lg p-4">
+                      <div className="text-2xl mb-2">📦</div>
+                      <div className="font-semibold text-purple-800">
+                        Package
+                      </div>
+                      <div className="text-sm text-purple-600">
+                        Dossier avec plusieurs modules
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    🔤 Les Avantages des Modules
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔄</div>
+                      <div className="font-semibold text-orange-800">
+                        Réutilisabilité
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Éviter de réécrire le même code
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">📁</div>
+                      <div className="font-semibold text-orange-800">
+                        Organisation
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Structurer le code logiquement
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">👥</div>
+                      <div className="font-semibold text-orange-800">
+                        Collaboration
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Travailler sur différentes parties
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border border-orange-200">
+                      <div className="text-2xl mb-2">🔒</div>
+                      <div className="font-semibold text-orange-800">
+                        Encapsulation
+                      </div>
+                      <div className="text-sm text-orange-600">
+                        Cacher les détails internes
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 border border-green-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    💡 Pourquoi c'est important ?
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Code maintenable
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Organiser le code en unités logiques
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Développement en équipe
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Travailler sur différents modules simultanément
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                      <div>
+                        <strong className="text-gray-800">
+                          Bibliothèques externes
+                        </strong>
+                        <p className="text-sm text-gray-600">
+                          Utiliser des modules créés par d'autres développeurs
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Exemples de Code */}
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-blue-100/50 to-blue-100/50 border-2 border-blue-300/50 shadow-xl">
@@ -953,6 +1202,27 @@ calcAvancee.multiplication(4, 6);`;
                     <code>{typescriptCode}</code>
                   </pre>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Quiz Interactifs */}
+        <section className="mb-12">
+          <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-gray-800">
+                🧠 Quiz Interactifs
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600">
+                Testez votre compréhension des modules et packages
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-8">
+                {Object.entries(quizData).map(([quizId, quiz]) => (
+                  <QuizComponent key={quizId} quizId={quizId} quiz={quiz} />
+                ))}
               </div>
             </CardContent>
           </Card>
