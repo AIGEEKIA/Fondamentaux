@@ -1,0 +1,138 @@
+# 🏗️ Architecture du Projet - Formation Interactive
+
+## ⚠️ Disclaimer Important
+
+**ATTENTION :** Le code généré par IA dans ce projet, notamment pour les applications pratiques et les exemples, est fourni à titre de **démonstration uniquement**. Je ne garantis pas la sécurité, la performance ou la fiabilité de ce code. Il doit être testé et adapté avant toute utilisation en production.
+
+## 🏗️ Architecture du Projet
+
+### Structure Obligatoire
+
+- **Next.js 15.4.5** avec App Router
+- **TypeScript** strict
+- **Tailwind CSS** pour le styling
+- **Shadcn/ui** pour les composants
+- **Lucide React** pour les icônes
+
+### Conventions de Nommage
+
+- **Composants** : PascalCase (`CoursePage.tsx`)
+- **Fichiers** : kebab-case (`cours-1/page.tsx`)
+- **Variables** : camelCase (`courseData`)
+- **Constantes** : UPPER_SNAKE_CASE (`MAX_COURSES`)
+
+## 📁 Structure des Dossiers
+
+```
+[FORMATION-NAME]/
+├── app/                          # Pages Next.js
+│   ├── page.tsx                  # Page d'accueil
+│   ├── analogie-[theme1]/        # Page analogie 1
+│   ├── analogie-[theme2]/        # Page analogie 2
+│   ├── [cours]/                  # Pages des cours
+│   │   ├── cours-1/             # Premier cours
+│   │   ├── cours-2/             # Deuxième cours
+│   │   └── ...                  # Cours suivants
+│   └── [langages]/               # Langages/outils
+├── components/                   # Composants réutilisables
+│   ├── ui/                      # Composants Shadcn/ui
+│   ├── logo-menu.tsx            # Menu de navigation
+│   ├── [brand]-signature.tsx    # Signature de marque
+│   └── progress-chart.tsx       # Graphiques de progression
+├── lib/                         # Utilitaires et configurations
+├── public/                      # Assets statiques
+└── README.md                    # Documentation
+```
+
+## 🔧 Code Quality
+
+### TypeScript Strict
+
+```typescript
+// ✅ Bon
+interface CourseData {
+  id: string;
+  title: string;
+  description: string;
+}
+
+const getCourse = (id: string): Promise<CourseData> => {
+  // ...
+};
+
+// ❌ Interdit
+const getCourse = (id: any): any => {
+  // ...
+};
+```
+
+### React/Next.js Standards
+
+```typescript
+// ✅ Bon
+export default function CoursePage() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  return <div className="container mx-auto">{/* Contenu */}</div>;
+}
+
+// ❌ Interdit
+export default function coursePage() {
+  return <div>Contenu</div>;
+}
+```
+
+### CSS/Tailwind
+
+```typescript
+// ✅ Bon
+<div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
+
+// ❌ Interdit
+<div style={{ background: 'linear-gradient(...)', border: '2px solid blue' }}>
+```
+
+## 🧪 Tests et Qualité
+
+### Tests Obligatoires
+
+- **Composants** : Tests unitaires avec React Testing Library
+- **Quiz** : Tests de logique et feedback
+- **Navigation** : Tests d'intégration
+- **Performance** : Core Web Vitals > 90
+
+### Linting
+
+- **ESLint** : Configuration Next.js
+- **Prettier** : Formatage automatique
+- **TypeScript** : Vérification stricte
+
+## 🚨 Règles Critiques
+
+### Interdictions
+
+- ❌ Pas de `any` en TypeScript
+- ❌ Pas de styles inline
+- ❌ Pas de console.log en production
+- ❌ Pas de code non testé
+- ❌ Pas de composants sans types
+
+### Obligations
+
+- ✅ Tests pour tous les composants
+- ✅ Responsive design sur tous les écrans
+- ✅ Accessibilité WCAG 2.1 AA
+- ✅ Performance optimisée
+
+## ⚡ Performance
+
+### Objectifs
+
+- ⚡ **Temps de chargement** < 2s
+- 🎨 **Animations** 60fps
+- 📱 **Responsive** sur tous les appareils
+- ♿ **Accessibilité** complète
+
+---
+
+**⚠️ RAPPEL :** Le code généré par IA est à titre de démonstration uniquement. Testez et adaptez avant utilisation en production.

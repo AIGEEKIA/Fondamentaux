@@ -18,7 +18,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ProgressChart } from "@/components/progress-chart";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
+
 import Link from "next/link";
 
 export default function FormationPage() {
@@ -55,9 +56,7 @@ export default function FormationPage() {
           </div>
         </div>
       </header>
-
-      {/* Menu hamburger */}
-      <HamburgerMenu currentPage="accueil" />
+      <LogoMenu />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Super Bandeau Motivant */}
@@ -112,8 +111,8 @@ export default function FormationPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-lg hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <BookOpen className="h-6 w-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-center mb-4">
+                  <BookOpen className="h-6 w-6 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
                   15
@@ -125,8 +124,8 @@ export default function FormationPage() {
             </Card>
             <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-lg hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Brain className="h-6 w-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-center mb-4">
+                  <Brain className="h-6 w-6 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
                   3
@@ -138,8 +137,8 @@ export default function FormationPage() {
             </Card>
             <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-lg hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Code className="h-6 w-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-center mb-4">
+                  <Code className="h-6 w-6 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
                   3
@@ -151,8 +150,8 @@ export default function FormationPage() {
             </Card>
             <Card className="text-center hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-lg hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Users className="h-6 w-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-center mb-4">
+                  <Users className="h-6 w-6 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
                   3
@@ -172,15 +171,15 @@ export default function FormationPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link href="/analogie-cuisine" className="block">
-              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
+              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 h-full">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                      <ChefHat className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-center">
+                      <ChefHat className="h-8 w-8 text-blue-600" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
-                        Le Grand Livre de Cuisine du Développeur Moderne
+                      <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                        Le Grand Livre de Cuisine du Dev Moderne
                       </CardTitle>
                       <CardDescription className="text-base font-medium text-indigo-600 group-hover:text-indigo-700 transition-colors duration-300">
                         Recettes (algorithmes), ingrédients (variables),
@@ -189,27 +188,26 @@ export default function FormationPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <CardContent className="flex flex-col h-full justify-center">
+                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-center">
                     Comprendre la programmation comme un art culinaire : des
                     recettes (algorithmes), des ingrédients (variables), et des
                     techniques (patterns) qui s'assemblent pour créer des
                     applications délicieuses.
                   </p>
-                  <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
-                    <span>Explorer l'analogie</span>
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
+                  <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
                   </div>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/analogie-architecture" className="block">
-              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20">
+              <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 h-full">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                      <Building2 className="h-8 w-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-center">
+                      <Building2 className="h-8 w-8 text-blue-600" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
@@ -222,16 +220,15 @@ export default function FormationPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <CardContent className="flex flex-col h-full justify-center">
+                  <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-center">
                     Concevoir des applications comme des bâtiments : des plans
                     (design), des fondations solides (fondamentaux), et des
                     étages bien structurés (couches) pour des constructions
                     durables.
                   </p>
-                  <div className="flex items-center text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300">
-                    <span>Explorer l'analogie</span>
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-3 transition-transform duration-300" />
+                  <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
                   </div>
                 </CardContent>
               </Card>
@@ -249,10 +246,10 @@ export default function FormationPage() {
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Concept 1 : Algorithmie */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full min-h-[700px]">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Code className="h-8 w-8 text-white" />
+                <div className="text-center mb-6">
+                  <Code className="h-8 w-8 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
                   💻 Algorithmie
@@ -324,28 +321,17 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                 </div>
-                <div className="mt-6 pt-4 border-t border-blue-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">
-                      Explorer
-                    </span>
-                    <Link
-                      href="/fondamentaux/algorithmie"
-                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
-                    >
-                      <span>Commencer</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
+                <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
                 </div>
               </CardContent>
             </Card>
 
             {/* Concept 2 : Scope & Closures */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full min-h-[700px]">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Brain className="h-8 w-8 text-white" />
+                <div className="text-center mb-6">
+                  <Brain className="h-8 w-8 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
                   🧠 Scope & Closures
@@ -375,7 +361,7 @@ export default function FormationPage() {
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 7 : Scope de fonction et de bloc
+                        Cours 7 : Scope fonction et bloc
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
@@ -387,7 +373,7 @@ export default function FormationPage() {
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-purple-500 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-700">
-                        Cours 8 : Hoisting et temporal dead zone
+                        Cours 8 : Hoisting et TDZ
                       </span>
                     </div>
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
@@ -417,28 +403,17 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                 </div>
-                <div className="mt-6 pt-4 border-t border-blue-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">
-                      Explorer
-                    </span>
-                    <Link
-                      href="/fondamentaux/scope-closures"
-                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
-                    >
-                      <span>Commencer</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
+                <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
                 </div>
               </CardContent>
             </Card>
 
             {/* Concept 3 : Gestion d'état */}
-            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full min-h-[700px]">
+            <Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl h-full">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Users className="h-8 w-8 text-white" />
+                <div className="text-center mb-6">
+                  <Users className="h-8 w-8 text-blue-600 mx-auto" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-gray-800 mb-4">
                   ⚡ Gestion d'État
@@ -510,19 +485,8 @@ export default function FormationPage() {
                     <ArrowRight className="h-4 w-4 text-purple-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-200" />
                   </Link>
                 </div>
-                <div className="mt-6 pt-4 border-t border-blue-200">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-purple-600 font-semibold">
-                      Explorer
-                    </span>
-                    <Link
-                      href="/fondamentaux/gestion-etat"
-                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
-                    >
-                      <span>Commencer</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
+                <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
                 </div>
               </CardContent>
             </Card>

@@ -1,0 +1,398 @@
+# 🎨 Design System - Formation Interactive
+
+## ⚠️ Disclaimer Important
+
+**ATTENTION :** Le code généré par IA dans ce projet, notamment pour les applications pratiques et les exemples, est fourni à titre de **démonstration uniquement**. Je ne garantis pas la sécurité, la performance ou la fiabilité de ce code. Il doit être testé et adapté avant toute utilisation en production.
+
+## 🎨 Palette de Couleurs
+
+### Couleurs Principales
+
+```css
+/* Couleurs primaires */
+--primary-blue: #3b82f6; /* blue-500 */
+--primary-indigo: #6366f1; /* indigo-500 */
+--primary-purple: #8b5cf6; /* purple-500 */
+
+/* Couleurs de succès */
+--success-green: #10b981; /* green-500 */
+--success-emerald: #059669; /* emerald-500 */
+
+/* Couleurs d'attention */
+--warning-orange: #f59e0b; /* orange-500 */
+--warning-yellow: #eab308; /* yellow-500 */
+
+/* Couleurs neutres */
+--gray-50: #f9fafb;
+--gray-100: #f3f4f6;
+--gray-200: #e5e7eb;
+--gray-300: #d1d5db;
+--gray-400: #9ca3af;
+--gray-500: #6b7280;
+--gray-600: #4b5563;
+--gray-700: #374151;
+--gray-800: #1f2937;
+--gray-900: #111827;
+```
+
+### Gradients Standardisés
+
+```css
+/* Gradients par section */
+--gradient-intro: linear-gradient(
+  135deg,
+  rgba(59, 130, 246, 0.1),
+  rgba(99, 102, 241, 0.1)
+);
+--gradient-definition: linear-gradient(
+  135deg,
+  rgba(16, 185, 129, 0.1),
+  rgba(5, 150, 105, 0.1)
+);
+--gradient-examples: linear-gradient(
+  135deg,
+  rgba(245, 158, 11, 0.1),
+  rgba(239, 68, 68, 0.1)
+);
+--gradient-mini-app: linear-gradient(
+  135deg,
+  rgba(59, 130, 246, 0.1),
+  rgba(99, 102, 241, 0.1)
+);
+--gradient-quiz: linear-gradient(
+  135deg,
+  rgba(139, 92, 246, 0.1),
+  rgba(99, 102, 241, 0.1)
+);
+```
+
+## 📝 Typographie
+
+### Hiérarchie des Titres
+
+```css
+/* Titres principaux */
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+} /* H1 - Page d'accueil */
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+} /* H1 - Cours */
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+} /* H2 - Sections */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+} /* H3 - Sous-sections */
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+} /* H4 - Cartes */
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+} /* Corps important */
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+} /* Corps normal */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+} /* Petits textes */
+```
+
+### Classes Typographiques
+
+```typescript
+// Titres
+className = "text-4xl font-bold text-gray-800"; // Titre principal
+className = "text-3xl font-semibold text-blue-100"; // Sous-titre
+className = "text-2xl font-bold text-gray-800"; // Titre de section
+className = "text-xl font-semibold text-gray-700"; // Titre de carte
+
+// Corps de texte
+className = "text-lg text-gray-600"; // Texte important
+className = "text-base text-gray-700"; // Texte normal
+className = "text-sm text-gray-500"; // Texte secondaire
+```
+
+## 🧩 Composants UI
+
+### Cards Standard
+
+```typescript
+// Card de base
+<Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3">
+  <CardHeader>
+    <CardTitle className="text-2xl font-bold text-gray-800">
+      [Titre de la Card]
+    </CardTitle>
+    <CardDescription className="text-lg text-gray-600">
+      [Description de la card]
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    {/* Contenu de la card */}
+  </CardContent>
+</Card>
+
+// Card d'analogie avec texte centré et flèche
+<Card className="hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3 cursor-pointer group border-2 border-blue-300/50 bg-gradient-to-br from-blue-500/10 to-blue-600/10 shadow-xl hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/20 h-full">
+  <CardHeader className="pb-4">
+    <div className="flex items-center gap-4">
+      <div className="text-center">
+        <[Icon] className="h-8 w-8 text-blue-600" />
+      </div>
+      <div>
+        <CardTitle className="text-2xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
+          [Titre de l'analogie]
+        </CardTitle>
+        <CardDescription className="text-base font-medium text-indigo-600 group-hover:text-indigo-700 transition-colors duration-300">
+          [Description de l'analogie]
+        </CardDescription>
+      </div>
+    </div>
+  </CardHeader>
+  <CardContent className="flex flex-col h-full justify-center">
+    <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-center">
+      [Texte explicatif centré]
+    </p>
+    <div className="flex items-center justify-end text-blue-600 group-hover:text-blue-700 font-semibold group-hover:scale-105 transition-all duration-300 pt-4 border-t border-blue-200">
+      <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-300" />
+    </div>
+  </CardContent>
+</Card>
+```
+
+### Boutons
+
+```typescript
+// Bouton primaire
+<button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 hover:scale-105">
+  [Action]
+</button>
+
+// Bouton secondaire
+<button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+  [Action secondaire]
+</button>
+
+// Bouton de navigation
+<Link href="/path" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200 hover:scale-105">
+  <span>[Texte]</span>
+  <ArrowRight className="h-4 w-4" />
+</Link>
+```
+
+### Badges
+
+```typescript
+// Badge de catégorie
+<div className="flex items-center gap-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+  <BookOpen className="h-4 w-4" />
+  [Catégorie]
+</div>
+
+// Badge de statut
+<div className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
+  ✓ [Statut]
+</div>
+```
+
+## 🎭 Animations et Transitions
+
+### Transitions de Base
+
+```css
+/* Transitions standard */
+.transition-all {
+  transition: all 0.3s ease;
+}
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+.transition-shadow {
+  transition: box-shadow 0.3s ease;
+}
+```
+
+### Animations Hover
+
+```typescript
+// Hover sur les cards
+className =
+  "hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-3";
+
+// Hover sur les boutons
+className = "hover:scale-105 transition-transform duration-200";
+
+// Hover sur les liens
+className = "hover:text-blue-700 transition-colors duration-200";
+```
+
+## 📱 Responsive Design
+
+### Breakpoints
+
+```css
+/* Mobile First */
+.container {
+  /* Base styles */
+}
+
+/* Small (640px+) */
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium (768px+) */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .md\:text-lg {
+    font-size: 1.125rem;
+  }
+}
+
+/* Large (1024px+) */
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .lg\:text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Extra Large (1280px+) */
+@media (min-width: 1280px) {
+  .xl\:max-w-6xl {
+    max-width: 72rem;
+  }
+}
+```
+
+### Classes Responsive Obligatoires
+
+```typescript
+// Grilles
+className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+
+// Typographie
+className = "text-sm md:text-base lg:text-lg";
+
+// Espacements
+className = "p-4 md:p-6 lg:p-8";
+
+// Largeurs
+className = "w-full md:w-auto";
+
+// Marges
+className = "mb-4 md:mb-6 lg:mb-8";
+```
+
+## 🎯 Icônes et Symboles
+
+### Icônes par Section
+
+```typescript
+// Objectifs
+<CheckCircle className="h-5 w-5 text-green-600" />
+
+// Analogies
+<[Icon] className="h-8 w-8 text-blue-600" />
+
+// Définition
+<BookOpen className="h-6 w-6 text-white" />
+
+// Exemples
+<Code className="h-6 w-6 text-orange-600" />
+
+// Mini-application
+<Play className="h-6 w-6 text-blue-600" />
+
+// Quiz
+<Brain className="h-6 w-6 text-purple-600" />
+
+// Navigation et flèches
+<ArrowRight className="h-4 w-4" />
+<ArrowRight className="h-5 w-5" /> // Flèches indicatives dans les cartes
+<ChevronRight className="h-4 w-4" />
+
+// Statistiques
+<BookOpen className="h-6 w-6 text-blue-600" />
+<Brain className="h-6 w-6 text-blue-600" />
+<Code className="h-6 w-6 text-blue-600" />
+<Users className="h-6 w-6 text-blue-600" />
+```
+
+### Tailles d'Icônes
+
+```typescript
+// Petites icônes (16px)
+className = "h-4 w-4";
+
+// Icônes moyennes (20px)
+className = "h-5 w-5";
+
+// Icônes standard (24px)
+className = "h-6 w-6";
+
+// Grandes icônes (32px)
+className = "h-8 w-8";
+
+// Très grandes icônes (48px)
+className = "h-12 w-12";
+```
+
+## ♿ Accessibilité
+
+### Contrastes
+
+```css
+/* Contrastes WCAG 2.1 AA */
+.text-gray-900 {
+  color: #111827;
+} /* Contraste 15.6:1 */
+.text-gray-800 {
+  color: #1f2937;
+} /* Contraste 12.6:1 */
+.text-gray-700 {
+  color: #374151;
+} /* Contraste 8.5:1 */
+.text-gray-600 {
+  color: #4b5563;
+} /* Contraste 6.2:1 */
+```
+
+### Focus Visible
+
+```typescript
+// Focus visible sur les éléments interactifs
+className =
+  "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
+```
+
+### ARIA Labels
+
+```typescript
+// Labels pour l'accessibilité
+<button aria-label="[Description de l'action]" onClick={copyCode}>
+  <Copy className="h-4 w-4" />
+</button>
+```
+
+---
+
+**⚠️ RAPPEL :** Le code généré par IA est à titre de démonstration uniquement. Testez et adaptez avant utilisation en production.

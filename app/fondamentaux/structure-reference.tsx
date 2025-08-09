@@ -41,7 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 import Image from "next/image";
 
 export default function StructureReference() {
@@ -121,8 +121,8 @@ function exemple(): void {
             >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
                 <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
+                  src="/Logo_AIGEKIA.png"
+                  alt="Logo AIGEKIA"
                   width={56}
                   height={56}
                   className="object-cover rounded-full w-14 h-14"
@@ -131,7 +131,7 @@ function exemple(): void {
             </Link>
           </div>
 
-          {/* Signature By AIGEEKIA */}
+          {/* Signature AIGEEKIA moderne */}
           <div className="absolute bottom-2 right-12 z-10">
             <span className="text-white/80 font-medium text-xs italic">
               By AIGEEKIA
@@ -153,7 +153,7 @@ function exemple(): void {
       </header>
 
       {/* Hamburger Menu */}
-      <HamburgerMenu />
+      <LogoMenu />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -173,8 +173,8 @@ function exemple(): void {
         <section className="mb-12">
           <Card className="rounded-lg bg-card text-card-foreground bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-300/50 shadow-xl">
             <div className="flex flex-col space-y-1.5 p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
+              <div className="text-center mb-6">
+                <Target className="h-8 w-8 text-blue-600 mx-auto" />
               </div>
               <h3 className="tracking-tight text-3xl font-bold text-gray-800 mb-4">
                 🎯 Objectifs du Cours

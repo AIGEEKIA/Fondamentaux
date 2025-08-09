@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 import {
   BookOpen,
@@ -29,7 +30,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 
 export default function TypeScriptPage() {
   return (
@@ -44,22 +45,9 @@ export default function TypeScriptPage() {
               className="block hover:scale-110 transition-all duration-300"
             >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
-                  width={56}
-                  height={56}
-                  className="object-cover rounded-full w-14 h-14"
-                />
+                <div className="text-blue-600 font-bold text-lg">AI</div>
               </div>
             </Link>
-          </div>
-
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
           </div>
 
           <div className="text-center relative">
@@ -77,7 +65,7 @@ export default function TypeScriptPage() {
       </header>
 
       {/* Menu hamburger */}
-      <HamburgerMenu currentPage="typescript" />
+      <LogoMenu currentPage="typescript" />
 
       <main className="container mx-auto px-4 py-8 mt-32">
         {/* Navigation breadcrumb */}

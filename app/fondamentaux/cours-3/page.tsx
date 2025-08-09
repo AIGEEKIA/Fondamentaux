@@ -42,7 +42,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 
 export default function Lecon3Page() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -166,7 +166,11 @@ export default function Lecon3Page() {
     const quiz = quizData[quizId as keyof typeof quizData];
     const isCorrect = selectedAnswer === quiz.correctAnswer;
 
-    setQuizStates((prev) => ({ ...prev, [quizId]: true }));
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
+    }));
 
     if (isCorrect) {
       setPoints((prev) => prev + 10);
@@ -182,8 +186,7 @@ export default function Lecon3Page() {
 
     return (
       <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
-        <div className="flex items-center gap-3 mb-4">
-          <Brain className="h-6 w-6 text-purple-600" />
+        <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-800">
             Quiz : {quiz.question}
           </h3>
@@ -194,14 +197,12 @@ export default function Lecon3Page() {
             <button
               key={index}
               onClick={() => {
-                if (!isAnswered) {
-                  setQuizStates((prev) => ({
-                    ...prev,
-                    [quizId]: true,
-                    [`${quizId}_selected`]: index,
-                  }));
-                  handleQuizAnswer(quizId, index);
-                }
+                setQuizStates((prev) => ({
+                  ...prev,
+                  [quizId]: true,
+                  [`${quizId}_selected`]: index,
+                }));
+                handleQuizAnswer(quizId, index);
               }}
               className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                 isAnswered
@@ -377,34 +378,9 @@ switch (jour) {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-500/40 via-blue-600/40 to-blue-700/40 text-white py-6 shadow-lg z-40 overflow-hidden rounded-2xl mx-4 mt-4 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          {/* Logo AIGEEKIA */}
-          <div className="absolute top-6 right-12 z-10">
-            <Link
-              href="/"
-              className="block hover:scale-110 transition-all duration-300"
-            >
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
-                  width={56}
-                  height={56}
-                  className="object-cover rounded-full w-14 h-14"
-                />
-              </div>
-            </Link>
-          </div>
-
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
-          </div>
-
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              🎛️ COURS 3 : STRUCTURES DE CONTRÔLE
+              COURS 3 : STRUCTURES DE CONTRÔLE
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
@@ -417,7 +393,7 @@ switch (jour) {
       </header>
 
       {/* Menu hamburger */}
-      <HamburgerMenu currentPage="cours-3" />
+      <LogoMenu currentPage="cours-3" />
 
       <main className="container mx-auto px-4 py-8 mt-48">
         {/* Navigation breadcrumb */}
@@ -543,12 +519,12 @@ switch (jour) {
           <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <BookOpen className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <BookOpen className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    📖 DÉFINITION SIMPLE
+                    DÉFINITION SIMPLE
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Une fonction, c'est quoi exactement ?
@@ -779,12 +755,12 @@ function saluer(nom) {
           <Card className="bg-gradient-to-br from-green-500/20 to-blue-600/20 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Play className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <Play className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Système de Notation
+                    Mini-Application : Système de Notation
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Créez un système de notation avec des conditions et boucles
@@ -1057,12 +1033,12 @@ analyser_notes(notes_eleve)`}</code>
           <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Brain className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <Brain className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🧠 Quiz Interactifs
+                    Quiz Interactifs
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Testez vos connaissances sur les structures de contrôle

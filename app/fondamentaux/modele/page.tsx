@@ -41,7 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 import Image from "next/image";
 
 export default function CoursModelePage() {
@@ -83,7 +83,8 @@ export default function CoursModelePage() {
   const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
     setQuizStates((prev) => ({
       ...prev,
-      [quizId]: selectedAnswer,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
     }));
   };
 
@@ -105,14 +106,12 @@ export default function CoursModelePage() {
             <button
               key={index}
               onClick={() => {
-                if (!isAnswered) {
-                  setQuizStates((prev) => ({
-                    ...prev,
-                    [quizId]: true,
-                    [`${quizId}_selected`]: index,
-                  }));
-                  handleQuizAnswer(quizId, index);
-                }
+                setQuizStates((prev) => ({
+                  ...prev,
+                  [quizId]: true,
+                  [`${quizId}_selected`]: index,
+                }));
+                handleQuizAnswer(quizId, index);
               }}
               className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                 isAnswered
@@ -189,7 +188,7 @@ console.log("Hello World");`;
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 <Image
-                  src="/Logo_AIGEEKIA.png"
+                  src="/Logo_AIGEKIA.png"
                   alt="Logo AIGEEKIA"
                   width={40}
                   height={40}
@@ -200,7 +199,7 @@ console.log("Hello World");`;
                 </span>
               </Link>
             </div>
-            <HamburgerMenu />
+            <LogoMenu />
           </div>
         </div>
       </header>

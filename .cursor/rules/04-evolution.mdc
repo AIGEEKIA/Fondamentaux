@@ -1,4 +1,8 @@
-# 🚀 RÈGLES D'ÉVOLUTION DES COURS
+# 🚀 Règles d'Évolution - Formation Interactive
+
+## ⚠️ Disclaimer Important
+
+**ATTENTION :** Le code généré par IA dans ce projet, notamment pour les applications pratiques et les exemples, est fourni à titre de **démonstration uniquement**. Je ne garantis pas la sécurité, la performance ou la fiabilité de ce code. Il doit être testé et adapté avant toute utilisation en production.
 
 ## 🎯 **OBJECTIF**
 
@@ -96,7 +100,7 @@ Règles spécifiques pour l'évolution et la mise à jour des cours selon les st
 ### **Versioning des Cours**
 
 - **Template** : cours-1 (référence)
-- **Cours actifs** : cours-2 à cours-15
+- **Cours actifs** : cours-2 à cours-[N]
 - **Évolution** : Synchronisation avec template
 
 ### **Synchronisation**
@@ -169,11 +173,23 @@ Règles spécifiques pour l'évolution et la mise à jour des cours selon les st
 - **Documentation** : Toujours à jour
 - **Maintenance** : Simplifiée
 
+## 🔄 **Workflow de Maintenance**
+
+### **Avant de Valider**
+
+- [ ] Tous les imports Shadcn/ui présents
+- [ ] LogoMenu intégré
+- [ ] Bandeau de navigation avec logo
+- [ ] Breadcrumb navigation
+- [ ] 7 sections avec gradients appropriés
+- [ ] Section "Définition simple" obligatoire ⭐
+- [ ] Quiz interactifs fonctionnels
+- [ ] Copy code fonctionnel
+- [ ] Score et badges système
+- [ ] Responsive design testé
+- [ ] Animations fluides
+- [ ] Accessibilité respectée
+
 ---
 
 **Note** : Ces règles s'appliquent spécifiquement à l'évolution des cours et complètent les règles essentielles.
-description:
-globs:
-alwaysApply: false
-
----

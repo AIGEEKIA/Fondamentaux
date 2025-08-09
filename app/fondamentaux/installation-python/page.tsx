@@ -61,21 +61,14 @@ export default function InstallationPythonPage() {
             >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
                 <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
+                  src="/Logo_AIGEKIA.png"
+                  alt="Logo AIGEKIA"
                   width={56}
                   height={56}
                   className="object-cover rounded-full w-14 h-14"
                 />
               </div>
             </Link>
-          </div>
-
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
           </div>
 
           <div className="text-center relative">

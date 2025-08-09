@@ -41,7 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 import Image from "next/image";
 
 export default function Lecon11Page() {
@@ -161,7 +161,11 @@ export default function Lecon11Page() {
     const quiz = quizData[quizId as keyof typeof quizData];
     const isCorrect = selectedAnswer === quiz.correctAnswer;
 
-    setQuizStates((prev) => ({ ...prev, [quizId]: true }));
+    setQuizStates((prev) => ({
+      ...prev,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
+    }));
 
     if (isCorrect) {
       setPoints((prev) => prev + 10);
@@ -177,8 +181,7 @@ export default function Lecon11Page() {
 
     return (
       <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
-        <div className="flex items-center gap-3 mb-4">
-          <Brain className="h-6 w-6 text-purple-600" />
+        <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-800">
             Quiz : {quiz.question}
           </h3>
@@ -189,14 +192,12 @@ export default function Lecon11Page() {
             <button
               key={index}
               onClick={() => {
-                if (!isAnswered) {
-                  setQuizStates((prev) => ({
-                    ...prev,
-                    [quizId]: true,
-                    [`${quizId}_selected`]: index,
-                  }));
-                  handleQuizAnswer(quizId, index);
-                }
+                setQuizStates((prev) => ({
+                  ...prev,
+                  [quizId]: true,
+                  [`${quizId}_selected`]: index,
+                }));
+                handleQuizAnswer(quizId, index);
               }}
               className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                 isAnswered
@@ -484,8 +485,8 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
             >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
                 <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
+                  src="/Logo_AIGEKIA.png"
+                  alt="Logo AIGEKIA"
                   width={56}
                   height={56}
                   className="object-cover rounded-full w-14 h-14"
@@ -494,16 +495,9 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
             </Link>
           </div>
 
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
-          </div>
-
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              🔄 COURS 11 : GESTION D'ÉTAT
+              COURS 11 : GESTION D'ÉTAT
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
@@ -514,7 +508,7 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
           </div>
         </div>
       </header>
-      <HamburgerMenu currentPage="cours-11" />
+      <LogoMenu currentPage="cours-11" />
 
       {/* Menu hamburger */}
 
@@ -641,12 +635,12 @@ console.log("🎣 Hook style - Nouveau compteur:", compteur);`;
           <Card className="bg-gradient-to-br from-emerald-500/10 to-green-600/10 border-2 border-emerald-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <BookOpen className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <BookOpen className="h-6 w-6 text-emerald-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    📖 DÉFINITION SIMPLE
+                    DÉFINITION SIMPLE
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Gestion d'État et Programmation Asynchrone
@@ -879,12 +873,12 @@ async function chargerUtilisateurs() {
           <Card className="bg-gradient-to-br from-green-500/20 to-blue-600/20 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Play className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <Play className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Liste d'utilisateurs asynchrone
+                    Mini-Application : Liste d'utilisateurs asynchrone
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Créez une app qui récupère des utilisateurs de manière
@@ -1048,19 +1042,13 @@ print("=" * 60)`}</code>
         <section className="mb-12">
           <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Brain className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-2xl font-bold text-gray-800">
-                    🧠 Quiz Interactifs
-                  </CardTitle>
-                  <CardDescription className="text-lg text-gray-600">
-                    Testez vos connaissances sur la gestion d'état et
-                    l'asynchrone
-                  </CardDescription>
-                </div>
+              <div>
+                <CardTitle className="text-2xl font-bold text-gray-800">
+                  Quiz Interactifs
+                </CardTitle>
+                <CardDescription className="text-lg text-gray-600">
+                  Testez vos connaissances sur la gestion d'état et l'asynchrone
+                </CardDescription>
               </div>
             </CardHeader>
             <CardContent>

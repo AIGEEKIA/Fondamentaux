@@ -41,7 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 import Image from "next/image";
 
 export default function Lecon13Page() {
@@ -92,7 +92,8 @@ export default function Lecon13Page() {
   const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
     setQuizStates((prev) => ({
       ...prev,
-      [quizId]: selectedAnswer,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
     }));
   };
 
@@ -102,8 +103,7 @@ export default function Lecon13Page() {
 
     return (
       <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
-        <div className="flex items-center gap-3 mb-4">
-          <Brain className="h-6 w-6 text-purple-600" />
+        <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-800">
             Quiz : {quiz.question}
           </h3>
@@ -114,14 +114,12 @@ export default function Lecon13Page() {
             <button
               key={index}
               onClick={() => {
-                if (!isAnswered) {
-                  setQuizStates((prev) => ({
-                    ...prev,
-                    [quizId]: true,
-                    [`${quizId}_selected`]: index,
-                  }));
-                  handleQuizAnswer(quizId, index);
-                }
+                setQuizStates((prev) => ({
+                  ...prev,
+                  [quizId]: true,
+                  [`${quizId}_selected`]: index,
+                }));
+                handleQuizAnswer(quizId, index);
               }}
               className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                 isAnswered
@@ -633,8 +631,8 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
             >
               <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
                 <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
+                  src="/Logo_AIGEKIA.png"
+                  alt="Logo AIGEKIA"
                   width={56}
                   height={56}
                   className="object-cover rounded-full w-14 h-14"
@@ -643,16 +641,9 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
             </Link>
           </div>
 
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
-          </div>
-
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              🏗️ COURS 13 : POO
+              COURS 13 : POO
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
@@ -663,7 +654,7 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
           </div>
         </div>
       </header>
-      <HamburgerMenu currentPage="cours-13" />
+      <LogoMenu currentPage="cours-13" />
 
       {/* Menu hamburger */}
 
@@ -788,12 +779,12 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
           <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <BookOpen className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <BookOpen className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    📖 DÉFINITION SIMPLE
+                    DÉFINITION SIMPLE
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     La Programmation Orientée Objet (POO), c'est quoi exactement
@@ -1009,7 +1000,7 @@ console.log(\`Boîte nombre: \${boiteNombre.obtenir()}\`);`;
           <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-gray-800">
-                🧠 Quiz Interactifs
+                Quiz Interactifs
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
                 Testez votre compréhension de la Programmation Orientée Objet

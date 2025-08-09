@@ -41,7 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import HamburgerMenu from "@/components/hamburger-menu";
+import LogoMenu from "@/components/logo-menu";
 import Image from "next/image";
 
 export default function Lecon10Page() {
@@ -99,7 +99,8 @@ export default function Lecon10Page() {
   const handleQuizAnswer = (quizId: string, selectedAnswer: number) => {
     setQuizStates((prev) => ({
       ...prev,
-      [quizId]: selectedAnswer,
+      [quizId]: true,
+      [`${quizId}_selected`]: selectedAnswer,
     }));
   };
 
@@ -109,8 +110,7 @@ export default function Lecon10Page() {
 
     return (
       <div className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-lg p-6 border-2 border-purple-300/50">
-        <div className="flex items-center gap-3 mb-4">
-          <Brain className="h-6 w-6 text-purple-600" />
+        <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-800">
             Quiz : {quiz.question}
           </h3>
@@ -121,14 +121,12 @@ export default function Lecon10Page() {
             <button
               key={index}
               onClick={() => {
-                if (!isAnswered) {
-                  setQuizStates((prev) => ({
-                    ...prev,
-                    [quizId]: true,
-                    [`${quizId}_selected`]: index,
-                  }));
-                  handleQuizAnswer(quizId, index);
-                }
+                setQuizStates((prev) => ({
+                  ...prev,
+                  [quizId]: true,
+                  [`${quizId}_selected`]: index,
+                }));
+                handleQuizAnswer(quizId, index);
               }}
               className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                 isAnswered
@@ -498,34 +496,9 @@ fonctionTest();`;
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-500/40 via-blue-600/40 to-blue-700/40 text-white py-6 shadow-lg z-40 overflow-hidden rounded-2xl mx-4 mt-4 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          {/* Logo AIGEEKIA */}
-          <div className="absolute top-6 right-12 z-10">
-            <Link
-              href="/"
-              className="block hover:scale-110 transition-all duration-300"
-            >
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                <Image
-                  src="/Logo_AIGEEKIA.png"
-                  alt="AIGEEKIA Logo"
-                  width={56}
-                  height={56}
-                  className="object-cover rounded-full w-14 h-14"
-                />
-              </div>
-            </Link>
-          </div>
-
-          {/* Signature By AIGEEKIA */}
-          <div className="absolute bottom-2 right-12 z-10">
-            <span className="text-white/80 font-medium text-xs italic">
-              By AIGEEKIA
-            </span>
-          </div>
-
           <div className="text-center relative">
             <h1 className="text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md relative overflow-hidden">
-              🔗 COURS 10 : FONCTIONS IMBRIQUÉES
+              COURS 10 : FONCTIONS IMBRIQUÉES
             </h1>
             <h2 className="text-3xl font-semibold text-blue-100 mb-2">
               PYTHON, JAVASCRIPT & TYPESCRIPT
@@ -536,7 +509,7 @@ fonctionTest();`;
           </div>
         </div>
       </header>
-      <HamburgerMenu currentPage="cours-10" />
+      <LogoMenu currentPage="cours-10" />
 
       {/* Menu hamburger */}
 
@@ -662,12 +635,12 @@ fonctionTest();`;
           <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <BookOpen className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <BookOpen className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    📖 DÉFINITION SIMPLE
+                    DÉFINITION SIMPLE
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Les fonctions imbriquées et les closures, c'est quoi
@@ -882,12 +855,12 @@ fonctionTest();`;
           <Card className="bg-gradient-to-br from-emerald-500/20 to-green-600/20 border-2 border-emerald-300/50 shadow-xl">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Play className="h-6 w-6 text-white" />
+                <div className="text-center">
+                  <Play className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold text-gray-800">
-                    🎯 Mini-Application : Gestionnaire de Tâches
+                    Mini-Application : Gestionnaire de Tâches
                   </CardTitle>
                   <CardDescription className="text-lg text-gray-600">
                     Créez un gestionnaire de tâches avec des closures
@@ -1064,7 +1037,7 @@ print("=" * 60)`}</code>
           <Card className="bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border-2 border-purple-300/50 shadow-xl">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-gray-800">
-                🧠 Quiz Interactifs
+                Quiz Interactifs
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
                 Testez votre compréhension des fonctions imbriquées et des

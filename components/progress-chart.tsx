@@ -1,3 +1,4 @@
+import AIGEKIA_Signature from "@/components/aigekia-signature";
 "use client";
 
 import { TrendingUp } from "lucide-react";
