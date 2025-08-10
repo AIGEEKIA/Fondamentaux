@@ -37,6 +37,62 @@ Une formation interactive complète pour maîtriser les fondamentaux du dévelop
 
 ---
 
+## 📋 PRÉREQUIS
+
+### **🛠️ Outils Nécessaires**
+
+Avant de commencer, assurez-vous d'avoir installé :
+
+- ✅ **Node.js** (version 18 ou supérieure)
+  ```bash
+  # Vérifier la version
+  node --version
+  npm --version
+  ```
+  
+- ✅ **Git** (pour cloner le repository)
+  ```bash
+  # Vérifier l'installation
+  git --version
+  ```
+
+### **📥 Installation de Node.js**
+
+#### **Windows :**
+1. Télécharger depuis [nodejs.org](https://nodejs.org/)
+2. Installer avec l'option "Add to PATH"
+3. Redémarrer le terminal
+
+#### **macOS :**
+```bash
+# Avec Homebrew
+brew install node
+
+# Ou télécharger depuis nodejs.org
+```
+
+#### **Linux :**
+```bash
+# Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# CentOS/RHEL
+curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+sudo yum install -y nodejs
+```
+
+### **🔧 Éditeur de Code Recommandé**
+
+- **VS Code** (recommandé) : [code.visualstudio.com](https://code.visualstudio.com/)
+- **Extensions utiles :**
+  - TypeScript and JavaScript Language Features
+  - Tailwind CSS IntelliSense
+  - Prettier - Code formatter
+  - GitLens
+
+---
+
 ## 🚀 DÉMARRAGE RAPIDE
 
 ### **1. Installation**
@@ -67,6 +123,44 @@ npm run build
 
 # Démarrer en production
 npm run start
+```
+
+---
+
+## 🔧 DÉPANNAGE
+
+### **❌ Erreurs Courantes**
+
+#### **"npm command not found"**
+```bash
+# Node.js n'est pas installé ou pas dans le PATH
+# Réinstaller Node.js depuis nodejs.org
+```
+
+#### **"EACCES: permission denied"**
+```bash
+# Sur Linux/macOS, utiliser sudo
+sudo npm install
+
+# Ou configurer npm pour éviter sudo
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+```
+
+#### **"Port 3000 already in use"**
+```bash
+# Changer le port
+npm run dev -- -p 3001
+
+# Ou tuer le processus
+npx kill-port 3000
+```
+
+#### **"Module not found"**
+```bash
+# Réinstaller les dépendances
+rm -rf node_modules package-lock.json
+npm install
 ```
 
 ---
