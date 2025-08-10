@@ -340,9 +340,9 @@ npm run start
 
 ### **Contact**
 
-- **Email** : contact@aigekia.com
 - **Discord** : [Serveur AIGEEKIA](https://discord.gg/aigekia)
 - **GitHub Issues** : [Signaler un bug](https://github.com/AIGEEKIA/Fondamentaux-V3/issues)
+- **Site Web** : [AIGEEKIA.com](https://aigekia.com)
 
 ---
 
