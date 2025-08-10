@@ -43,8 +43,8 @@ Une formation interactive complète pour maîtriser les fondamentaux du dévelop
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/formation-dev-codeur-ia.git
-cd formation-dev-codeur-ia
+git clone https://github.com/AIGEEKIA/Fondamentaux.git
+cd Fondamentaux
 
 # Installer les dépendances
 npm install
