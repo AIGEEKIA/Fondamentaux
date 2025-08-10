@@ -14,11 +14,6 @@ const nextConfig = {
     }
     return config;
   },
-  // Configuration pour le développement
-  devIndicators: {
-    buildActivity: true,
-    buildActivityPosition: "bottom-right",
-  },
 };
 
 module.exports = nextConfig;

@@ -7,6 +7,14 @@
 
 Une formation interactive complète pour maîtriser les fondamentaux du développement avec l'IA. Conçue pour les développeurs qui souhaitent intégrer l'intelligence artificielle dans leurs projets.
 
+> **⚠️ IMPORTANT : Cette formation est actuellement une démonstration**
+>
+> - **Cohérence des codes** : Les exemples de code n'ont pas encore été vérifiés pour leur cohérence et leur exactitude
+> - **Cohérence des quiz** : Les questions et réponses des quiz n'ont pas encore été validées pour leur pertinence pédagogique
+> - **Statut** : Version de démonstration pour présenter la structure et l'interface
+>
+> Cette formation sert de **prototype** pour démontrer les capacités du générateur de formations interactives.
+
 ---
 
 ## ✨ FONCTIONNALITÉS
@@ -15,8 +23,8 @@ Une formation interactive complète pour maîtriser les fondamentaux du dévelop
 
 - ✅ **15 cours structurés** couvrant tous les fondamentaux
 - ✅ **Analogies simples** pour faciliter la compréhension
-- ✅ **Exemples pratiques** avec code réel
-- ✅ **Quiz interactifs** pour valider les acquis
+- ✅ **Exemples pratiques** avec code réel _(en cours de validation)_
+- ✅ **Quiz interactifs** pour valider les acquis _(en cours de validation)_
 - ✅ **Progression personnalisée** selon votre niveau
 
 ### 🚀 **Technologies Couvertes**
@@ -49,7 +57,6 @@ Avant de commencer, assurez-vous d'avoir installé :
   node --version
   npm --version
   ```
-  
 - ✅ **Git** (pour cloner le repository)
   ```bash
   # Vérifier l'installation
@@ -59,11 +66,13 @@ Avant de commencer, assurez-vous d'avoir installé :
 ### **📥 Installation de Node.js**
 
 #### **Windows :**
+
 1. Télécharger depuis [nodejs.org](https://nodejs.org/)
 2. Installer avec l'option "Add to PATH"
 3. Redémarrer le terminal
 
 #### **macOS :**
+
 ```bash
 # Avec Homebrew
 brew install node
@@ -72,6 +81,7 @@ brew install node
 ```
 
 #### **Linux :**
+
 ```bash
 # Ubuntu/Debian
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -99,8 +109,8 @@ sudo yum install -y nodejs
 
 ```bash
 # Cloner le repository
-git clone https://github.com/AIGEEKIA/Fondamentaux.git
-cd Fondamentaux
+git clone https://github.com/AIGEEKIA/Fondamentaux-V3.git
+cd Fondamentaux-V3
 
 # Installer les dépendances
 npm install
@@ -132,12 +142,14 @@ npm run start
 ### **❌ Erreurs Courantes**
 
 #### **"npm command not found"**
+
 ```bash
 # Node.js n'est pas installé ou pas dans le PATH
 # Réinstaller Node.js depuis nodejs.org
 ```
 
 #### **"EACCES: permission denied"**
+
 ```bash
 # Sur Linux/macOS, utiliser sudo
 sudo npm install
@@ -148,6 +160,7 @@ npm config set prefix '~/.npm-global'
 ```
 
 #### **"Port 3000 already in use"**
+
 ```bash
 # Changer le port
 npm run dev -- -p 3001
@@ -157,6 +170,7 @@ npx kill-port 3000
 ```
 
 #### **"Module not found"**
+
 ```bash
 # Réinstaller les dépendances
 rm -rf node_modules package-lock.json
@@ -328,7 +342,7 @@ npm run start
 
 - **Email** : contact@aigekia.com
 - **Discord** : [Serveur AIGEEKIA](https://discord.gg/aigekia)
-- **GitHub Issues** : [Signaler un bug](https://github.com/votre-username/formation-dev-codeur-ia/issues)
+- **GitHub Issues** : [Signaler un bug](https://github.com/AIGEEKIA/Fondamentaux-V3/issues)
 
 ---
 
@@ -349,6 +363,13 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ## 🎯 ROADMAP
 
+### **Version 1.1 (Q1 2024) - Validation du Contenu**
+
+- [ ] **Vérification des codes** - Validation de tous les exemples de code
+- [ ] **Validation des quiz** - Révision des questions et réponses
+- [ ] **Cohérence pédagogique** - Vérification de la progression logique
+- [ ] **Tests utilisateurs** - Validation avec de vrais apprenants
+
 ### **Version 2.0 (Q2 2024)**
 
 - [ ] **Intégration IA** - Assistant virtuel intégré
@@ -367,5 +388,5 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 _Formation créée avec ❤️ par AIGEEKIA_
 
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/votre-username/formation-dev-codeur-ia)
+[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/AIGEEKIA/Fondamentaux-V3)
 [![AIGEEKIA](https://img.shields.io/badge/AIGEEKIA-Formation-blue.svg)](https://aigekia.com)
