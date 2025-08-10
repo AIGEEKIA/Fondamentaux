@@ -340,7 +340,6 @@ npm run start
 
 ### **Contact**
 
-- **Discord** : [Serveur AIGEEKIA](https://discord.gg/aigekia)
 - **GitHub Issues** : [Signaler un bug](https://github.com/AIGEEKIA/Fondamentaux-V3/issues)
 
 ---
