@@ -109,8 +109,8 @@ sudo yum install -y nodejs
 
 ```bash
 # Cloner le repository
-git clone https://github.com/AIGEEKIA/Fondamentaux-V3.git
-cd Fondamentaux-V3
+git clone https://github.com/AIGEEKIA/Fondamentaux.git
+cd Fondamentaux
 
 # Installer les dépendances
 npm install
@@ -340,13 +340,13 @@ npm run start
 
 ### **Contact**
 
-- **GitHub Issues** : [Signaler un bug](https://github.com/AIGEEKIA/Fondamentaux-V3/issues)
+- **GitHub Issues** : Signaler un bug
 
 ---
 
 ## 📄 LICENCE
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 ---
 
@@ -363,28 +363,25 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ### **Version 1.1 (Q1 2024) - Validation du Contenu**
 
-- [ ] **Vérification des codes** - Validation de tous les exemples de code
-- [ ] **Validation des quiz** - Révision des questions et réponses
-- [ ] **Cohérence pédagogique** - Vérification de la progression logique
-- [ ] **Tests utilisateurs** - Validation avec de vrais apprenants
+- **Vérification des codes** - Validation de tous les exemples de code
+- **Validation des quiz** - Révision des questions et réponses
+- **Cohérence pédagogique** - Vérification de la progression logique
+- **Tests utilisateurs** - Validation avec de vrais apprenants
 
 ### **Version 2.0 (Q2 2024)**
 
-- [ ] **Intégration IA** - Assistant virtuel intégré
-- [ ] **Gamification** - Système de points et badges
-- [ ] **Collaboration** - Travail en équipe
-- [ ] **Certification** - Diplômes reconnus
+- **Intégration IA** - Assistant virtuel intégré
+- **Gamification** - Système de points et badges
+- **Collaboration** - Travail en équipe
+- **Certification** - Diplômes reconnus
 
 ### **Version 3.0 (Q4 2024)**
 
-- [ ] **AR/VR** - Expériences immersives
-- [ ] **Mobile App** - Application native
-- [ ] **Offline Mode** - Apprentissage hors ligne
-- [ ] **AI Tutor** - Assistant personnalisé
+- **AR/VR** - Expériences immersives
+- **Mobile App** - Application native
+- **Offline Mode** - Apprentissage hors ligne
+- **AI Tutor** - Assistant personnalisé
 
 ---
 
 _Formation créée avec ❤️ par AIGEEKIA_
-
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/AIGEEKIA/Fondamentaux-V3)
-[![AIGEEKIA](https://img.shields.io/badge/AIGEEKIA-Formation-blue.svg)](https://aigekia.com)
